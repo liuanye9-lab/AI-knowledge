@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="AI 通识知识库：左侧课程目录，时间/结构/功能三条逻辑线，知识点旁嵌沙盒模拟。" />
+  <title>AI 通识知识库</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="has-sidebar">
+  <div class="app-shell">
+    <aside id="sidebar-root" class="sidebar" aria-label="课程目录"></aside>
+    <div class="main-col">
+      <header class="topbar">
+        <button type="button" class="sidebar-toggle" aria-label="打开目录" aria-expanded="false">☰ 目录</button>
+        <div class="topbar-title">首页概览</div>
+        <a class="topbar-cta" href="fundamentals.html">进入通识主线</a>
+      </header>
+
+      <main class="page">
+        <section class="hero-v2">
+          <div class="hero-v2-grid">
+            <div>
+              <div class="hero-badge">参考文档站 · 课程式侧栏</div>
+              <h1>把 AI 学成一条线<br />而不是一堆词</h1>
+              <p class="lead">
+                左侧是完整目录。你可以用<strong>三种逻辑</strong>进入同一套知识：
+                结构（地图）· 时间（发展史）· 功能（通识主线，讲到哪练到哪）。
+                沙盒嵌在对应知识点旁边，本地模拟，无需 API。
+              </p>
+              <div class="hero-actions" style="justify-content:flex-start;">
+                <a class="btn btn-primary" href="fundamentals.html">推荐：功能主线 + 沙盒</a>
+                <a class="btn btn-secondary" href="history.html">或从时间线开始</a>
+              </div>
+            </div>
+            <div class="hero-v2-art">
+              <img src="images/illustrations/hero-garden.jpg" alt="AI 知识花园" width="1200" height="900" />
+            </div>
+          </div>
+        </section>
+
+        <section class="section" style="padding-top:12px;">
+          <div class="section-header">
+            <div class="section-eyebrow">How to learn</div>
+            <h2 class="section-title">三条入口，同一知识库</h2>
+            <p class="section-desc">像优秀文档站一样：侧栏固定，正文推进。选一条路走进去即可，不必三条都走。</p>
+          </div>
+          <div class="logic-cards">
+            <a class="logic-card" href="mindmap.html">
+              <div class="lc-kicker">结构逻辑</div>
+              <h3>结构地图</h3>
+              <p>先看名词挂在哪一层：模型 → 能力 → 编排 → 应用。建立「架子」再记细节。</p>
+              <div class="lc-go">打开地图 →</div>
+            </a>
+            <a class="logic-card" href="history.html">
+              <div class="lc-kicker">时间逻辑</div>
+              <h3>发展史</h3>
+              <p>从图灵、深度学习到 ChatGPT 与 Agent：每一次跃迁解决了什么问题。</p>
+              <div class="lc-go">打开时间线 →</div>
+            </a>
+            <a class="logic-card" href="fundamentals.html">
+              <div class="lc-kicker">功能逻辑 · 含沙盒</div>
+              <h3>通识主线</h3>
+              <p>LLM → 提示 → RAG → 工具/Skill → 流程/Agent → 边界。讲完立刻练。</p>
+              <div class="lc-go">打开主线 →</div>
+            </a>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-header">
+            <div class="section-eyebrow">Daily priority</div>
+            <h2 class="section-title">日常使用频率（嵌在主线里）</h2>
+            <p class="section-desc">功能主线的顺序已兼顾「每天最常碰到的事」：先问、先验收，再资料与自动化。</p>
+          </div>
+          <div class="group">
+            <a class="group-item" href="fundamentals.html#s2">
+              <div class="group-item-icon">高</div>
+              <div class="group-item-body">
+                <div class="group-item-title">怎么问 · 提示词沙盒</div>
+                <div class="group-item-desc">几乎每次聊天都用到。</div>
+              </div>
+            </a>
+            <a class="group-item" href="fundamentals.html#s6">
+              <div class="group-item-icon">高</div>
+              <div class="group-item-body">
+                <div class="group-item-title">别全信 · 边界与分档沙盒</div>
+                <div class="group-item-desc">每次看结果都该想的验收逻辑。</div>
+              </div>
+            </a>
+            <a class="group-item" href="fundamentals.html#s3">
+              <div class="group-item-icon">高</div>
+              <div class="group-item-body">
+                <div class="group-item-title">用资料 · RAG 沙盒</div>
+                <div class="group-item-desc">工作学习里极常见的开卷问答。</div>
+              </div>
+            </a>
+            <a class="group-item" href="fundamentals.html#s4">
+              <div class="group-item-icon">中</div>
+              <div class="group-item-body">
+                <div class="group-item-title">动手 · Skill 对比沙盒</div>
+                <div class="group-item-desc">插件、模板、工具调用。</div>
+              </div>
+            </a>
+            <a class="group-item" href="fundamentals.html#s5">
+              <div class="group-item-icon">中</div>
+              <div class="group-item-body">
+                <div class="group-item-title">多步 · Agent 循环沙盒</div>
+                <div class="group-item-desc">自动化进阶，路径开放时用。</div>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-header">
+            <div class="section-eyebrow">Practice · ToB</div>
+            <h2 class="section-title">企业专栏：概念之外的实操</h2>
+            <p class="section-desc">参考 WaytoAGI、Datawhale 等开源知识库的「能动手」取向，增加 ToB 提效与 AI Coding 路径。</p>
+          </div>
+          <div class="card-grid">
+            <a class="card card-link" href="practice.html">
+              <div class="card-thumb"><img src="images/illustrations/viz-enterprise-ai.jpg" alt="企业 AI 提效" /></div>
+              <h3>企业如何用 AI 提效</h3>
+              <p>飞书 AI 生态、用 AI Coding 做网站/应用、各岗位日常清单，全文带来源链接。</p>
+              <div class="card-meta">打开专栏 →</div>
+            </a>
+            <a class="card card-link" href="practice.html#refs">
+              <div class="card-thumb"><img src="images/illustrations/terms-map.jpg" alt="学习资源" /></div>
+              <h3>WaytoAGI · Datawhale · 论文</h3>
+              <p>精选可跳转的中文开源教程、论文与评测入口。</p>
+              <div class="card-meta">资源列表 →</div>
+            </a>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-header">
+            <div class="section-eyebrow">Map</div>
+            <h2 class="section-title">站点怎么组织（参考文档站）</h2>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>区域</th>
+                  <th>作用</th>
+                  <th>入口</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>左侧目录</td>
+                  <td>始终可见的课程树，三逻辑 + 章节锚点</td>
+                  <td>任意页左侧 / 手机点「目录」</td>
+                </tr>
+                <tr>
+                  <td>通识主线</td>
+                  <td>功能链路正文，知识点旁嵌沙盒模拟</td>
+                  <td><a href="fundamentals.html">fundamentals.html</a></td>
+                </tr>
+                <tr>
+                  <td>时间线 / 地图</td>
+                  <td>理解「为何如此」与名词挂载</td>
+                  <td>历史 · 结构地图</td>
+                </tr>
+                <tr>
+                  <td>词库 / 边界 / 进阶</td>
+                  <td>随查、验收深读、架构与具身</td>
+                  <td>侧栏「巩固 / 进阶」</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="source-near" style="margin-top:16px;">
+            <span class="src-label">参考形态 / 资源</span>
+            <a class="source-chip" href="https://www.promptingguide.ai/">Prompting Guide</a>
+            <a class="source-chip" href="https://huggingface.co/learn">HF Learn</a>
+            <a class="source-chip" href="https://github.com/waytoagi/ai-native">WaytoAGI</a>
+            <a class="source-chip" href="https://github.com/datawhalechina/llm-cookbook">Datawhale</a>
+            <a class="source-chip" href="practice.html">企业专栏</a>
+          </div>
+        </section>
+
+        <div class="hero-actions" style="margin: 32px 0 16px; justify-content: flex-start;">
+          <a class="btn btn-primary" href="fundamentals.html#s1">从 LLM 第 1 章开始</a>
+          <a class="btn btn-secondary" href="glossary.html">打开词库</a>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          <p><strong style="color:var(--ink)">AI 通识知识库</strong> · 侧栏目录 · 三逻辑入口</p>
+          <p class="footer-note">布局参考主流 AI 文档/课程站：固定侧栏 + 正文推进 + 概念旁练习。</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script src="js/shell.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="企业如何用 AI 提效：飞书 AI 生态、AI Coding 做网站与应用、日常办公实操；引用 WaytoAGI、Datawhale、官方文档。" />
+  <title>企业专栏 · 实操提效 · AI 通识知识库</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="has-sidebar">
+  <div class="app-shell">
+    <aside id="sidebar-root" class="sidebar" aria-label="课程目录"></aside>
+    <div class="main-col">
+      <header class="topbar">
+        <button type="button" class="sidebar-toggle" aria-label="打开目录" aria-expanded="false">☰ 目录</button>
+        <div class="topbar-title">企业专栏 · ToB 提效与 AI Coding</div>
+        <a class="topbar-cta" href="fundamentals.html">通识主线</a>
+      </header>
+
+      <main class="page page-narrow">
+        <header class="page-hero">
+          <div class="section-eyebrow">ToB · 概念 + 实操</div>
+          <h1>企业如何用 AI 提效</h1>
+          <p class="lead">
+            本专栏面向<strong>新手友好的实操</strong>：先对齐概念（见通识主线），再落到「本周就能试」的路径。
+            覆盖：飞书 AI 生态、用 AI Coding 做网站/应用、用 AI 提升日常办公。
+            文中标注的链接均可点击跳转到官方文档、开源仓库与公开教程。
+          </p>
+          <figure class="figure" style="margin-top:18px;">
+            <div class="figure-media">
+              <img src="images/illustrations/viz-enterprise-ai.jpg" alt="企业 AI 协作与编码提效示意" width="1600" height="900" />
+            </div>
+            <figcaption class="figure-cap">
+              <strong>本页结构</strong>
+              <span>先建「企业 AI 提效地图」→ 飞书生态 → AI Coding 做站/做应用 → 日常工种清单 → 治理与参考资源。</span>
+            </figcaption>
+          </figure>
+        </header>
+
+        <nav class="spine-nav" aria-label="本专栏目录">
+          <a href="#map">提效地图</a>
+          <a href="#feishu">飞书 AI</a>
+          <a href="#site">做网站</a>
+          <a href="#app">做应用</a>
+          <a href="#daily">日常工种</a>
+          <a href="#gov">治理</a>
+          <a href="#refs">资源引用</a>
+        </nav>
+
+        <!-- MAP -->
+        <article class="station" id="map">
+          <div class="station-label"><span class="dot"></span>总览</div>
+          <h2>企业 AI 提效地图（新手先看）</h2>
+          <div class="pyramid">
+            <p class="pyramid-apex">企业提效 = 把重复脑力活交给模型，把决策与责任留在人；工具选型看「数据在哪、谁能审」。</p>
+            <div class="pyramid-mid">
+              <ul>
+                <li><strong>个人层：</strong>写提示、改稿、总结会议、写代码草稿。</li>
+                <li><strong>团队层：</strong>知识库问答、多维表格自动化、群机器人/智能体。</li>
+                <li><strong>系统层：</strong>AI Coding 做内部工具、网站、小应用；接开放平台 API。</li>
+              </ul>
+            </div>
+            <details class="pyramid-deep">
+              <summary>展开：和通识主线的对应</summary>
+              <div class="pyramid-deep-body">
+                <p>提示 ≈ 通识第 2 章；知识库问答 ≈ RAG 第 3 章；飞书技能/插件 ≈ Tool/Skill 第 4 章；审批流/Agent ≈ 第 5 章；数据安全与人审 ≈ 第 6 章边界。</p>
+                <div class="source-near">
+                  <a class="source-chip" href="fundamentals.html">通识主线</a>
+                  <a class="source-chip" href="fundamentals.html#s6">能力边界</a>
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <div class="table-wrap mb-24">
+            <table>
+              <thead>
+                <tr>
+                  <th>场景</th>
+                  <th>适合工具方向</th>
+                  <th>新手第一步</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>写周报 / 改邮件</td>
+                  <td>对话模型 + 固定提示模板</td>
+                  <td>用主线「提示词沙盒」固化模板</td>
+                </tr>
+                <tr>
+                  <td>查公司制度</td>
+                  <td>飞书知识问答 / 自建 RAG</td>
+                  <td>把制度文档放进知识空间再问</td>
+                </tr>
+                <tr>
+                  <td>业务表单与流程</td>
+                  <td>飞书多维表格 + AI 字段/工作流</td>
+                  <td>先搭一张表，再加自动化</td>
+                </tr>
+                <tr>
+                  <td>做一个官网/落地页</td>
+                  <td>AI Coding（Cursor / Claude Code 等）</td>
+                  <td>先写一页需求，再让 AI 生成静态站</td>
+                </tr>
+                <tr>
+                  <td>做一个小工具应用</td>
+                  <td>AI Coding + 飞书多维表格当后端</td>
+                  <td>表存数据，前端用 AI 搭，API 接开放平台</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <!-- FEISHU -->
+        <article class="station" id="feishu">
+          <div class="station-label"><span class="dot"></span>ToB 高频 · 协作套件</div>
+          <h2>如何用飞书 AI 生态提效</h2>
+          <div class="pyramid">
+            <p class="pyramid-apex">飞书把「文档 / 表格 / 会议 / 知识 / 智能体」放在同一工作台——AI 提效优先从「数据已经在飞书里」的场景开始。</p>
+            <div class="pyramid-mid">
+              <ul>
+                <li><strong>智能伙伴 / aily：</strong>团队可定制业务智能体（答疑、报销助手等），可关联知识、操作文档与表格（以飞书当期产品能力为准）。</li>
+                <li><strong>多维表格：</strong>零代码业务表 + AI 字段、AI 生成工作流、仪表盘；可作轻量「业务系统」。</li>
+                <li><strong>开放平台：</strong>用 API 把多维表格当数据层，对接自研前端或 AI Coding 项目。</li>
+              </ul>
+              <div class="source-near">
+                <span class="src-label">官方</span>
+                <a class="source-chip" href="https://www.feishu.cn/">飞书官网</a>
+                <a class="source-chip" href="https://www.feishu.cn/product/base">多维表格产品页</a>
+                <a class="source-chip" href="https://open.feishu.cn/">飞书开放平台</a>
+                <a class="source-chip" href="https://www.feishu.cn/hc/zh-CN/articles/086838008415">智能创建/编辑多维表格说明</a>
+              </div>
+            </div>
+          </div>
+
+          <h3>新手实操路径 A：知识问答（本周可试）</h3>
+          <ol class="prose" style="margin-bottom:1.2em;">
+            <li style="padding-left:1.4em;margin-bottom:0.5em;color:var(--ink-soft);">把制度、FAQ、产品手册放进飞书云文档/知识库，结构尽量清晰（一主题一文档）。</li>
+            <li style="padding-left:1.4em;margin-bottom:0.5em;color:var(--ink-soft);">开通团队可用的智能问答/智能伙伴能力（以企业管理员开通范围为准）。</li>
+            <li style="padding-left:1.4em;margin-bottom:0.5em;color:var(--ink-soft);">在群里约定：「先问飞书知识，再 @ 人」；要求回答带来源文档链接。</li>
+            <li style="padding-left:1.4em;margin-bottom:0.5em;color:var(--ink-soft);">每周收集答错题 → 补文档（这就是企业级 RAG 的「知识运营」）。</li>
+          </ol>
+          <div class="you-box">
+            <h4>和通识的关系</h4>
+            <p>这是 <strong>RAG</strong> 在企业协作产品里的落地：检索你们自己的文档再生成。详见主线 <a href="fundamentals.html#s3">第 3 章</a> 与沙盒。</p>
+          </div>
+
+          <h3>新手实操路径 B：多维表格 + AI 搭轻量系统</h3>
+          <div class="pyramid">
+            <p class="pyramid-apex">一张表 = 半个业务系统：字段存数据，视图给人看，自动化/AI 节点替人跑腿。</p>
+            <div class="pyramid-mid">
+              <ul>
+                <li>选一个痛点：请假台账、客户线索、内容排期、采购登记——只做一个。</li>
+                <li>先设计字段（状态、负责人、截止日期），再让 AI 生成公式/分析（产品内能力以官网为准）。</li>
+                <li>需要「像应用一样用」时，关注多维表格的应用模式/仪表盘能力（飞书产品更新见官方公告）。</li>
+                <li>复杂流程：用 AI 生成工作流或自动化，关键步骤加人工节点。</li>
+              </ul>
+              <div class="source-near">
+                <a class="source-chip" href="https://www.feishu.cn/product/base">多维表格</a>
+                <a class="source-chip" href="https://www.feishu.cn/content/article/7576945446883445979">应用模式相关介绍</a>
+              </div>
+            </div>
+          </div>
+
+          <h3>新手实操路径 C：自定义智能体（团队数字员工）</h3>
+          <div class="pyramid-mid" style="border-left:3px solid var(--sage);padding-left:14px;margin:1em 0;">
+            <ul>
+              <li>选一个窄角色：如「报销政策答疑」「周报收集助手」——越窄越稳。</li>
+              <li>绑定知识范围；写清系统提示：能做什么、不能做什么、何时转人工。</li>
+              <li>在群内灰度 1–2 周，收集失败案例，改提示与知识。</li>
+              <li>涉及写表、发消息等动作：必须权限最小化 + 管理员审计。</li>
+            </ul>
+            <div class="source-near">
+              <a class="source-chip" href="https://www.feishu.cn/content/article/7631864469689240764">飞书 aily 自定义智能体介绍</a>
+              <a class="source-chip" href="fundamentals.html#s5">通识 · Agent 循环</a>
+            </div>
+          </div>
+
+          <h3>路径 D：多维表格当「后端」+ AI Coding 做前端</h3>
+          <p style="color:var(--ink-soft);line-height:1.8;margin-bottom:12px;">
+            常见组合：用多维表格存业务数据，用开放平台 API 读写；前端用 AI Coding 快速生成页面。
+            飞书官方内容也讨论过「用多维表格做数据层/管理后台」的思路。
+          </p>
+          <div class="source-near">
+            <a class="source-chip" href="https://open.feishu.cn/">开放平台</a>
+            <a class="source-chip" href="https://www.feishu.cn/content/article/7647009791969103084">多维表格作数据层讨论</a>
+            <a class="source-chip" href="#site">下文 · 做网站</a>
+          </div>
+          <div class="you-box">
+            <h4>新手注意</h4>
+            <p>企业数据不要粘贴到未批准的个人 AI 账号。优先用企业开通的飞书 AI / 私有化或合规 API 通道。</p>
+          </div>
+        </article>
+
+        <!-- SITE -->
+        <article class="station" id="site">
+          <div class="station-label"><span class="dot"></span>AI Coding 实操 1</div>
+          <h2>如何用 AI Coding 打造一个网站</h2>
+          <div class="pyramid">
+            <p class="pyramid-apex">别一上来「帮我做一个完整网站」。先写清一页需求 → 静态可打开 → 再迭代一页功能。</p>
+            <div class="pyramid-mid">
+              <ul>
+                <li><strong>工具：</strong>Cursor、Claude Code、Codex CLI、GitHub Copilot 等（任选其一起步）。</li>
+                <li><strong>关键文件：</strong>项目说明（如 <code>README</code> / <code>CLAUDE.md</code> / Cursor Rules）写清技术栈与禁止事项。</li>
+                <li><strong>原则：</strong>小步提交、你看懂再合并；AI 写的代码你要能解释。</li>
+              </ul>
+              <div class="source-near">
+                <span class="src-label">实践参考</span>
+                <a class="source-chip" href="https://roadmap.sh/vibe-coding/best-practices">Vibe Coding 最佳实践</a>
+                <a class="source-chip" href="https://docs.cursor.com/context/rules">Cursor Rules</a>
+                <a class="source-chip" href="https://docs.anthropic.com/en/docs/claude-code">Claude Code 文档</a>
+              </div>
+            </div>
+          </div>
+
+          <h3>推荐步骤（静态官网 / 知识站 / 落地页）</h3>
+          <div class="group mb-24">
+            <div class="group-item">
+              <div class="group-item-icon">1</div>
+              <div class="group-item-body">
+                <div class="group-item-title">写「一页 PRD」</div>
+                <div class="group-item-desc">目标用户、3 个页面、主色、必须有的模块（Hero、目录、页脚）。不要一次写 20 页。</div>
+              </div>
+            </div>
+            <div class="group-item">
+              <div class="group-item-icon">2</div>
+              <div class="group-item-body">
+                <div class="group-item-title">定技术栈（新手推荐）</div>
+                <div class="group-item-desc">纯 HTML/CSS/JS 静态站（本知识库即是）；或 Vite + 简单框架。先求「能打开」，再求框架。</div>
+              </div>
+            </div>
+            <div class="group-item">
+              <div class="group-item-icon">3</div>
+              <div class="group-item-body">
+                <div class="group-item-title">让 AI 搭骨架</div>
+                <div class="group-item-desc">提示示例：「根据 PRD 生成 index.html + styles.css，响应式，左侧目录，不要引入未说明的依赖。」</div>
+              </div>
+            </div>
+            <div class="group-item">
+              <div class="group-item-icon">4</div>
+              <div class="group-item-body">
+                <div class="group-item-title">本地预览与验收</div>
+                <div class="group-item-desc">用浏览器打开或 <code>python -m http.server</code>。对照 PRD 勾选：导航、移动端、死链。</div>
+              </div>
+            </div>
+            <div class="group-item">
+              <div class="group-item-icon">5</div>
+              <div class="group-item-body">
+                <div class="group-item-title">一次只加一个功能</div>
+                <div class="group-item-desc">例如「只加搜索框」或「只加一节内容」。大而全的一次生成最容易翻车（社区对 vibe coding 的常见忠告）。</div>
+              </div>
+            </div>
+            <div class="group-item">
+              <div class="group-item-icon">6</div>
+              <div class="group-item-body">
+                <div class="group-item-title">发布</div>
+                <div class="group-item-desc">GitHub Pages、对象存储静态托管、或公司现有站点。注意不要把密钥写进前端。</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="you-box">
+            <h4>可复制提示词模板（建站）</h4>
+            <p style="white-space:pre-wrap;font-size:var(--fs-sm);">你是前端工程师。根据下列 PRD 生成可直接打开的静态网站。
+约束：仅用 HTML/CSS/JS；中文；移动端可用；不要编造外部 API Key。
+PRD：【粘贴你的一页需求】
+先输出文件列表，再逐文件给出完整代码。</p>
+          </div>
+          <div class="source-near">
+            <a class="source-chip" href="fundamentals.html#s2">通识 · 提示沙盒</a>
+            <a class="source-chip" href="https://pages.github.com/">GitHub Pages</a>
+          </div>
+        </article>
+
+        <!-- APP -->
+        <article class="station" id="app">
+          <div class="station-label"><span class="dot"></span>AI Coding 实操 2</div>
+          <h2>如何用 AI Coding 做应用（小工具 / 内部系统）</h2>
+          <div class="pyramid">
+            <p class="pyramid-apex">应用 = 界面 + 数据 + 权限。新手优先「前端 AI 生成 + 飞书多维表格/表格当数据」，少碰复杂服务器。</p>
+            <div class="pyramid-mid">
+              <ul>
+                <li><strong>最小应用：</strong>表单提交 → 列表展示 → 状态修改。</li>
+                <li><strong>数据放哪：</strong>飞书多维表格 / 云文档统计；或本地 JSON（仅演示）。</li>
+                <li><strong>权限：</strong>谁可读、谁可写，必须在第一天想清楚。</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>推荐架构（企业友好）</h3>
+          <div class="stack mb-24">
+            <div class="stack-layer l1"><h4>界面层</h4><p>AI Coding 生成 Web 页面（查询、表单、看板）</p></div>
+            <div class="stack-arrow">↓</div>
+            <div class="stack-layer l2"><h4>业务逻辑</h4><p>少而清晰的 JS/服务函数；复杂规则写进文档再让 AI 实现</p></div>
+            <div class="stack-arrow">↓</div>
+            <div class="stack-layer l3"><h4>数据层</h4><p>飞书多维表格 / 企业数据库（API 读写）</p></div>
+            <div class="stack-arrow">↓</div>
+            <div class="stack-layer l4"><h4>身份与审计</h4><p>飞书登录/企业 SSO；操作日志；密钥只放服务端</p></div>
+          </div>
+
+          <h3>分步实操（示例：团队「需求收集小应用」）</h3>
+          <ol style="margin:0 0 1.2em;color:var(--ink-soft);line-height:1.75;">
+            <li style="padding-left:1.2em;margin-bottom:0.45em;">在多维表格建表：标题、描述、优先级、状态、提交人。</li>
+            <li style="padding-left:1.2em;margin-bottom:0.45em;">在开放平台创建应用，开通多维表格权限，拿到凭证（勿提交到 Git）。</li>
+            <li style="padding-left:1.2em;margin-bottom:0.45em;">用 AI Coding 生成：列表页 + 新建页；接口层单独一个 <code>api.js</code>。</li>
+            <li style="padding-left:1.2em;margin-bottom:0.45em;">先只做「读取列表」跑通，再做「新建」。</li>
+            <li style="padding-left:1.2em;margin-bottom:0.45em;">加状态流转与简单筛选；关键操作写操作日志字段。</li>
+            <li style="padding-left:1.2em;margin-bottom:0.45em;">找 2 个真实用户试用一天，根据吐槽改提示词与字段。</li>
+          </ol>
+          <div class="source-near">
+            <a class="source-chip" href="https://open.feishu.cn/">飞书开放平台</a>
+            <a class="source-chip" href="https://www.feishu.cn/product/base">多维表格</a>
+            <a class="source-chip" href="https://roadmap.sh/vibe-coding/best-practices">AI 编程实践清单</a>
+          </div>
+
+          <div class="you-box">
+            <h4>实操避坑（社区共识摘要）</h4>
+            <p>
+              ① 先设计再生成，不要「一句话做完整 App」。
+              ② 用规则文件（Cursor Rules / CLAUDE.md / AGENTS.md）固定技术栈与代码风格。
+              ③ 安全相关规则单独写清（密钥、鉴权、输入校验）。
+              ④ 你看不懂的代码不要上生产。
+            </p>
+            <div class="source-near" style="margin-top:8px;">
+              <a class="source-chip" href="https://docs.cursor.com/context/rules">Cursor Rules</a>
+              <a class="source-chip" href="https://wiz.io/blog/safer-vibe-coding-rules-files">更安全的 AI Coding 规则讨论</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- DAILY -->
+        <article class="station" id="daily">
+          <div class="station-label"><span class="dot"></span>日常工种清单</div>
+          <h2>用 AI Coding / AI 助手提升各类日常工作</h2>
+          <p style="color:var(--ink-mute);margin-bottom:16px;line-height:1.7;">
+            下表按「办公人群高频」排列。每一行都可今天就试；对应通识概念写在右侧。
+          </p>
+          <div class="table-wrap mb-24">
+            <table>
+              <thead>
+                <tr>
+                  <th>工种 / 场景</th>
+                  <th>你可以怎么做（新手步骤）</th>
+                  <th>通识对应</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>写周报 / 汇报</td>
+                  <td>粘贴本周要点 → 固定模板提示「结论/数据/风险/下周」→ 人改语气</td>
+                  <td>提示工程</td>
+                </tr>
+                <tr>
+                  <td>会议纪要</td>
+                  <td>飞书妙记/录音转写 → AI 提炼待办 → 人确认负责人</td>
+                  <td>摘要 + 人在回路</td>
+                </tr>
+                <tr>
+                  <td>客服 / 制度答疑</td>
+                  <td>知识库问答；不会答就转人工；每周补文档</td>
+                  <td>RAG</td>
+                </tr>
+                <tr>
+                  <td>数据分析小帮手</td>
+                  <td>导出 CSV 样例 → 让 AI 写分析步骤与图表建议 → 你在表格/BI 落地</td>
+                  <td>工具调用思维</td>
+                </tr>
+                <tr>
+                  <td>产品经理</td>
+                  <td>用 AI 写 PRD 初稿与验收标准 → 评审会上人拍板</td>
+                  <td>结构化输出</td>
+                </tr>
+                <tr>
+                  <td>设计师协作</td>
+                  <td>用文字描述界面结构 → AI 生成线框 HTML → 设计再精修视觉</td>
+                  <td>AI Coding 前端</td>
+                </tr>
+                <tr>
+                  <td>程序员</td>
+                  <td>Ask 模式先讨论方案 → Agent 小步改代码 → 单测与 Code Review</td>
+                  <td>Agent + 边界</td>
+                </tr>
+                <tr>
+                  <td>销售 / 售前</td>
+                  <td>客户笔记 → 生成跟进邮件与异议应对（禁用虚假承诺）</td>
+                  <td>提示 + 合规</td>
+                </tr>
+                <tr>
+                  <td>HR / 行政</td>
+                  <td>制度库问答；offer/通知模板批量生成；敏感字段脱敏</td>
+                  <td>RAG + 安全</td>
+                </tr>
+                <tr>
+                  <td>运营</td>
+                  <td>多版本文案 A/B 草稿；活动复盘结构；禁止编造数据</td>
+                  <td>提示 + 事实校验</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="sandbox">
+            <div class="sandbox-head">
+              <h3>沙盒 · 选任务推荐做法</h3>
+              <span class="sandbox-tag">接主线分档逻辑</span>
+            </div>
+            <div class="sandbox-body">
+              <p class="sandbox-hint">选你的任务类型，看推荐模型档位思路（与通识第 6 章同一套规则）。</p>
+              <label for="sb-tier-task">任务</label>
+              <select id="sb-tier-task">
+                <option value="draft">改写 / 短草稿</option>
+                <option value="daily" selected>日常问答 / 周报</option>
+                <option value="hard">复杂方案 / 硬核代码</option>
+                <option value="agent">多步自动调研</option>
+                <option value="factual">制度 / 数据事实问答</option>
+              </select>
+              <div class="sandbox-actions">
+                <button type="button" class="btn btn-primary btn-sm" id="sb-tier-run">给出建议</button>
+                <a class="btn btn-secondary btn-sm" href="fundamentals.html#s2">去提示沙盒</a>
+              </div>
+              <div class="sandbox-out" id="sb-tier-out"></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- GOV -->
+        <article class="station" id="gov">
+          <div class="station-label"><span class="dot"></span>企业必做</div>
+          <h2>治理：让提效可长期跑</h2>
+          <div class="group">
+            <div class="group-item">
+              <div class="group-item-icon">1</div>
+              <div class="group-item-body">
+                <div class="group-item-title">数据分级</div>
+                <div class="group-item-desc">公开 / 内部 / 机密。机密默认不上公有模型；用企业批准通道。</div>
+              </div>
+            </div>
+            <div class="group-item">
+              <div class="group-item-icon">2</div>
+              <div class="group-item-body">
+                <div class="group-item-title">人在回路</div>
+                <div class="group-item-desc">对外邮件、合同、财务、人事结论必须人点确认。</div>
+              </div>
+            </div>
+            <div class="group-item">
+              <div class="group-item-icon">3</div>
+              <div class="group-item-body">
+                <div class="group-item-title">提示与技能资产化</div>
+                <div class="group-item-desc">把好用的提示/Skill 收进团队知识库，版本管理，像代码一样评审。</div>
+              </div>
+            </div>
+            <div class="group-item">
+              <div class="group-item-icon">4</div>
+              <div class="group-item-body">
+                <div class="group-item-title">效果度量</div>
+                <div class="group-item-desc">记：节省时长、错误率、用户满意度。没有度量的提效容易变成玩具。</div>
+              </div>
+            </div>
+          </div>
+          <div class="source-near">
+            <a class="source-chip" href="fundamentals.html#s6">通识 · 边界</a>
+            <a class="source-chip" href="boundaries.html">边界深读与榜单</a>
+          </div>
+        </article>
+
+        <!-- REFS -->
+        <article class="station" id="refs">
+          <div class="station-label"><span class="dot"></span>学习资源（可点击）</div>
+          <h2>主流知识库 · 开源 · 论文入口</h2>
+          <p style="color:var(--ink-mute);margin-bottom:14px;line-height:1.7;">
+            下列资源常被中文社区作为「系统学 AI」的入口；本站与它们互补：我们更偏通识结构 + 企业实操路径，它们更偏持续更新的内容库与教程。
+          </p>
+
+          <h3>中文社区知识库 / 教程</h3>
+          <div class="links-panel">
+            <div class="link-row">
+              <span class="link-kind gh">GitHub</span>
+              <div class="link-body">
+                <strong>waytoagi / ai-native · 通往 AGI 之路</strong>
+                <p>中文社区广泛传播的 AI 原生学习资料整理（导航、工具、认知框架等，以仓库 README 为准）。</p>
+                <a href="https://github.com/waytoagi/ai-native" target="_blank" rel="noopener noreferrer">https://github.com/waytoagi/ai-native</a>
+              </div>
+            </div>
+            <div class="link-row">
+              <span class="link-kind gh">GitHub</span>
+              <div class="link-body">
+                <strong>Datawhale · llm-cookbook</strong>
+                <p>面向开发者的 LLM 动手教程（吴恩达课程等中文实践向整理）。</p>
+                <a href="https://github.com/datawhalechina/llm-cookbook" target="_blank" rel="noopener noreferrer">https://github.com/datawhalechina/llm-cookbook</a>
+              </div>
+            </div>
+            <div class="link-row">
+              <span class="link-kind gh">GitHub</span>
+              <div class="link-body">
+                <strong>Datawhale · self-llm</strong>
+                <p>开源大模型部署、微调等实践路线（适合进阶）。</p>
+                <a href="https://github.com/datawhalechina/self-llm" target="_blank" rel="noopener noreferrer">https://github.com/datawhalechina/self-llm</a>
+              </div>
+            </div>
+            <div class="link-row">
+              <span class="link-kind gh">GitHub</span>
+              <div class="link-body">
+                <strong>Datawhale · hugging-llm</strong>
+                <p>围绕 Hugging Face 生态的大模型应用学习材料。</p>
+                <a href="https://github.com/datawhalechina/hugging-llm" target="_blank" rel="noopener noreferrer">https://github.com/datawhalechina/hugging-llm</a>
+              </div>
+            </div>
+            <div class="link-row">
+              <span class="link-kind web">Guide</span>
+              <div class="link-body">
+                <strong>Prompt Engineering Guide</strong>
+                <p>提示工程系统资料（多语言社区维护）。</p>
+                <a href="https://www.promptingguide.ai/" target="_blank" rel="noopener noreferrer">https://www.promptingguide.ai/</a>
+              </div>
+            </div>
+            <div class="link-row">
+              <span class="link-kind web">Learn</span>
+              <div class="link-body">
+                <strong>Hugging Face Learn</strong>
+                <p>NLP / LLM 课程与生态文档入口。</p>
+                <a href="https://huggingface.co/learn" target="_blank" rel="noopener noreferrer">https://huggingface.co/learn</a>
+              </div>
+            </div>
+          </div>
+
+          <h3>论文 / 评测 / 框架（与主线呼应）</h3>
+          <div class="links-panel">
+            <div class="link-row">
+              <span class="link-kind">Paper</span>
+              <div class="link-body">
+                <strong>Attention Is All You Need</strong>
+                <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer">arXiv:1706.03762</a>
+              </div>
+            </div>
+            <div class="link-row">
+              <span class="link-kind">Paper</span>
+              <div class="link-body">
+                <strong>ReAct: Reasoning + Acting</strong>
+                <a href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noopener noreferrer">arXiv:2210.03629</a>
+              </div>
+            </div>
+            <div class="link-row">
+              <span class="link-kind">Paper</span>
+              <div class="link-body">
+                <strong>Retrieval-Augmented Generation 相关综述/经典方向</strong>
+                <a href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener noreferrer">RAG 论文 arXiv:2005.11401</a>
+              </div>
+            </div>
+            <div class="link-row">
+              <span class="link-kind gh">GitHub</span>
+              <div class="link-body">
+                <strong>LangGraph / LangChain / Dify / LlamaIndex</strong>
+                <p>Agent 与应用编排常见开源栈。</p>
+                <a href="https://github.com/langchain-ai/langgraph" target="_blank" rel="noopener noreferrer">LangGraph</a> ·
+                <a href="https://github.com/langgenius/dify" target="_blank" rel="noopener noreferrer">Dify</a> ·
+                <a href="https://github.com/run-llama/llama_index" target="_blank" rel="noopener noreferrer">LlamaIndex</a>
+              </div>
+            </div>
+            <div class="link-row">
+              <span class="link-kind web">Board</span>
+              <div class="link-body">
+                <strong>模型排行与评测入口</strong>
+                <a href="https://lmarena.ai/?leaderboard" target="_blank" rel="noopener noreferrer">LMArena</a> ·
+                <a href="https://www.swebench.com/" target="_blank" rel="noopener noreferrer">SWE-bench</a> ·
+                <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener noreferrer">Artificial Analysis</a>
+              </div>
+            </div>
+          </div>
+
+          <h3>飞书与 AI Coding（本专栏直接相关）</h3>
+          <div class="links-panel">
+            <div class="link-row">
+              <span class="link-kind web">Official</span>
+              <div class="link-body">
+                <strong>飞书产品与开放平台</strong>
+                <a href="https://www.feishu.cn/" target="_blank" rel="noopener noreferrer">feishu.cn</a> ·
+                <a href="https://open.feishu.cn/" target="_blank" rel="noopener noreferrer">open.feishu.cn</a> ·
+                <a href="https://www.feishu.cn/product/base" target="_blank" rel="noopener noreferrer">多维表格</a>
+              </div>
+            </div>
+            <div class="link-row">
+              <span class="link-kind web">Practice</span>
+              <div class="link-body">
+                <strong>AI Coding 工作流参考</strong>
+                <a href="https://roadmap.sh/vibe-coding/best-practices" target="_blank" rel="noopener noreferrer">roadmap.sh 实践</a> ·
+                <a href="https://docs.cursor.com/context/rules" target="_blank" rel="noopener noreferrer">Cursor Rules</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="you-box">
+            <h4>如何和这些知识库一起用</h4>
+            <p>
+              建议：用本站建立<strong>结构与实操路径</strong> → 用 WaytoAGI / Datawhale 补<strong>广度和动手实验</strong> →
+              用论文与官方文档核<strong>定义与产品能力</strong>。产品名称与功能以各官方页面最新版为准。
+            </p>
+          </div>
+        </article>
+
+        <div class="station-next" style="margin-bottom:40px;">
+          <p>学完本专栏：回通识主线补概念沙盒，或去词库查生词。</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <a class="btn btn-primary btn-sm" href="fundamentals.html">通识主线</a>
+            <a class="btn btn-secondary btn-sm" href="glossary.html">词库</a>
+            <a class="btn btn-ghost btn-sm" href="index.html">首页</a>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          <p><strong style="color:var(--ink)">企业专栏</strong> · 飞书 · AI Coding · 日常提效</p>
+          <p class="footer-note">引用均为公开文档与开源仓库；飞书功能以企业开通范围与官网更新为准。实操请遵守公司数据安全规定。</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script src="js/shell.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/sandboxes.js"></script>
+</body>
+</html>

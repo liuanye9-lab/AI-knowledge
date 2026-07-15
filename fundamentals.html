@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="AI 通识主线：功能逻辑六站，每站知识点旁嵌沙盒模拟。" />
+  <title>通识主线 · AI 通识知识库</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="has-sidebar">
+  <div class="app-shell">
+    <aside id="sidebar-root" class="sidebar" aria-label="课程目录"></aside>
+    <div class="main-col">
+      <header class="topbar">
+        <button type="button" class="sidebar-toggle" aria-label="打开目录" aria-expanded="false">☰ 目录</button>
+        <div class="topbar-title">通识主线 · 功能逻辑 + 沙盒</div>
+        <a class="topbar-cta" href="history.html">时间线</a>
+      </header>
+
+      <main class="page page-narrow">
+        <header class="page-hero">
+          <div class="section-eyebrow">功能逻辑 · 讲到哪 · 练到哪</div>
+          <h1>通识主线</h1>
+          <p class="lead">
+            这一页是整站的<strong>主干</strong>：按「能力如何叠上去」推进。
+            每讲完一个关键点，立刻出现<strong>模拟沙盒</strong>（本地运行，无需 API）。
+            时间线请看侧栏「发展史」；结构架子看「结构地图」。
+          </p>
+          <figure class="figure" style="margin-top:20px;">
+            <div class="figure-media">
+              <img src="images/illustrations/ai-stack.jpg" alt="AI 能力分层栈" width="1200" height="900" />
+            </div>
+            <figcaption class="figure-cap">
+              <strong>本页地图</strong>
+              <span>从下往上：模型 → 对话与上下文 → 检索 → 工具/技能 → 流程/智能体 → 边界验收。</span>
+            </figcaption>
+          </figure>
+        </header>
+
+        <nav class="spine-nav" id="spine-nav" aria-label="本章导航">
+          <a href="#s1">1 大脑</a>
+          <a href="#s2">2 对话+练</a>
+          <a href="#s3">3 开卷+练</a>
+          <a href="#s4">4 动手+练</a>
+          <a href="#s5">5 多步+练</a>
+          <a href="#s6">6 边界+练</a>
+        </nav>
+
+        <!-- S1 -->
+        <article class="station" id="s1">
+          <div class="station-label"><span class="dot"></span>第 1 章 · 底座概念</div>
+          <h2>LLM：会说话的「大脑」</h2>
+          <div class="pyramid">
+            <p class="pyramid-apex">大模型是超级文字续写器，不是自动正确的百科全书。</p>
+            <div class="pyramid-mid">
+              <ul>
+                <li><strong>是什么：</strong>预测下一个 token；聊天是续写的产品形态。</li>
+                <li><strong>和你有关：</strong>ChatGPT、Claude、通义、豆包、DeepSeek 都属此类。</li>
+                <li><strong>边界：</strong>会幻觉、有知识截止——后面两章专门解决「怎么问」「怎么开卷」。</li>
+              </ul>
+              <div class="source-near">
+                <a class="source-chip" href="https://arxiv.org/abs/1706.03762">Transformer 论文</a>
+                <a class="source-chip" href="glossary.html#llm">词条 LLM</a>
+                <a class="source-chip" href="history.html">时间线附录</a>
+              </div>
+            </div>
+            <details class="pyramid-deep">
+              <summary>展开专业说明</summary>
+              <div class="pyramid-deep-body">
+                <p>LLM 学习条件概率 P(token|context)。对齐改善听指令，但不消灭幻觉。分档（如 GPT‑5.6 Sol/Terra/Luna）是同世代不同能力–成本点，见第 6 章沙盒。</p>
+                <div class="source-near">
+                  <a class="source-chip" href="https://openai.com/index/previewing-gpt-5-6-sol/">GPT‑5.6 官方</a>
+                  <a class="source-chip" href="https://www.anthropic.com/claude">Claude</a>
+                </div>
+              </div>
+            </details>
+          </div>
+          <figure class="figure">
+            <div class="figure-media">
+              <img src="images/illustrations/llm-library.jpg" alt="LLM 示意" width="1600" height="900" />
+            </div>
+            <figcaption class="figure-cap"><strong>图</strong><span>博览群书的写手，不是联网检索器（除非产品另外接了搜索/RAG）。</span></figcaption>
+          </figure>
+          <div class="station-next">
+            <p>下一章：学会下指令——这是日常最高频技能。</p>
+            <a class="btn btn-primary btn-sm" href="#s2">第 2 章 · 对话 →</a>
+          </div>
+        </article>
+
+        <!-- S2 -->
+        <article class="station" id="s2">
+          <div class="station-label"><span class="dot"></span>第 2 章 · 功能 + 日常最高频</div>
+          <h2>对话：提示与上下文</h2>
+          <div class="pyramid">
+            <p class="pyramid-apex">角色 + 任务 + 格式 + 约束。桌子（上下文）有限，别只堆字。</p>
+            <div class="pyramid-mid">
+              <ul>
+                <li><strong>提示工程：</strong>怎么说清楚。</li>
+                <li><strong>上下文工程：</strong>这一步桌上放哪些材料。</li>
+                <li><strong>日常：</strong>改邮件、纪要、翻译、解释概念——几乎每次都用。</li>
+              </ul>
+            </div>
+          </div>
+          <figure class="figure">
+            <div class="figure-media">
+              <img src="images/illustrations/viz-prompt.jpg" alt="提示词结构" width="1600" height="900" />
+            </div>
+            <figcaption class="figure-cap"><strong>图</strong><span>先把任务便签写清楚，再发给模型。</span></figcaption>
+          </figure>
+
+          <div class="sandbox">
+            <div class="sandbox-head">
+              <h3>沙盒模拟 · 提示词实验室</h3>
+              <span class="sandbox-tag">讲完即练</span>
+            </div>
+            <div class="sandbox-body">
+              <p class="sandbox-hint">本地拼接提示词，可复制到任意聊天产品。不调用云端 API。</p>
+              <div class="sandbox-chips">
+                <button type="button" class="sandbox-chip" data-prompt-example="用外卖举例，给零基础同事讲什么是 API，200 字内">示例：讲 API</button>
+                <button type="button" class="sandbox-chip" data-prompt-example="把会议记录整理成：结论 / 待办 / 风险（待办写负责人）">示例：纪要</button>
+              </div>
+              <div class="sandbox-grid">
+                <div>
+                  <label for="sb-prompt-task">任务</label>
+                  <textarea id="sb-prompt-task" placeholder="你要模型做什么…"></textarea>
+                </div>
+                <div>
+                  <label for="sb-prompt-role">角色</label>
+                  <select id="sb-prompt-role">
+                    <option>耐心的科普作者</option>
+                    <option>资深产品经理</option>
+                    <option>严谨的代码审查员</option>
+                  </select>
+                  <label for="sb-prompt-format" style="margin-top:10px;">格式</label>
+                  <select id="sb-prompt-format">
+                    <option>先结论后要点，短句中文</option>
+                    <option>Markdown 标题 + 列表</option>
+                    <option>JSON 字段</option>
+                  </select>
+                </div>
+              </div>
+              <div class="sandbox-actions">
+                <button type="button" class="btn btn-primary btn-sm" id="sb-prompt-run">生成提示词</button>
+              </div>
+              <div class="sandbox-out" id="sb-prompt-out">点生成后显示…</div>
+            </div>
+          </div>
+
+          <div class="sandbox">
+            <div class="sandbox-head">
+              <h3>沙盒模拟 · 上下文仪表</h3>
+              <span class="sandbox-tag">讲完即练</span>
+            </div>
+            <div class="sandbox-body">
+              <figure class="figure" style="margin-top:0;">
+                <div class="figure-media">
+                  <img src="images/illustrations/viz-context-desk.jpg" alt="上下文书桌" width="1600" height="900" />
+                </div>
+              </figure>
+              <label for="sb-token-window">窗口</label>
+              <select id="sb-token-window">
+                <option value="8000">8K</option>
+                <option value="32000" selected>32K</option>
+                <option value="128000">128K</option>
+              </select>
+              <label for="sb-token-input" style="margin-top:8px;">粘贴文本</label>
+              <textarea id="sb-token-input" placeholder="长对话或资料…"></textarea>
+              <div class="sandbox-meter" id="sb-token-meter"><i></i></div>
+              <div class="sandbox-out" id="sb-token-out">输入后估算…</div>
+            </div>
+          </div>
+
+          <div class="station-next">
+            <p>下一章：重要事实要开卷，不能只靠「更强模型」。</p>
+            <a class="btn btn-primary btn-sm" href="#s3">第 3 章 · 开卷 →</a>
+          </div>
+        </article>
+
+        <!-- S3 -->
+        <article class="station" id="s3">
+          <div class="station-label"><span class="dot"></span>第 3 章 · 功能叠加</div>
+          <h2>开卷：RAG 检索增强</h2>
+          <div class="pyramid">
+            <p class="pyramid-apex">先检索你的资料，再生成——制度、PDF、笔记都适用。</p>
+            <div class="pyramid-mid">
+              <ul>
+                <li>流程：问题 → 找相关片段 → 塞进提示 → 回答。</li>
+                <li>检索为空时：应拒答/换策略，而不是编造。</li>
+              </ul>
+              <div class="source-near">
+                <a class="source-chip" href="https://www.ibm.com/think/topics/retrieval-augmented-generation">IBM · RAG</a>
+                <a class="source-chip" href="glossary.html#rag">词条 RAG</a>
+              </div>
+            </div>
+          </div>
+          <figure class="figure">
+            <div class="figure-media">
+              <img src="images/illustrations/viz-rag-funnel.jpg" alt="RAG 漏斗" width="1600" height="900" />
+            </div>
+            <figcaption class="figure-cap"><strong>图</strong><span>文档进漏斗，筛出相关块，再写答案。</span></figcaption>
+          </figure>
+
+          <div class="sandbox">
+            <div class="sandbox-head">
+              <h3>沙盒模拟 · 迷你 RAG</h3>
+              <span class="sandbox-tag">讲完即练</span>
+            </div>
+            <div class="sandbox-body">
+              <p class="sandbox-hint">内置小知识库。试试「今天北京天气」——应检索失败。</p>
+              <div class="sandbox-kb" id="sb-rag-kb"></div>
+              <div class="sandbox-chips">
+                <button type="button" class="sandbox-chip" data-rag-q="什么是 RAG？">什么是 RAG？</button>
+                <button type="button" class="sandbox-chip" data-rag-q="Agent 是什么">Agent 是什么</button>
+                <button type="button" class="sandbox-chip" data-rag-q="今天北京天气">今天北京天气</button>
+              </div>
+              <label for="sb-rag-q">问题</label>
+              <input type="text" id="sb-rag-q" placeholder="输入问题…" />
+              <div class="sandbox-actions">
+                <button type="button" class="btn btn-primary btn-sm" id="sb-rag-run">检索并生成草稿</button>
+              </div>
+              <div class="sandbox-out" id="sb-rag-out">运行后显示…</div>
+            </div>
+          </div>
+
+          <div class="station-next">
+            <p>下一章：不止回答，还要调用工具、复用技能。</p>
+            <a class="btn btn-primary btn-sm" href="#s4">第 4 章 · 动手 →</a>
+          </div>
+        </article>
+
+        <!-- S4 -->
+        <article class="station" id="s4">
+          <div class="station-label"><span class="dot"></span>第 4 章</div>
+          <h2>动手：Tool 与 Skill</h2>
+          <div class="pyramid">
+            <p class="pyramid-apex">Tool 是扳手；Skill 是「会修水龙头」的说明书 + 扳手组合。</p>
+            <div class="pyramid-mid">
+              <ul>
+                <li><strong>Tool：</strong>模型点名 API，程序执行再返回。</li>
+                <li><strong>Skill：</strong>可复用能力包，挂到多个流程上。</li>
+                <li><strong>Workflow：</strong>固定步骤流水线（下一章对比）。</li>
+              </ul>
+              <div class="source-near">
+                <a class="source-chip" href="https://github.com/google-research/google-research/tree/master/saycan">SayCan GitHub</a>
+                <a class="source-chip" href="glossary.html#skill">词条 Skill</a>
+              </div>
+            </div>
+          </div>
+          <figure class="figure">
+            <div class="figure-media">
+              <img src="images/illustrations/viz-tools-skill.jpg" alt="工具与技能" width="1600" height="900" />
+            </div>
+          </figure>
+
+          <div class="sandbox">
+            <div class="sandbox-head">
+              <h3>沙盒模拟 · Skill vs Workflow</h3>
+              <span class="sandbox-tag">讲完即练</span>
+            </div>
+            <div class="sandbox-body">
+              <div class="sandbox-chips">
+                <button type="button" class="sandbox-chip active" data-sw-mode="skill">看 Skill</button>
+                <button type="button" class="sandbox-chip" data-sw-mode="workflow">看 Workflow</button>
+              </div>
+              <div class="sandbox-out" id="sb-sw-out"></div>
+              <div class="source-near">
+                <a class="source-chip" href="https://github.com/langgenius/dify">Dify</a>
+                <a class="source-chip" href="architectures.html">架构专题</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="station-next">
+            <p>下一章：多步任务如何组织。</p>
+            <a class="btn btn-primary btn-sm" href="#s5">第 5 章 · 多步 →</a>
+          </div>
+        </article>
+
+        <!-- S5 -->
+        <article class="station" id="s5">
+          <div class="station-label"><span class="dot"></span>第 5 章</div>
+          <h2>多步：Workflow 与 Agent</h2>
+          <div class="pyramid">
+            <p class="pyramid-apex">步骤稳定用 Workflow；路径开放用 Agent 循环，并设急停。</p>
+            <div class="pyramid-mid">
+              <ul>
+                <li><strong>Agent：</strong>想 → 做 → 看 → 再想 → 停。</li>
+                <li><strong>Memory：</strong>短期便签 + 长期档案。</li>
+              </ul>
+              <div class="source-near">
+                <a class="source-chip" href="https://arxiv.org/abs/2210.03629">ReAct 论文</a>
+                <a class="source-chip" href="https://github.com/langchain-ai/langgraph">LangGraph</a>
+              </div>
+            </div>
+          </div>
+          <figure class="figure">
+            <div class="figure-media">
+              <img src="images/illustrations/viz-agent-steps.jpg" alt="Agent 循环" width="1600" height="900" />
+            </div>
+          </figure>
+
+          <div class="sandbox">
+            <div class="sandbox-head">
+              <h3>沙盒模拟 · Agent 循环</h3>
+              <span class="sandbox-tag">讲完即练</span>
+            </div>
+            <div class="sandbox-body">
+              <label for="sb-agent-goal">目标</label>
+              <input type="text" id="sb-agent-goal" value="调研竞品并整理三点结论" />
+              <div class="sandbox-actions">
+                <button type="button" class="btn btn-primary btn-sm" id="sb-agent-run">播放循环</button>
+                <button type="button" class="btn btn-secondary btn-sm" id="sb-agent-reset">重置</button>
+              </div>
+              <div class="sandbox-steps" id="sb-agent-steps">
+                <div class="sandbox-step"><span class="sn">1</span><div><div class="st">思考</div><div class="sd">…</div></div></div>
+                <div class="sandbox-step"><span class="sn">2</span><div><div class="st">行动</div><div class="sd">…</div></div></div>
+                <div class="sandbox-step"><span class="sn">3</span><div><div class="st">观察</div><div class="sd">…</div></div></div>
+                <div class="sandbox-step"><span class="sn">4</span><div><div class="st">再思考</div><div class="sd">…</div></div></div>
+                <div class="sandbox-step"><span class="sn">5</span><div><div class="st">停止</div><div class="sd">…</div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="station-next">
+            <p>最后一章：再强也有边界，学会验收与选档。</p>
+            <a class="btn btn-primary btn-sm" href="#s6">第 6 章 · 边界 →</a>
+          </div>
+        </article>
+
+        <!-- S6 -->
+        <article class="station" id="s6">
+          <div class="station-label"><span class="dot"></span>第 6 章 · 主线收官</div>
+          <h2>边界：验收与选模型</h2>
+          <div class="pyramid">
+            <p class="pyramid-apex">流畅 ≠ 正确。事实靠检索；轻任务用快档，难题才上旗舰。</p>
+            <div class="pyramid-mid">
+              <ul>
+                <li>GPT‑5.6：Sol / Terra / Luna 三档思路。</li>
+                <li>榜单只粗筛；用你的真实题做精测。</li>
+              </ul>
+              <div class="source-near">
+                <a class="source-chip" href="https://openai.com/index/previewing-gpt-5-6-sol/">GPT‑5.6</a>
+                <a class="source-chip" href="https://lmarena.ai/?leaderboard">LMArena</a>
+                <a class="source-chip" href="https://www.swebench.com/">SWE-bench</a>
+                <a class="source-chip" href="boundaries.html">边界深读</a>
+              </div>
+            </div>
+          </div>
+          <figure class="figure">
+            <div class="figure-media">
+              <img src="images/illustrations/viz-trust.jpg" alt="核实输出" width="1600" height="900" />
+            </div>
+          </figure>
+          <figure class="figure">
+            <div class="figure-media">
+              <img src="images/illustrations/viz-model-pick.jpg" alt="模型分档" width="1600" height="900" />
+            </div>
+          </figure>
+
+          <div class="sandbox">
+            <div class="sandbox-head">
+              <h3>沙盒模拟 · 分档路由</h3>
+              <span class="sandbox-tag">讲完即练</span>
+            </div>
+            <div class="sandbox-body">
+              <label for="sb-tier-task">任务类型</label>
+              <select id="sb-tier-task">
+                <option value="draft">短草稿 / 改写</option>
+                <option value="daily" selected>日常问答</option>
+                <option value="hard">复杂推理 / 硬核代码</option>
+                <option value="agent">多步 Agent</option>
+                <option value="factual">强事实 / 强时效</option>
+              </select>
+              <div class="sandbox-actions">
+                <button type="button" class="btn btn-primary btn-sm" id="sb-tier-run">推荐档位</button>
+              </div>
+              <div class="sandbox-out" id="sb-tier-out"></div>
+            </div>
+          </div>
+
+          <div class="sandbox" id="sb-quiz">
+            <div class="sandbox-head">
+              <h3>沙盒模拟 · 边界小测</h3>
+              <span class="sandbox-tag">讲完即练</span>
+            </div>
+            <div class="sandbox-body">
+              <div data-quiz style="margin-bottom:14px;">
+                <p class="sandbox-hint"><strong>1.</strong> 模型坚定宣称某药能治愈癌症。你应？</p>
+                <div class="sandbox-actions">
+                  <button type="button" class="btn btn-secondary btn-sm" data-ok="0">直接转发</button>
+                  <button type="button" class="btn btn-secondary btn-sm" data-ok="1">当草稿并核权威来源</button>
+                </div>
+                <div class="sandbox-out">选一个…</div>
+              </div>
+              <div data-quiz>
+                <p class="sandbox-hint"><strong>2.</strong> 按公司新制度答疑。最佳？</p>
+                <div class="sandbox-actions">
+                  <button type="button" class="btn btn-secondary btn-sm" data-ok="0">只靠旗舰裸问</button>
+                  <button type="button" class="btn btn-secondary btn-sm" data-ok="1">先检索制度文档</button>
+                </div>
+                <div class="sandbox-out">选一个…</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="station-next">
+            <p><strong>主线完成。</strong>可去词库巩固，或时间线 / 架构 / 具身深挖。</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <a class="btn btn-primary btn-sm" href="glossary.html">词库</a>
+              <a class="btn btn-secondary btn-sm" href="history.html">发展史</a>
+              <a class="btn btn-ghost btn-sm" href="architectures.html">架构</a>
+              <a class="btn btn-ghost btn-sm" href="embodied.html">具身</a>
+            </div>
+          </div>
+        </article>
+
+        <div class="you-box" style="margin:32px 0;">
+          <h4>三条逻辑如何拼在一起</h4>
+          <p>
+            <strong>结构地图</strong>告诉你名词挂在哪；
+            <strong>发展史</strong>告诉你为何长成这样；
+            <strong>本页功能主线</strong>告诉你怎么叠能力，并在每站用沙盒模拟。
+            日常频率高的「怎么问 / 别全信 / 用资料」已放在第 2、6、3 章优先位置。
+          </p>
+          <p style="margin-top:10px;">
+            学完概念要落地企业与写代码：请打开
+            <a href="practice.html"><strong>企业专栏 · ToB 提效与 AI Coding</strong></a>
+            （飞书生态、做网站/应用、岗位清单，并引用 WaytoAGI / Datawhale 等）。
+          </p>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          <p><strong style="color:var(--ink)">通识主线</strong> · 功能逻辑 · 知识点旁沙盒</p>
+          <p class="footer-note">沙盒纯前端。左侧目录可随时跳章，类似文档站体验。</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script src="js/shell.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/sandboxes.js"></script>
+</body>
+</html>

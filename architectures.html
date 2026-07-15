@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="AI 架构与框架：LangGraph、CrewAI、RAG、Dify、Skill 与 Workflow 选型对照。" />
+  <title>⑤ 架构选型 · AI 通识知识库</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="has-sidebar">
+  <nav class="nav" aria-label="主导航">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">
+        <span class="nav-logo">AI</span>
+        <span>通识知识库</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">学习</a>
+        <a class="nav-link" href="glossary.html">词库</a>
+        <div class="nav-more-wrap">
+          <button type="button" class="nav-more-btn" aria-expanded="false">更多</button>
+          <div class="nav-more-panel">
+            <p class="hint">附录 · 内容完整保留</p>
+            <a href="mindmap.html">结构地图</a>
+            <a href="history.html">发展历史</a>
+            <a href="architectures.html">架构框架</a>
+            <a href="embodied.html">具身智能</a>
+            <a href="boundaries.html">边界深读</a>
+          </div>
+        </div>
+        <a class="nav-link nav-link-mobile-only" href="mindmap.html">结构地图</a>
+        <a class="nav-link nav-link-mobile-only" href="history.html">发展历史</a>
+        <a class="nav-link nav-link-mobile-only" href="architectures.html">架构框架</a>
+        <a class="nav-link nav-link-mobile-only" href="embodied.html">具身智能</a>
+        <a class="nav-link nav-link-mobile-only" href="boundaries.html">边界深读</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page">
+    <header class="page-hero animate-in" style="max-width:720px;">
+      <div class="section-eyebrow">STEP 05 · 应用逻辑（进阶）</div>
+      <h1>架构选型</h1>
+      <p class="lead">
+        建议先完成 ①–③。本页回答：同事嘴里的 LangGraph / CrewAI / Dify 对应哪种「组织方式」？
+        你的场景更适合固定流程、单智能体，还是多角色协作？
+      </p>
+    </header>
+
+    <div class="you-box" style="max-width:720px;margin-bottom:28px;">
+      <h4>小白先记住</h4>
+      <p>
+        框架名不重要，先选<strong>范式</strong>：只问答 → RAG；步骤固定 → Workflow；路径开放要代办 → Agent；
+        多工种互检 → Multi-Agent。框架只是实现工具。零代码可从 Dify/Coze 试；要深度控制再学 LangGraph 等。
+      </p>
+    </div>
+
+    <section class="section animate-in delay-1" style="padding-top:8px;">
+      <div class="section-header">
+        <div class="section-eyebrow">Visual</div>
+        <h2 class="section-title">框架家族一眼图</h2>
+        <p class="section-desc">有的画流程图，有的组剧组，有的开圆桌，有的主攻资料库，有的低代码搭积木。</p>
+      </div>
+      <figure class="figure mb-32">
+        <div class="figure-media">
+          <img src="images/illustrations/frameworks-board.jpg" alt="AI 框架家族对照" width="1600" height="900" />
+        </div>
+        <figcaption class="figure-cap">
+          <strong>读图</strong>
+          <span>把卡片当成不同管理风格；下方文字说明各自擅长什么、代价是什么。</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div class="section-eyebrow">Paradigms</div>
+        <h2 class="section-title">六种常见架构范式</h2>
+      </div>
+      <div class="card-grid mb-32">
+        <div class="card">
+          <div class="card-icon blue">①</div>
+          <h3>纯 LLM 对话</h3>
+          <p>单轮/多轮聊天，靠提示与模型知识。简单便宜，难执行真实动作，知识易过时。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon sage" style="background:var(--sage-wash);">②</div>
+          <h3>经典 RAG</h3>
+          <p>检索 → 生成。适合知识问答。路径固定，复杂多源调研时偏「呆」。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon lav">③</div>
+          <h3>Tool / Skill Agent</h3>
+          <p>单智能体 + 工具/技能循环。能办事，需停止条件与权限。多数业务 Agent 从这里起步。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon clay">④</div>
+          <h3>固定 Workflow</h3>
+          <p>预设步骤网络：分支、人审、重试。可控可审计，适合合规与稳定业务。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon rose">⑤</div>
+          <h3>Agentic / Multi-Agent RAG</h3>
+          <p>检索纳入规划：多跳查询、路由数据源、互检。像研究团队而非一次搜索。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon sand">⑥</div>
+          <h3>多 Agent 协作</h3>
+          <p>角色分工 + 主管调度或群聊。适合复杂项目，成本与协调复杂度上升。</p>
+        </div>
+      </div>
+
+      <figure class="figure mb-32">
+        <div class="figure-media">
+          <img src="images/illustrations/agentic-rag.jpg" alt="经典 RAG 与 Agentic RAG 对比" width="1600" height="900" />
+        </div>
+        <figcaption class="figure-cap">
+          <strong>RAG 进阶</strong>
+          <span>左：翻一次书就写；右：研究员多轮查证。更准也可能更贵更慢。</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div class="section-eyebrow">Skill & Workflow in Arch</div>
+        <h2 class="section-title">在架构里它们挂在哪</h2>
+      </div>
+      <figure class="figure mb-24">
+        <div class="figure-media">
+          <img src="images/illustrations/skill-vs-workflow.jpg" alt="Skill 与 Workflow 在架构中的位置" width="1600" height="900" />
+        </div>
+        <figcaption class="figure-cap">
+          <strong>装配关系</strong>
+          <span>Skill 是可插拔能力；Workflow / Agent 图是骨架；节点里调用 Skill 与 Tool。</span>
+        </figcaption>
+      </figure>
+      <div class="compare mb-32" style="max-width:720px;">
+        <div class="compare-box a">
+          <h4>搭系统时先问</h4>
+          <p>哪些能力要复用多次？→ 抽成 Skill。哪些步骤顺序稳定？→ 画成 Workflow。哪里路径不定？→ 嵌 Agent Loop。</p>
+        </div>
+        <div class="compare-box b">
+          <h4>反模式</h4>
+          <p>把所有逻辑塞进一个超级提示词；或每个小任务都上多 Agent（贵且难控）。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div class="section-eyebrow">Global</div>
+        <h2 class="section-title">海外代表性框架</h2>
+      </div>
+      <div class="framework-grid mb-48">
+        <div class="fw-card">
+          <div class="fw-top">
+            <div>
+              <div class="fw-name">LangGraph</div>
+              <div class="fw-origin">LangChain 生态 · 图 / 状态编排</div>
+            </div>
+            <span class="fw-badge prod">生产向</span>
+          </div>
+          <p class="fw-desc">把 Agent/流程建成带状态的图：循环、分支、持久执行、人在回路。适合复杂长跑、要可控可调试的工作流。</p>
+          <div class="fw-analogy"><span>类比</span> · 工厂中央调度台：工序、回流与急停都画在流程图上。</div>
+          <div class="fw-tags"><span class="fw-tag">有状态</span><span class="fw-tag">Workflow</span><span class="fw-tag">HITL</span></div>
+          <p style="font-size:var(--fs-xs);margin:0;"><a href="https://github.com/langchain-ai/langgraph" target="_blank" rel="noopener noreferrer">GitHub: langchain-ai/langgraph</a></p>
+        </div>
+
+        <div class="fw-card">
+          <div class="fw-top">
+            <div>
+              <div class="fw-name">LangChain</div>
+              <div class="fw-origin">组件与链式编排</div>
+            </div>
+            <span class="fw-badge">生态大</span>
+          </div>
+          <p class="fw-desc">模型接口、提示、检索、工具等积木。拼 RAG 与简单 Agent 很快；复杂控制常升级到 LangGraph。</p>
+          <div class="fw-analogy"><span>类比</span> · 超大零件箱 + 常见组装说明书。</div>
+          <div class="fw-tags"><span class="fw-tag">RAG</span><span class="fw-tag">Tools</span></div>
+          <p style="font-size:var(--fs-xs);margin:0;"><a href="https://github.com/langchain-ai/langchain" target="_blank" rel="noopener noreferrer">GitHub: langchain-ai/langchain</a></p>
+        </div>
+
+        <div class="fw-card">
+          <div class="fw-top">
+            <div>
+              <div class="fw-name">CrewAI</div>
+              <div class="fw-origin">角色团队 · Multi-Agent</div>
+            </div>
+            <span class="fw-badge hot">热门</span>
+          </div>
+          <p class="fw-desc">用 Crew + 角色 + 任务描述多 Agent。适合快速搭协作原型，心智贴近真实组织分工。</p>
+          <div class="fw-analogy"><span>类比</span> · 一键组建剧组：岗位说明书写清就能开跑。</div>
+          <div class="fw-tags"><span class="fw-tag">角色</span><span class="fw-tag">协作</span></div>
+          <p style="font-size:var(--fs-xs);margin:0;"><a href="https://github.com/crewAIInc/crewAI" target="_blank" rel="noopener noreferrer">GitHub: crewAIInc/crewAI</a></p>
+        </div>
+
+        <div class="fw-card">
+          <div class="fw-top">
+            <div>
+              <div class="fw-name">AutoGen / AG2</div>
+              <div class="fw-origin">对话式多 Agent</div>
+            </div>
+            <span class="fw-badge">研究/对话</span>
+          </div>
+          <p class="fw-desc">多个 Agent 通过对话消息推进任务（可含人类）。适合协商、代码共创、多视角讨论。</p>
+          <div class="fw-analogy"><span>类比</span> · 圆桌会议：专家来回发言直到可执行结论。</div>
+          <div class="fw-tags"><span class="fw-tag">多 Agent</span><span class="fw-tag">对话驱动</span></div>
+          <p style="font-size:var(--fs-xs);margin:0;"><a href="https://github.com/microsoft/autogen" target="_blank" rel="noopener noreferrer">GitHub: microsoft/autogen</a></p>
+        </div>
+
+        <div class="fw-card">
+          <div class="fw-top">
+            <div>
+              <div class="fw-name">LlamaIndex</div>
+              <div class="fw-origin">数据与 RAG 工作流</div>
+            </div>
+            <span class="fw-badge prod">知识向</span>
+          </div>
+          <p class="fw-desc">强项是把文档、数据库接进 LLM：索引、检索、查询路由、Workflow。企业知识库与 RAG Agent 常见。</p>
+          <div class="fw-analogy"><span>类比</span> · 首席数据管家，让模型够得到正确资料。</div>
+          <div class="fw-tags"><span class="fw-tag">RAG</span><span class="fw-tag">Workflow</span></div>
+          <p style="font-size:var(--fs-xs);margin:0;"><a href="https://github.com/run-llama/llama_index" target="_blank" rel="noopener noreferrer">GitHub: run-llama/llama_index</a></p>
+        </div>
+
+        <div class="fw-card">
+          <div class="fw-top">
+            <div>
+              <div class="fw-name">Semantic Kernel / 厂商 SDK</div>
+              <div class="fw-origin">企业集成 · 官方 Agent 路径</div>
+            </div>
+            <span class="fw-badge">企业/官方</span>
+          </div>
+          <p class="fw-desc">微软技能/插件式集成；OpenAI / Anthropic 官方 Agents SDK 与自家模型磨合紧。适合深度绑定某一栈的团队。</p>
+          <div class="fw-analogy"><span>类比</span> · 手机厂商自家快捷指令框架，和硬件磨合最好。</div>
+          <div class="fw-tags"><span class="fw-tag">Skills</span><span class="fw-tag">企业</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div class="section-eyebrow">China & Product</div>
+        <h2 class="section-title">国内与产品化平台</h2>
+      </div>
+      <div class="framework-grid mb-48">
+        <div class="fw-card">
+          <div class="fw-top">
+            <div>
+              <div class="fw-name">Dify</div>
+              <div class="fw-origin">开源 LLM 应用开发平台</div>
+            </div>
+            <span class="fw-badge china">热门开源</span>
+          </div>
+          <p class="fw-desc">可视化编排、RAG、Agent、模型接入一站式。适合团队快速做应用，少从零写编排代码。</p>
+          <div class="fw-analogy"><span>类比</span> · AI 版低代码工作室：拖流程、接知识库、接模型。</div>
+          <div class="fw-tags"><span class="fw-tag">Workflow</span><span class="fw-tag">RAG</span><span class="fw-tag">Agent</span></div>
+          <p style="font-size:var(--fs-xs);margin:0;"><a href="https://github.com/langgenius/dify" target="_blank" rel="noopener noreferrer">GitHub: langgenius/dify</a></p>
+        </div>
+        <div class="fw-card">
+          <div class="fw-top">
+            <div>
+              <div class="fw-name">Coze / 扣子</div>
+              <div class="fw-origin">Bot 搭建产品</div>
+            </div>
+            <span class="fw-badge china">产品</span>
+          </div>
+          <p class="fw-desc">插件、工作流、发布渠道。适合运营与产品快速试验对话智能体与技能挂载。</p>
+          <div class="fw-analogy"><span>类比</span> · 应用商店式装技能做机器人。</div>
+          <div class="fw-tags"><span class="fw-tag">Bot</span><span class="fw-tag">插件/Skill</span></div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-top">
+            <div>
+              <div class="fw-name">AgentScope 等</div>
+              <div class="fw-origin">国内多 Agent 框架</div>
+            </div>
+            <span class="fw-badge china">框架</span>
+          </div>
+          <p class="fw-desc">强调易用、分布式与中文文档。选型看社区活跃度与部署约束。</p>
+          <div class="fw-analogy"><span>类比</span> · 本地化工具箱，说明书更懂国内工程习惯。</div>
+          <div class="fw-tags"><span class="fw-tag">多 Agent</span></div>
+        </div>
+        <div class="fw-card">
+          <div class="fw-top">
+            <div>
+              <div class="fw-name">模型层</div>
+              <div class="fw-origin">通义 / 文心 / DeepSeek…</div>
+            </div>
+            <span class="fw-badge china">模型</span>
+          </div>
+          <p class="fw-desc">架构的发动机可选国内外 API 或开源权重。<strong>框架可换，模型可换</strong>——先建编排与评测，再比模型更稳。</p>
+          <div class="fw-analogy"><span>类比</span> · 同一套厨房流程可换炉灶；菜谱与品控更决定稳定。</div>
+          <div class="fw-tags"><span class="fw-tag">API</span><span class="fw-tag">开源权重</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div class="section-eyebrow">Compare</div>
+        <h2 class="section-title">一张表快速对照</h2>
+      </div>
+      <div class="table-wrap mb-48">
+        <table>
+          <thead>
+            <tr>
+              <th>名称</th>
+              <th>核心隐喻</th>
+              <th>更擅长</th>
+              <th>相对代价</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>经典 RAG</td>
+              <td>开卷考试</td>
+              <td>知识问答、文档助手</td>
+              <td>实现简单；复杂任务弱</td>
+            </tr>
+            <tr>
+              <td>Agentic RAG</td>
+              <td>多轮调研</td>
+              <td>多跳问题、多源检索</td>
+              <td>更准也可能更贵更慢</td>
+            </tr>
+            <tr>
+              <td>固定 Workflow</td>
+              <td>SOP 流水线</td>
+              <td>稳定业务、合规审计</td>
+              <td>开放问题不够灵活</td>
+            </tr>
+            <tr>
+              <td>LangGraph</td>
+              <td>流程图 / 状态机</td>
+              <td>可控长流程、生产编排</td>
+              <td>学习曲线较高</td>
+            </tr>
+            <tr>
+              <td>CrewAI</td>
+              <td>角色团队</td>
+              <td>多角色协作原型</td>
+              <td>复杂控制需额外设计</td>
+            </tr>
+            <tr>
+              <td>AutoGen</td>
+              <td>圆桌对话</td>
+              <td>协商式、研究型协作</td>
+              <td>对话路径可能发散</td>
+            </tr>
+            <tr>
+              <td>LlamaIndex</td>
+              <td>数据管家</td>
+              <td>索引与知识型 Agent</td>
+              <td>非知识场景不是重点</td>
+            </tr>
+            <tr>
+              <td>Dify / Coze</td>
+              <td>低代码工作室</td>
+              <td>快速产品化、挂 Skill</td>
+              <td>深度定制受平台边界限制</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section page-narrow" style="padding-left:0;padding-right:0;max-width:720px;margin:0 auto;">
+      <div class="section-header">
+        <div class="section-eyebrow">How to Choose</div>
+        <h2 class="section-title">选型决策树</h2>
+      </div>
+      <div class="group mb-32">
+        <div class="group-item">
+          <div class="group-item-icon">1</div>
+          <div class="group-item-body">
+            <div class="group-item-title">主要是按资料回答？</div>
+            <div class="group-item-desc">先上经典 RAG。多跳多源再升级 Agentic RAG。</div>
+          </div>
+        </div>
+        <div class="group-item">
+          <div class="group-item-icon">2</div>
+          <div class="group-item-body">
+            <div class="group-item-title">步骤稳定、要合规？</div>
+            <div class="group-item-desc">固定 Workflow（Dify / LangGraph 等），Skill 做成可复用节点。</div>
+          </div>
+        </div>
+        <div class="group-item">
+          <div class="group-item-icon">3</div>
+          <div class="group-item-body">
+            <div class="group-item-title">路径开放、要办事？</div>
+            <div class="group-item-desc">单 Agent + Tool/Skill + Loop 护栏；复杂再上图编排。</div>
+          </div>
+        </div>
+        <div class="group-item">
+          <div class="group-item-icon">4</div>
+          <div class="group-item-body">
+            <div class="group-item-title">天然多工种？</div>
+            <div class="group-item-desc">CrewAI / AutoGen / 多 Agent 图。算清 token 与失败协调成本。</div>
+          </div>
+        </div>
+        <div class="group-item">
+          <div class="group-item-icon">5</div>
+          <div class="group-item-body">
+            <div class="group-item-title">缺编排工程人力？</div>
+            <div class="group-item-desc">Dify、Coze 先验证价值，再决定是否自研框架层。</div>
+          </div>
+        </div>
+      </div>
+      <blockquote style="padding:14px 18px;border-left:3px solid var(--dust-rose);background:var(--dust-rose-wash);border-radius:0 16px 16px 0;color:var(--ink-soft);font-size:var(--fs-base);line-height:1.65;">
+        <strong style="color:var(--dust-rose-deep);">通识结论</strong>：架构不是宗教。先用
+        <a href="fundamentals.html">通识 9 问</a> 定义需求，再选框架；用 Eval 与真实任务验收，而不是用 Star 数验收。
+      </blockquote>
+    </section>
+
+    <div class="hero-actions" style="margin-top: 40px; justify-content: flex-start; max-width: 720px;">
+      <a class="btn btn-primary" href="glossary.html">回去查词</a>
+      <a class="btn btn-secondary" href="mindmap.html">知识地图</a>
+      <a class="btn btn-ghost" href="index.html">回首页</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p><strong style="color:var(--ink)">AI 通识知识库</strong> · 架构与框架</p>
+      <p class="footer-note">框架迭代极快。本页用于建立选型直觉；落地以官方文档、许可证与安全实践为准。</p>
+    </div>
+  </footer>
+  <script src="js/shell.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

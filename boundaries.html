@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="大模型能力边界：幻觉、截止、推理与 Agent 限制；GPT-5.6 Sol/Terra/Luna、Claude 等模型族与权威排行榜链接。" />
+  <title>⑦ 能力边界 · AI 通识知识库</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="has-sidebar">
+  <nav class="nav" aria-label="主导航">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">
+        <span class="nav-logo">AI</span>
+        <span>通识知识库</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">学习</a>
+        <a class="nav-link" href="glossary.html">词库</a>
+        <div class="nav-more-wrap">
+          <button type="button" class="nav-more-btn" aria-expanded="false">更多</button>
+          <div class="nav-more-panel">
+            <p class="hint">附录 · 内容完整保留</p>
+            <a href="mindmap.html">结构地图</a>
+            <a href="history.html">发展历史</a>
+            <a href="architectures.html">架构框架</a>
+            <a href="embodied.html">具身智能</a>
+            <a href="boundaries.html">边界深读</a>
+          </div>
+        </div>
+        <a class="nav-link nav-link-mobile-only" href="mindmap.html">结构地图</a>
+        <a class="nav-link nav-link-mobile-only" href="history.html">发展历史</a>
+        <a class="nav-link nav-link-mobile-only" href="architectures.html">架构框架</a>
+        <a class="nav-link nav-link-mobile-only" href="embodied.html">具身智能</a>
+        <a class="nav-link nav-link-mobile-only" href="boundaries.html">边界深读</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page page-narrow">
+    <header class="page-hero animate-in">
+      <div class="section-eyebrow">附录 · 边界深读</div>
+      <h1>大模型能力边界</h1>
+      <p class="lead">
+        <strong>主线第 6 站</strong>的加厚版：模型族对照、权威榜单入口、更多验收方法。
+        若还没走主线，请先 <a href="fundamentals.html#s6">回第 6 站</a> 练过分档与小测。
+      </p>
+      <div class="page-hero-art">
+        <img src="images/illustrations/capability-boundary.jpg" alt="大模型能力边界示意" width="1600" height="900" />
+      </div>
+    </header>
+
+    <div class="you-box">
+      <h4>一句话先记住</h4>
+      <p>
+        大模型是<strong>概率续写与模式匹配的超级引擎</strong>，不是全知真理机，也不是自动免责的员工。
+        旗舰模型（如 GPT‑5.6 Sol、Claude 高端档、Gemini 高端档等）在写作、编程、推理上很强，
+        但在<strong>事实时效、精确计算、长尾安全、开放世界操作</strong>上仍有硬边界——要用工具、检索、流程与人审来补。
+      </p>
+    </div>
+
+    <nav class="pill-nav" aria-label="本页目录">
+      <a href="#what">边界是什么</a>
+      <a href="#dims">八个维度</a>
+      <a href="#models">主流模型族</a>
+      <a href="#gpt56">GPT‑5.6 三档</a>
+      <a href="#boards">权威榜单</a>
+      <a href="#use">怎么用</a>
+      <a href="#sources">论文与链接</a>
+    </nav>
+
+    <article class="prose">
+      <section id="what">
+        <h2>A. 「能力边界」是什么</h2>
+        <p class="attn-hint">金字塔 · 先结论 → 再要点 → 再专业</p>
+        <div class="pyramid">
+          <p class="pyramid-apex">大模型很强，但不是全知员工——边界就是「它稳定做对」与「你必须接管」之间的那条线。</p>
+          <div class="pyramid-mid">
+            <ul>
+              <li><strong>是什么：</strong>在特定任务、数据与安全约束下，模型做对的概率范围；超出不是再问一遍就能稳。</li>
+              <li><strong>和你有关：</strong>决定能不能直接交客户、用 Sol 还是 Luna、要不要搜索/人审。</li>
+              <li><strong>怎么判断：</strong>公开榜单粗筛 + 厂商说明 + 你自己的业务样例（最重要）。</li>
+            </ul>
+            <div class="source-near">
+              <span class="src-label">权威入口</span>
+              <a class="source-chip" href="https://lmarena.ai/?leaderboard">LMArena 对战榜</a>
+              <a class="source-chip" href="https://openai.com/index/previewing-gpt-5-6-sol/">GPT‑5.6 官方说明</a>
+            </div>
+          </div>
+          <details class="pyramid-deep">
+            <summary>展开专业表述</summary>
+            <div class="pyramid-deep-body">
+              <p>能力边界（capability boundary）可理解为：模型在给定任务分布、提示/工具配置与对齐策略下的可靠工作域。域外失败模式包括幻觉、过期知识、工具误调用、越权尝试等，需用 RAG、工具校验、评测集与人在回路补齐——详见本站 <a href="fundamentals.html#eval">评测与护栏</a>。</p>
+              <div class="source-near">
+                <a class="source-chip" href="https://www.swebench.com/">SWE-bench</a>
+                <a class="source-chip" href="https://crfm.stanford.edu/helm/">Stanford HELM</a>
+                <a class="source-chip" href="https://github.com/lm-sys/FastChat">FastChat / Arena 生态</a>
+              </div>
+            </div>
+          </details>
+        </div>
+        <div class="analogy">
+          <div class="analogy-icon">🧭</div>
+          <div class="analogy-body">
+            <div class="analogy-label">类比</div>
+            <p class="analogy-text">
+              极强但会自信说错的顾问：方案写得好，药方/判决/股价不能盲信。边界 = 你必须自己负责验收的那条线。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="dims">
+        <h2>B. 八个边界维度（结构清单）</h2>
+        <p>读任何「最强模型」新闻时，用这张表对照，避免被单一分数带跑。</p>
+        <div class="group mb-24">
+          <div class="group-item">
+            <div class="group-item-icon">1</div>
+            <div class="group-item-body">
+              <div class="group-item-title">知识截止与时效</div>
+              <div class="group-item-desc">训练数据有截止日期；之后事件需联网/RAG。例：GPT‑5.6 家族公开说明知识截止约 2026-02-16（以 OpenAI 页面为准）。</div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">2</div>
+            <div class="group-item-body">
+              <div class="group-item-title">幻觉与事实性</div>
+              <div class="group-item-desc">会生成流畅但错误的内容。引用、检索、工具校验可降风险，无法用「更强模型」完全消灭。</div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">3</div>
+            <div class="group-item-body">
+              <div class="group-item-title">推理与规划</div>
+              <div class="group-item-desc">多步逻辑、数学、长程规划显著进步，但复杂证明、精密数值、对抗性谜题仍会错。需要过程展示与验算。</div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">4</div>
+            <div class="group-item-body">
+              <div class="group-item-title">工具与 Agent 可靠性</div>
+              <div class="group-item-desc">会调工具 ≠ 每次都调对。循环可能空转、重复、做错参数。必须设步数/预算/急停（见通识 Loop）。</div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">5</div>
+            <div class="group-item-body">
+              <div class="group-item-title">上下文窗口与「失忆」</div>
+              <div class="group-item-desc">窗口再大也有限；中段信息更易被忽略。长项目要摘要、外置记忆、分段任务。</div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">6</div>
+            <div class="group-item-body">
+              <div class="group-item-title">多模态与身体世界</div>
+              <div class="group-item-desc">看图/听声/生成媒体能力在进步，但精细视觉计量、物理操作仍远不如专用系统。具身见 ⑥。</div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">7</div>
+            <div class="group-item-body">
+              <div class="group-item-title">安全、拒答与合规</div>
+              <div class="group-item-desc">对齐策略会拒答或改写；也可能被越狱。企业场景需自有护栏与审计，不能只靠模型默认策略。</div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">8</div>
+            <div class="group-item-body">
+              <div class="group-item-title">成本 · 延迟 · 配额</div>
+              <div class="group-item-desc">旗舰档贵且可能更慢；快档便宜但上限低。生产系统要按任务路由：简单→Luna 类，难→Sol/Opus 类。</div>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:var(--fs-sm);color:var(--ink-mute);">（首页已用独立示意图讲「别全信」；本页不重复配图，直接看维度清单与榜单。）</p>
+      </section>
+
+      <section id="models">
+        <h2>C. 主流大模型族（国内外）怎么放进地图</h2>
+        <p>不背参数量。按「谁出品 · 适合什么 · 边界提醒 · 官方入口」读。</p>
+
+        <div class="table-wrap mb-32">
+          <table>
+            <thead>
+              <tr>
+                <th>家族 / 代表</th>
+                <th>常见定位</th>
+                <th>能力边界提醒（通识）</th>
+                <th>官方入口</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>OpenAI GPT‑5.6</strong><br />Sol / Terra / Luna</td>
+                <td>旗舰三档：最强 / 均衡 / 快省</td>
+                <td>仍有知识截止；Agent 任务需工具与人审；档位选错会贵或不够用</td>
+                <td><a href="https://openai.com/index/previewing-gpt-5-6-sol/" target="_blank" rel="noopener noreferrer">OpenAI 预览说明</a></td>
+              </tr>
+              <tr>
+                <td><strong>Anthropic Claude</strong><br />（Opus / Sonnet 等档位随版本变）</td>
+                <td>长文、编程、谨慎对齐风格突出</td>
+                <td>安全策略更严时可能多拒答；事实仍需核验</td>
+                <td><a href="https://www.anthropic.com/claude" target="_blank" rel="noopener noreferrer">anthropic.com/claude</a></td>
+              </tr>
+              <tr>
+                <td><strong>Google Gemini</strong></td>
+                <td>多模态与搜索生态结合</td>
+                <td>版本线多，注意产品名≠同一能力；专用场景仍要评测</td>
+                <td><a href="https://deepmind.google/models/gemini/" target="_blank" rel="noopener noreferrer">Gemini 模型页</a></td>
+              </tr>
+              <tr>
+                <td><strong>DeepSeek</strong></td>
+                <td>高性价比推理/代码路线常被关注</td>
+                <td>开源/API 版本能力不同；合规与部署环境要自评估</td>
+                <td><a href="https://www.deepseek.com/" target="_blank" rel="noopener noreferrer">deepseek.com</a></td>
+              </tr>
+              <tr>
+                <td><strong>通义 Qwen</strong> 等阿里系</td>
+                <td>中文场景与开源权重活跃</td>
+                <td>开源型号众多，选对尺寸与是否 Instruct</td>
+                <td><a href="https://github.com/QwenLM/Qwen" target="_blank" rel="noopener noreferrer">GitHub Qwen</a></td>
+              </tr>
+              <tr>
+                <td><strong>文心 / 豆包 / 混元 / 智谱</strong> 等</td>
+                <td>国内产品与 API 生态</td>
+                <td>能力随版本快变；以官方文档与你的业务集为准</td>
+                <td>各厂商控制台 / 开放平台（以官网为准）</td>
+              </tr>
+              <tr>
+                <td><strong>开源通用</strong><br />Llama、Mistral 等</td>
+                <td>可私有化部署</td>
+                <td>推理成本转成你的 GPU；安全对齐需自己做</td>
+                <td><a href="https://huggingface.co/models" target="_blank" rel="noopener noreferrer">Hugging Face Models</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="you-box">
+          <h4>结构意识</h4>
+          <p>
+            「最强」通常只在某个榜、某个任务上成立。生产选型顺序建议：
+            <strong>任务类型 → 数据是否出境 → 延迟成本 → 榜单粗筛 → 自有样例精测</strong>。
+          </p>
+        </div>
+      </section>
+
+      <section id="gpt56">
+        <h2>D. 专题：GPT‑5.6 的 Sol · Terra · Luna</h2>
+        <div class="pyramid">
+          <p class="pyramid-apex">同一代三个档：Sol 最强、Terra 日常、Luna 又快又省——选档比死磕「最新」更重要。</p>
+          <div class="pyramid-mid">
+            <ul>
+              <li>数字（5.6）= 世代；名字（Sol/Terra/Luna）= 能力与成本档位。</li>
+              <li>难题/高质量 → Sol；默认干活 → Terra；海量轻任务 → Luna。</li>
+              <li>三档都仍有知识截止与幻觉边界，不是物理世界自动免检。</li>
+            </ul>
+            <div class="source-near">
+              <span class="src-label">官方</span>
+              <a class="source-chip" href="https://openai.com/index/previewing-gpt-5-6-sol/">OpenAI · GPT‑5.6 Sol 说明</a>
+            </div>
+          </div>
+          <details class="pyramid-deep">
+            <summary>展开：分档细节与对照其他厂商</summary>
+            <div class="pyramid-deep-body">
+              <p>OpenAI 将分档设计为可独立演进的 tier。其他厂商亦有旗舰/均衡/轻量命名（如 Claude 的 Opus/Sonnet 等，以官网当前产品线为准）。生产环境建议做「任务路由」：按难度与成本自动选档，并用自有样例回归，而不是全局锁定最贵模型。</p>
+              <div class="source-near">
+                <a class="source-chip" href="https://www.anthropic.com/claude">Claude 官网</a>
+                <a class="source-chip" href="https://deepmind.google/models/gemini/">Gemini 模型页</a>
+                <a class="source-chip" href="https://artificialanalysis.ai/leaderboards/models">Artificial Analysis 对比</a>
+              </div>
+            </div>
+          </details>
+        </div>
+        <figure class="figure">
+          <div class="figure-media">
+            <img src="images/illustrations/model-tiers.jpg" alt="旗舰/均衡/快省三档模型示意" width="1600" height="900" />
+          </div>
+          <figcaption class="figure-cap">
+            <strong>命名逻辑（OpenAI 公开表述）</strong>
+            <span>数字表示代数；Sol / Terra / Luna 表示旗舰、均衡、快省档位。</span>
+          </figcaption>
+        </figure>
+
+        <div class="compare mb-24">
+          <div class="compare-box a">
+            <h4>☀ Sol</h4>
+            <p><strong>定位：</strong>家族内最强档，适合复杂推理、难编程、高质量长任务。<br />
+            <strong>边界：</strong>更贵；仍有截止与幻觉风险；不是物理世界自动执行保证。</p>
+          </div>
+          <div class="compare-box b">
+            <h4>🌍 Terra</h4>
+            <p><strong>定位：</strong>均衡档，日常主力常见选择，性价比取向。<br />
+            <strong>边界：</strong>极端难题可能弱于 Sol；需用任务分流。</p>
+          </div>
+        </div>
+        <div class="compare mb-24">
+          <div class="compare-box a">
+            <h4>🌙 Luna</h4>
+            <p><strong>定位：</strong>更快、更省，适合高频简单任务、分类、草稿、低延迟接口。<br />
+            <strong>边界：</strong>能力上限最低；别拿它扛关键决策与硬核推理。</p>
+          </div>
+          <div class="compare-box b">
+            <h4>和你怎么用</h4>
+            <p>默认 Terra 或中档；卡住再升 Sol；批量轻任务用 Luna。API 路由比「全程旗舰」更专业。</p>
+          </div>
+        </div>
+
+        <div class="links-panel">
+          <div class="link-row">
+            <span class="link-kind web">Official</span>
+            <div class="link-body">
+              <strong>OpenAI：Previewing GPT‑5.6 Sol</strong>
+              <p>官方对 Sol/Terra/Luna 分档、上下文与知识截止等说明的入口页（以页面最新内容为准）。</p>
+              <a href="https://openai.com/index/previewing-gpt-5-6-sol/" target="_blank" rel="noopener noreferrer">https://openai.com/index/previewing-gpt-5-6-sol/</a>
+            </div>
+          </div>
+        </div>
+        <blockquote>
+          其他厂商也有类似「旗舰 / 均衡 / 轻量」分档（名称不同）。学会<strong>分档思维</strong>，比记住某一个花名更重要。
+        </blockquote>
+      </section>
+
+      <section id="boards">
+        <h2>E. 权威排行榜与评测（可跳转）</h2>
+        <p>
+          榜单是「粗筛工具」，不是真理。建议至少交叉看：
+          <strong>人类偏好对战</strong> + <strong>代码/Agent 专项</strong> + <strong>开放权重榜</strong>。
+        </p>
+
+        <div class="links-panel">
+          <div class="link-row">
+            <span class="link-kind web">Arena</span>
+            <div class="link-body">
+              <strong>LMArena / Chatbot Arena 排行榜</strong>
+              <p>社区盲测对战 + Elo。看「真实聊天体感」的常用参考。原 LMSYS Arena 脉络，现以 lmarena.ai 为主入口。</p>
+              <a href="https://lmarena.ai/?leaderboard" target="_blank" rel="noopener noreferrer">https://lmarena.ai/?leaderboard</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind web">Board</span>
+            <div class="link-body">
+              <strong>Artificial Analysis · 模型排行</strong>
+              <p>综合质量、速度、价格等维度的独立比较站，适合选型时看性价比。</p>
+              <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener noreferrer">https://artificialanalysis.ai/leaderboards/models</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind web">Code</span>
+            <div class="link-body">
+              <strong>SWE-bench</strong>
+              <p>真实 GitHub issue 修 bug 类基准，衡量软件工程 Agent/模型能力。</p>
+              <a href="https://www.swebench.com/" target="_blank" rel="noopener noreferrer">https://www.swebench.com/</a>
+              · <a href="https://github.com/SWE-bench/SWE-bench" target="_blank" rel="noopener noreferrer">GitHub 仓库</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind web">Code</span>
+            <div class="link-body">
+              <strong>LiveCodeBench</strong>
+              <p>持续更新的代码评测，减轻「刷题泄露」问题。</p>
+              <a href="https://livecodebench.github.io/" target="_blank" rel="noopener noreferrer">https://livecodebench.github.io/</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind web">Open</span>
+            <div class="link-body">
+              <strong>Hugging Face Open LLM Leaderboard</strong>
+              <p>开放权重模型基准排行，看可本地/私有化部署的选项。</p>
+              <a href="https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard" target="_blank" rel="noopener noreferrer">Open LLM Leaderboard</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind web">Eval</span>
+            <div class="link-body">
+              <strong>Stanford HELM</strong>
+              <p>学术向整体评估框架，强调多场景、透明方法论。</p>
+              <a href="https://crfm.stanford.edu/helm/" target="_blank" rel="noopener noreferrer">https://crfm.stanford.edu/helm/</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind gh">GitHub</span>
+            <div class="link-body">
+              <strong>lm-sys / FastChat</strong>
+              <p>Chatbot Arena 相关开源栈与研究基础设施的重要仓库。</p>
+              <a href="https://github.com/lm-sys/FastChat" target="_blank" rel="noopener noreferrer">https://github.com/lm-sys/FastChat</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="you-box">
+          <h4>读榜防坑</h4>
+          <ul>
+            <li>榜一会变：版本、采样、是否「thinking/扩展推理」标签要看清。</li>
+            <li>聊天 Elo 高 ≠ 你的领域文档问答高。</li>
+            <li>开源榜高 ≠ 商用 API 同款行为（对齐与系统提示不同）。</li>
+            <li>最终以<strong>你的 20–50 条真实题</strong>回归测试为准。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="use">
+        <h2>F. 和你有什么关系 · 你可以怎么用</h2>
+        <div class="triad">
+          <div class="triad-card what">
+            <div class="triad-label">个人学习</div>
+            <p>用中档模型日常学；难题换旗舰；对事实类答案要求来源或自己检索核对。</p>
+          </div>
+          <div class="triad-card me">
+            <div class="triad-label">工作交付</div>
+            <p>对外材料、合同要点、数据结论：AI 出草稿 + 人终审。禁止「盲信旗舰」。</p>
+          </div>
+          <div class="triad-card use">
+            <div class="triad-label">产品 / 研发</div>
+            <p>做模型路由与护栏：简单→便宜快；难→旗舰；敏感→人在回路。接 RAG/工具补截止与幻觉。</p>
+          </div>
+        </div>
+
+        <h3>推荐决策顺序</h3>
+        <ol>
+          <li>任务属于哪类？（写文 / 代码 / 检索问答 / 多步 Agent / 多模态）</li>
+          <li>失败代价？（低→可自动；高→必须人审）</li>
+          <li>是否需要最新信息？（要→联网或 RAG）</li>
+          <li>用榜单缩小到 2–3 个候选</li>
+          <li>用自有样例 + 成本延迟复测</li>
+          <li>上线后持续抽检（Eval）</li>
+        </ol>
+        <p>
+          与前几页的拼图：边界解释了为什么需要
+          <a href="fundamentals.html#rag">RAG</a>、
+          <a href="fundamentals.html#loop">Loop 护栏</a>、
+          <a href="fundamentals.html#eval">评测</a> 与
+          <a href="embodied.html">具身安全/ODD</a>。
+        </p>
+      </section>
+
+      <section id="sources">
+        <h2>G. 延伸阅读：论文 · 开源 · 官方</h2>
+        <div class="links-panel">
+          <div class="link-row">
+            <span class="link-kind">Paper</span>
+            <div class="link-body">
+              <strong>Attention Is All You Need</strong>
+              <p>Transformer 基础，理解现代 LLM 能力从何而来。</p>
+              <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/1706.03762</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind">Paper</span>
+            <div class="link-body">
+              <strong>Chatbot Arena 相关开源与数据</strong>
+              <p>社区对战评测方法与数据开放（见 LMSYS / Arena 生态）。</p>
+              <a href="https://github.com/lm-sys/FastChat" target="_blank" rel="noopener noreferrer">https://github.com/lm-sys/FastChat</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind">Paper</span>
+            <div class="link-body">
+              <strong>SWE-bench 论文与排行</strong>
+              <p>真实软件工程任务基准。</p>
+              <a href="https://www.swebench.com/" target="_blank" rel="noopener noreferrer">https://www.swebench.com/</a>
+              · <a href="https://github.com/SWE-bench/SWE-bench" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind web">Official</span>
+            <div class="link-body">
+              <strong>OpenAI GPT‑5.6 Sol 说明</strong>
+              <a href="https://openai.com/index/previewing-gpt-5-6-sol/" target="_blank" rel="noopener noreferrer">https://openai.com/index/previewing-gpt-5-6-sol/</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind web">Official</span>
+            <div class="link-body">
+              <strong>Anthropic Claude</strong>
+              <a href="https://www.anthropic.com/claude" target="_blank" rel="noopener noreferrer">https://www.anthropic.com/claude</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind gh">GitHub</span>
+            <div class="link-body">
+              <strong>Qwen 开源</strong>
+              <a href="https://github.com/QwenLM/Qwen" target="_blank" rel="noopener noreferrer">https://github.com/QwenLM/Qwen</a>
+            </div>
+          </div>
+        </div>
+        <p>
+          排行与模型名更新极快：本页给出<strong>入口链接与读法</strong>；具体名次请以你打开当天的榜单页面为准。
+        </p>
+      </section>
+    </article>
+
+    <div class="hero-actions" style="margin-top: 40px; justify-content: flex-start;">
+      <a class="btn btn-primary" href="#boards">打开权威榜单区</a>
+      <a class="btn btn-secondary" href="fundamentals.html#eval">对照：评测与护栏</a>
+      <a class="btn btn-ghost" href="architectures.html">对照：框架选型</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p><strong style="color:var(--ink)">AI 通识知识库</strong> · ⑦ 能力边界</p>
+      <p class="footer-note">模型版本与榜单每日可能变化；请以官方文档与排行榜实时页面为准。本页提供结构、读法与可跳转入口。</p>
+    </div>
+  </footer>
+  <script src="js/shell.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

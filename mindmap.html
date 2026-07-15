@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="AI 结构地图：先建立知识架子，再理解名词如何挂载在一起。" />
+  <title>① 结构地图 · AI 通识知识库</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="has-sidebar">
+  <nav class="nav" aria-label="主导航">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">
+        <span class="nav-logo">AI</span>
+        <span>通识知识库</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">学习</a>
+        <a class="nav-link" href="glossary.html">词库</a>
+        <div class="nav-more-wrap">
+          <button type="button" class="nav-more-btn" aria-expanded="false">更多</button>
+          <div class="nav-more-panel">
+            <p class="hint">附录 · 内容完整保留</p>
+            <a href="mindmap.html">结构地图</a>
+            <a href="history.html">发展历史</a>
+            <a href="architectures.html">架构框架</a>
+            <a href="embodied.html">具身智能</a>
+            <a href="boundaries.html">边界深读</a>
+          </div>
+        </div>
+        <a class="nav-link nav-link-mobile-only" href="mindmap.html">结构地图</a>
+        <a class="nav-link nav-link-mobile-only" href="history.html">发展历史</a>
+        <a class="nav-link nav-link-mobile-only" href="architectures.html">架构框架</a>
+        <a class="nav-link nav-link-mobile-only" href="embodied.html">具身智能</a>
+        <a class="nav-link nav-link-mobile-only" href="boundaries.html">边界深读</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page page-narrow">
+    <header class="page-hero animate-in">
+      <div class="section-eyebrow">附录 · 结构地图</div>
+      <h1>结构地图</h1>
+      <p class="lead">
+        主线之外的「总览图」。建议先走完 <a href="fundamentals.html">主线六站</a>，再用本页复习名词挂在哪一层。
+      </p>
+    </header>
+
+    <div class="pyramid">
+      <p class="pyramid-apex">先认架子：模型 → 能力外挂 → 编排流程 → 你点开的 App。</p>
+      <div class="pyramid-mid">
+        <ul>
+          <li>听到生词，先问「它在哪一层」，比立刻背定义更省注意力。</li>
+          <li>Skill 是本事包，Workflow 是流水线——别混。</li>
+          <li>用模型前，记得去看能力边界与排行榜入口。</li>
+        </ul>
+        <div class="source-near">
+          <span class="src-label">就近</span>
+          <a class="source-chip" href="fundamentals.html">通识分层</a>
+          <a class="source-chip" href="boundaries.html">能力边界</a>
+          <a class="source-chip" href="https://lmarena.ai/?leaderboard">LMArena</a>
+        </div>
+      </div>
+      <details class="pyramid-deep">
+        <summary>展开：本页与整站如何拼</summary>
+        <div class="pyramid-deep-body">
+          <p>结构地图 = 目录树；发展史 = 时间因果；通识 = 零件说明书；词库 = 随查；架构/具身/边界 = 工程与验收。</p>
+        </div>
+      </details>
+    </div>
+
+    <section class="section">
+      <div class="section-header">
+        <div class="section-eyebrow">01 · 总图</div>
+        <h2 class="section-title">AI 通识长什么样</h2>
+        <p class="section-desc">中心是「能协作、能办事的 AI 系统」，向外是模型、能力外挂、编排方式。</p>
+      </div>
+      <figure class="figure">
+        <div class="figure-media">
+          <img src="images/illustrations/mindmap-ai.jpg" alt="AI 通识知识结构总览" width="1600" height="900" />
+        </div>
+        <figcaption class="figure-cap">
+          <strong>怎么读</strong>
+          <span>先找中心，再认主干。读完后合上眼，试着默写五层栈——默得出就过关。</span>
+        </figcaption>
+      </figure>
+      <div class="triad">
+        <div class="triad-card what">
+          <div class="triad-label">这张图是什么</div>
+          <p>整站知识的「目录树」。后面通识、词库、架构页都是树上的叶子展开。</p>
+        </div>
+        <div class="triad-card me">
+          <div class="triad-label">和你有关</div>
+          <p>你每天用的聊天 App 多在最外层应用；里面其实叠了模型+可能的检索/工具。</p>
+        </div>
+        <div class="triad-card use">
+          <div class="triad-label">你怎么用</div>
+          <p>遇到生词先在图上「找位置」；找不着再去词库搜。别一上来钻进框架名。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div class="section-eyebrow">02 · 名词如何相连</div>
+        <h2 class="section-title">从「字」到「能办事」的链条</h2>
+      </div>
+      <figure class="figure">
+        <div class="figure-media">
+          <img src="images/illustrations/terms-map.jpg" alt="专有词关系示意" width="1600" height="900" />
+        </div>
+        <figcaption class="figure-cap">
+          <strong>因果链（请顺着记）</strong>
+          <span>文字被切成 Token → 变成 Embedding 便于检索 → 人用 Prompt 说话 → 系统用 Context 填窗口 → 需要资料就 RAG → 需要动手就 Tool/Skill → 多步就 Workflow 或 Agent Loop → 跨会话靠 Memory。</span>
+        </figcaption>
+      </figure>
+      <div class="group">
+        <div class="group-item">
+          <div class="group-item-icon">1</div>
+          <div class="group-item-body">
+            <div class="group-item-title">表示：Token · Embedding</div>
+            <div class="group-item-desc">电脑如何表示语言。和你有关：影响「能塞进多少对话」、语义搜索是否准。</div>
+          </div>
+        </div>
+        <div class="group-item">
+          <div class="group-item-icon">2</div>
+          <div class="group-item-body">
+            <div class="group-item-title">交互：Prompt · Context</div>
+            <div class="group-item-desc">你怎么说、桌上放什么材料。和你有关：同一模型，写法不同效果天差地别。</div>
+          </div>
+        </div>
+        <div class="group-item">
+          <div class="group-item-icon">3</div>
+          <div class="group-item-body">
+            <div class="group-item-title">能力：RAG · Tool · Skill · Memory</div>
+            <div class="group-item-desc">从「会说」变成「有据、能做、会记」。和你有关：企业助手、插件、长期项目都靠它们。</div>
+          </div>
+        </div>
+        <div class="group-item">
+          <div class="group-item-icon">4</div>
+          <div class="group-item-body">
+            <div class="group-item-title">运行：Workflow · Agent · Loop</div>
+            <div class="group-item-desc">多步任务如何推进。和你有关：自动流程 vs 会自己决策的助理，选型不同。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div class="section-eyebrow">03 · 最易混的一对</div>
+        <h2 class="section-title">Skill vs Workflow</h2>
+      </div>
+      <figure class="figure">
+        <div class="figure-media">
+          <img src="images/illustrations/skill-vs-workflow.jpg" alt="Skill 与 Workflow 对比" width="1600" height="900" />
+        </div>
+        <figcaption class="figure-cap">
+          <strong>口诀</strong>
+          <span>Skill = 工具箱里的本事；Workflow = 上门服务的标准步骤。流程里可以调用技能。</span>
+        </figcaption>
+      </figure>
+      <div class="compare">
+        <div class="compare-box a">
+          <h4>🧰 Skill</h4>
+          <p><strong>是什么：</strong>可复用能力包。<br /><strong>和你：</strong>插件、个人提示模板库。<br /><strong>怎么用：</strong>把高频任务固化成一套说明+格式。</p>
+        </div>
+        <div class="compare-box b">
+          <h4>🛤️ Workflow</h4>
+          <p><strong>是什么：</strong>有顺序的步骤网。<br /><strong>和你：</strong>审批流、内容生产流水线。<br /><strong>怎么用：</strong>步骤稳定就画流程；开放探索再上 Agent。</p>
+        </div>
+      </div>
+      <p style="font-size:var(--fs-base);color:var(--ink-mute);margin-top:12px;">
+        展开：<a href="fundamentals.html#s4">通识主线 · 第 4 章 Skill</a>
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div class="section-eyebrow">04 · 五层栈</div>
+        <h2 class="section-title">从底座到你点开的 App</h2>
+      </div>
+      <figure class="figure">
+        <div class="figure-media">
+          <img src="images/illustrations/ai-stack.jpg" alt="五层栈" width="1200" height="900" />
+        </div>
+        <figcaption class="figure-cap">
+          <strong>自测</strong>
+          <span>ChatGPT 聊天在哪层？公司知识库问答多了哪层？自动「写→审→发」又多了哪层？答得出说明架子立住了。</span>
+        </figcaption>
+      </figure>
+      <div class="stack">
+        <div class="stack-layer l1"><h4>⑤ 应用</h4><p>你直接用的产品界面</p></div>
+        <div class="stack-arrow">↓</div>
+        <div class="stack-layer l2"><h4>④ 编排</h4><p>Workflow / Agent / 多 Agent</p></div>
+        <div class="stack-arrow">↓</div>
+        <div class="stack-layer l3"><h4>③ 能力</h4><p>RAG · Tool · Skill · Memory</p></div>
+        <div class="stack-arrow">↓</div>
+        <div class="stack-layer l4"><h4>② 模型</h4><p>LLM / 多模态</p></div>
+        <div class="stack-arrow">↓</div>
+        <div class="stack-layer l5"><h4>① 底座</h4><p>数据 · 算力 · 训练（了解即可）</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div class="section-eyebrow">05–06 · 往后两页在干什么</div>
+        <h2 class="section-title">结构之后：时间 &amp; 零件</h2>
+      </div>
+      <div class="card-grid">
+        <a class="card card-link" href="history.html">
+          <div class="card-thumb"><img src="images/illustrations/history-path.jpg" alt="发展史" /></div>
+          <h3>② 发展史 · 时间逻辑</h3>
+          <p>架子为什么长成今天这样？每一跃迁后普通人多了什么？</p>
+          <div class="card-meta">下一步推荐 →</div>
+        </a>
+        <a class="card card-link" href="fundamentals.html">
+          <div class="card-thumb"><img src="images/illustrations/llm-library.jpg" alt="通识" /></div>
+          <h3>③ 通识分层 · 功能逻辑</h3>
+          <p>每个零件：是什么、和你有关、怎么用。核心必读。</p>
+          <div class="card-meta">再下一步 →</div>
+        </a>
+        <a class="card card-link" href="architectures.html">
+          <div class="card-thumb"><img src="images/illustrations/frameworks-board.jpg" alt="架构" /></div>
+          <h3>⑤ 架构选型 · 应用逻辑</h3>
+          <p>框架名如何对应「图 / 团队 / 圆桌 / 低代码」这些结构。</p>
+          <div class="card-meta">进阶 →</div>
+        </a>
+      </div>
+    </section>
+
+    <div class="hero-actions" style="margin-top: 36px; justify-content: flex-start;">
+      <a class="btn btn-primary" href="fundamentals.html">进入通识主线（含沙盒）</a>
+      <a class="btn btn-secondary" href="history.html">或看时间线</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p><strong style="color:var(--ink)">AI 通识知识库</strong> · ① 结构地图</p>
+      <p class="footer-note">本页目标：建立结构意识。细节定义以通识分层与词库为准。</p>
+    </div>
+  </footer>
+  <script src="js/shell.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

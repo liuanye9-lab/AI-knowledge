@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="具身智能通识：以无人驾驶十年历程切入，串联感知-决策-控制与 AGI 相关概念，依据公开论文与标准。" />
+  <title>⑥ 具身智能 · AI 通识知识库</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="has-sidebar">
+  <nav class="nav" aria-label="主导航">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">
+        <span class="nav-logo">AI</span>
+        <span>通识知识库</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">学习</a>
+        <a class="nav-link" href="glossary.html">词库</a>
+        <div class="nav-more-wrap">
+          <button type="button" class="nav-more-btn" aria-expanded="false">更多</button>
+          <div class="nav-more-panel">
+            <p class="hint">附录 · 内容完整保留</p>
+            <a href="mindmap.html">结构地图</a>
+            <a href="history.html">发展历史</a>
+            <a href="architectures.html">架构框架</a>
+            <a href="embodied.html">具身智能</a>
+            <a href="boundaries.html">边界深读</a>
+          </div>
+        </div>
+        <a class="nav-link nav-link-mobile-only" href="mindmap.html">结构地图</a>
+        <a class="nav-link nav-link-mobile-only" href="history.html">发展历史</a>
+        <a class="nav-link nav-link-mobile-only" href="architectures.html">架构框架</a>
+        <a class="nav-link nav-link-mobile-only" href="embodied.html">具身智能</a>
+        <a class="nav-link nav-link-mobile-only" href="boundaries.html">边界深读</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page page-narrow">
+    <header class="page-hero animate-in">
+      <div class="section-eyebrow">STEP 06 · 物理世界线（时间 + 上下游）</div>
+      <h1>具身智能</h1>
+      <p class="lead">
+        前面学的是「会说话、会办事」的软件智能。本页补上另一条主线：
+        <strong>智能住进身体，在真实世界里感知与行动</strong>。
+        我们用<strong>无人驾驶约十年关键历程</strong>当切入点——它是目前最完整、最公开的「具身系统」落地实验室。
+      </p>
+      <div class="page-hero-art">
+        <img src="images/illustrations/embodied-concept.jpg" alt="具身智能概念示意：身体、感知、决策与行动" width="1600" height="900" />
+      </div>
+    </header>
+
+    <div class="you-box">
+      <h4>本页怎么读（逻辑顺序）</h4>
+      <p>
+        <strong>A. 是什么</strong>（具身 vs 纯语言模型）→
+        <strong>B. 上下游流水线</strong>（感知→世界模型→规划→控制）→
+        <strong>C. 时间线</strong>（从 ALVINN/DARPA 到 Robotaxi 与机器人基座模型）→
+        <strong>D. 无人驾驶专线</strong>（十年关键节点 + SAE 等级）→
+        <strong>E. 通向 AGI 的概念前瞻</strong>（均标注论文/标准/开源来源）→
+        <strong>F. 和你有关 / 怎么用</strong>。
+      </p>
+    </div>
+
+    <nav class="pill-nav" aria-label="本页目录">
+      <a href="#what">是什么</a>
+      <a href="#pipeline">上下游</a>
+      <a href="#timeline">时间线</a>
+      <a href="#av10">无人驾驶十年</a>
+      <a href="#sae">SAE 等级</a>
+      <a href="#agi">AGI 前瞻</a>
+      <a href="#you">和你有关</a>
+      <a href="#sources">资料来源</a>
+    </nav>
+
+    <article class="prose">
+      <section id="what">
+        <h2>A. 具身智能是什么</h2>
+        <div class="triad">
+          <div class="triad-card what">
+            <div class="triad-label">是什么</div>
+            <p>具身智能（Embodied AI / Embodied Intelligence）强调：智能体通过<strong>身体</strong>与环境交互——用传感器感知、用执行器行动，在反馈中学习。不是只在文本里「说」，还要在物理世界里「做」。</p>
+          </div>
+          <div class="triad-card me">
+            <div class="triad-label">和你有关</div>
+            <p>无人车、扫地机、仓储机器人、人形机器人、无人机，都在走这条线。你坐的 Robotaxi 试验服务，本质是「车轮上的具身智能」。</p>
+          </div>
+          <div class="triad-card use">
+            <div class="triad-label">怎么建立直觉</div>
+            <p>聊天模型 = 大脑在房间里答题；具身系统 = 大脑必须边走边看边刹车。出错代价从「说错话」变成「撞到东西」。</p>
+          </div>
+        </div>
+        <div class="analogy">
+          <div class="analogy-icon">🦿</div>
+          <div class="analogy-body">
+            <div class="analogy-label">类比</div>
+            <p class="analogy-text">
+              纯 LLM 像书斋里的谋士；具身智能像必须下场踢球的球员——规则、体力、现场噪音全要扛。
+              哲学与认知科学上，「身体经验塑造认知」可追溯到具身认知传统；机器人学里 Brooks 的包容架构（subsumption）强调与环境紧密耦合的行为层（1980s）。
+            </p>
+          </div>
+        </div>
+        <p>
+          近年综述（如 arXiv:2402.02385《A Survey on Robotics with Foundation Models》、清华相关综述
+          <em>Embodied AI: From LLMs to World Models</em>）把具身进展概括为：
+          经典规划/控制 → 深度学习感知 → <strong>大模型/多模态/世界模型</strong>驱动的通用机器人能力。
+        </p>
+      </section>
+
+      <section id="pipeline">
+        <h2>B. 上下游顺序：一辆车/一个机器人怎么「活」</h2>
+        <p>无论无人驾驶还是机械臂，工程上常可粗分为同一条能力链（具体产品会合并模块）：</p>
+        <figure class="figure">
+          <div class="figure-media">
+            <img src="images/illustrations/embodied-stack.jpg" alt="具身智能上下游：感知到执行" width="1200" height="900" />
+          </div>
+          <figcaption class="figure-cap">
+            <strong>上游 → 下游</strong>
+            <span>传感器与感知 →（可选）世界模型/预测 → 规划与决策 → 控制与执行器 → 身体/底盘在真实世界产生结果，再反馈回感知。</span>
+          </figcaption>
+        </figure>
+        <div class="stack mb-24">
+          <div class="stack-layer l1"><h4>1. 感知 Perception</h4><p>相机、激光雷达、毫米波雷达、IMU… 回答「周围有什么、在哪」</p></div>
+          <div class="stack-arrow">↓</div>
+          <div class="stack-layer l2"><h4>2. 理解与预测</h4><p>检测跟踪、占用栅格、轨迹预测；进阶用「世界模型」想象下一步</p></div>
+          <div class="stack-arrow">↓</div>
+          <div class="stack-layer l3"><h4>3. 规划 Planning</h4><p>全局路线 + 局部轨迹：往哪开、怎么绕开障碍</p></div>
+          <div class="stack-arrow">↓</div>
+          <div class="stack-layer l4"><h4>4. 控制 Control</h4><p>油门/刹车/转向或关节力矩：把轨迹变成可执行指令</p></div>
+          <div class="stack-arrow">↓</div>
+          <div class="stack-layer l5"><h4>5. 身体 + 环境反馈</h4><p>车轮/手臂动了，世界变了，传感器再读——闭环</p></div>
+        </div>
+        <div class="you-box">
+          <h4>和软件 Agent 对照（结构意识）</h4>
+          <p>
+            软件 Agent：LLM + Tool + Loop。<br />
+            具身 Agent：感知 +（世界模型）+ 规划 + 控制 + 物理 Loop。<br />
+            共同难点：长尾场景、安全急停、可观测与评测。详见 <a href="fundamentals.html#loop">Loop 工程</a>。
+          </p>
+        </div>
+      </section>
+
+      <section id="timeline">
+        <h2>C. 具身相关时间线（真实节点）</h2>
+        <p>不背全部年份，抓住「范式切换」：规则/经典规划 → 学习驾驶 → 竞赛验证 → 商业 Robotaxi → 机器人基座模型。</p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">1980s · 行为与导航实验</div>
+            <h3 class="timeline-title">从符号规划到「贴地」行为</h3>
+            <p class="timeline-body">
+              Brooks 提出包容架构，强调分层反应式控制、与传感器闭环。
+              CMU Navlab 等项目把计算与传感器搬上真实车辆做导航实验（Mobileye 等机构整理的 AV 史亦引用这一脉络）。
+            </p>
+            <div class="timeline-card"><strong>意义：</strong>智能开始「住进能移动的身体」，而不只在仿真逻辑里推演。</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">1988–1989 · 学习驾驶</div>
+            <h3 class="timeline-title">ALVINN：神经网络端到端跟车</h3>
+            <p class="timeline-body">
+              Dean Pomerleau 的 <strong>ALVINN</strong>（Autonomous Land Vehicle In a Neural Network，NIPS 1988 / CMU 1989）用多层网络把相机等输入映射为方向输出，在 CMU NAVLAB 上做道路跟随。
+              这是「用学习替代纯手写规则开车」的经典论文节点。
+              论文：<a href="https://proceedings.neurips.cc/paper/1988/hash/812b4ba287f5ee0bc9d43bbf5bbe87fb-Abstract.html" target="_blank" rel="noopener noreferrer">NIPS 1988 ALVINN</a>
+            </p>
+            <div class="timeline-card"><strong>和今天有关：</strong>后来端到端驾驶、模仿学习的思想远亲；也说明「数据+学习」很早就进了具身。</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">1995 · 长距离示范</div>
+            <h3 class="timeline-title">No Hands Across America</h3>
+            <p class="timeline-body">
+              CMU Navlab 5 完成匹兹堡到圣地亚哥长距离行程，转向自主比例极高（公开史述常引约 98% 转向自主），油门刹车仍由人负责——展示「高速路跟驰/车道保持」可行性。
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2004–2007 · DARPA 挑战赛</div>
+            <h3 class="timeline-title">从「没人跑完」到城市挑战</h3>
+            <p class="timeline-body">
+              <strong>2004</strong> DARPA Grand Challenge：沙漠越野，无车完成。<br />
+              <strong>2005</strong> 五车完赛，Stanford <strong>Stanley</strong> 夺冠。<br />
+              <strong>2007</strong> Urban Challenge：城市场景，CMU 等获胜。激光雷达等传感路线被广泛验证。<br />
+              官方：<a href="https://www.darpa.mil/about/innovation-timeline/grand-challenge" target="_blank" rel="noopener noreferrer">DARPA Grand Challenge</a>
+              · 复盘：<a href="https://spectrum.ieee.org/darpa-grand-challenge" target="_blank" rel="noopener noreferrer">IEEE Spectrum</a>
+            </p>
+            <div class="timeline-card"><strong>意义：</strong>竞赛把「自动驾驶能工作」推到产业与资本议程，开启后十年创业潮。</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2009–2016 · 产业启动</div>
+            <h3 class="timeline-title">Google 自动驾驶项目 → Waymo；SAE 等级</h3>
+            <p class="timeline-body">
+              Google 启动自驾项目（后独立为 <strong>Waymo</strong>）。
+              <strong>SAE J3016</strong>（2014 首版，后修订）定义 L0–L5 驾驶自动化等级，成为全球沟通标准。
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">约 2015–2018 · 辅助驾驶普及</div>
+            <h3 class="timeline-title">量产 ADAS / Autopilot 进入消费市场</h3>
+            <p class="timeline-body">
+              各车企与供应商推进 L1–L2 级辅助（自适应巡航、车道保持等）。
+              注意：营销用语 ≠ SAE 等级；L2 仍要求人类随时接管。
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2018–2020s · Robotaxi 商业化</div>
+            <h3 class="timeline-title">限定区域内的无人车服务</h3>
+            <p class="timeline-body">
+              Waymo One 等在特定城市/运营设计域（ODD）推出面向公众的自动驾驶网约服务（公司官方时间线记载 Phoenix 等里程碑）。
+              中国亦有多家 Robotaxi 试点。共性：<strong>限定区域 + 高安全冗余 + 持续运营数据</strong>。
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2022–2024 · 机器人 × 大模型</div>
+            <h3 class="timeline-title">SayCan、PaLM-E、RT-2、OpenVLA…</h3>
+            <p class="timeline-body">
+              Google 等提出 <strong>SayCan</strong>（语言模型接地到机器人可执行技能）、
+              <strong>PaLM-E</strong>（具身多模态语言模型）、
+              <strong>RT-2</strong>（Vision-Language-Action）。
+              开源侧出现 <strong>OpenVLA</strong>（约 7B 参数）等，推动「通用操作」研究。<br />
+              <a href="https://arxiv.org/abs/2204.01691" target="_blank" rel="noopener noreferrer">SayCan 论文</a> ·
+              <a href="https://github.com/google-research/google-research/tree/master/saycan" target="_blank" rel="noopener noreferrer">SayCan 代码</a> ·
+              <a href="https://arxiv.org/abs/2303.03378" target="_blank" rel="noopener noreferrer">PaLM-E</a> ·
+              <a href="https://arxiv.org/abs/2307.15818" target="_blank" rel="noopener noreferrer">RT-2</a> ·
+              <a href="https://arxiv.org/abs/2406.09246" target="_blank" rel="noopener noreferrer">OpenVLA 论文</a> ·
+              <a href="https://github.com/openvla/openvla" target="_blank" rel="noopener noreferrer">OpenVLA GitHub</a>
+            </p>
+            <div class="timeline-card"><strong>意义：</strong>具身从「专用栈」走向「基座模型 + 动作接口」，与软件侧 LLM Agent 浪潮汇合。</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="av10">
+        <h2>D. 切入点：无人驾驶「关键十年」怎么读</h2>
+        <figure class="figure">
+          <div class="figure-media">
+            <img src="images/illustrations/av-timeline.jpg" alt="无人驾驶关键节点路径示意" width="1600" height="900" />
+          </div>
+          <figcaption class="figure-cap">
+            <strong>读法</strong>
+            <span>把「十年」理解为：竞赛证明可行 → 标准统一语言 → 辅助驾驶上量 → 限定域 Robotaxi → 学习型/端到端方法与安全运营并行。</span>
+          </figcaption>
+        </figure>
+
+        <div class="table-wrap mb-24">
+          <table>
+            <thead>
+              <tr>
+                <th>阶段</th>
+                <th>大约时间</th>
+                <th>关键事实（可查证）</th>
+                <th>对应具身知识点</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>证明可行</td>
+                <td>2004–2007</td>
+                <td>DARPA Grand / Urban Challenge</td>
+                <td>传感融合、规划、真实环境闭环</td>
+              </tr>
+              <tr>
+                <td>产业成型</td>
+                <td>2009–2016</td>
+                <td>Google→Waymo；SAE J3016（2014）</td>
+                <td>ODD、安全冗余、等级语言</td>
+              </tr>
+              <tr>
+                <td>消费辅助</td>
+                <td>2015 前后起</td>
+                <td>L1–L2 ADAS 大规模上车</td>
+                <td>人机共驾、接管责任</td>
+              </tr>
+              <tr>
+                <td>运营服务</td>
+                <td>2018 起</td>
+                <td>Waymo One 等 Robotaxi 公开服务</td>
+                <td>车队运维、远程协助、长尾场景</td>
+              </tr>
+              <tr>
+                <td>学习范式</td>
+                <td>2010s–2020s</td>
+                <td>模块化栈 vs 端到端/大模型增强（业界路线并行）</td>
+                <td>模仿学习、数据闭环、仿真</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>无人驾驶教会具身智能的 5 课</h3>
+        <ol>
+          <li><strong>ODD（运营设计域）</strong>：先在限定天气/区域/速度内可靠，再谈扩展——不是一步 L5。</li>
+          <li><strong>长尾（Long tail）</strong>：罕见场景决定安全上限；数据与仿真要专门打长尾。</li>
+          <li><strong>感知不是目的，闭环才是</strong>：看懂了却刹不住 = 失败。</li>
+          <li><strong>人机权责</strong>：L2 与 L4 法律责任与用户心智完全不同（见 SAE）。</li>
+          <li><strong>评测与运维是产品</strong>：上线后的监控、远程接管、事件复盘，和模型精度同等重要。</li>
+        </ol>
+      </section>
+
+      <section id="sae">
+        <h2>E. SAE 驾驶自动化等级（标准语言）</h2>
+        <p>来源：<strong>SAE J3016</strong>（2014 提出，后与 ISO 协作修订）。从 L0 到 L5：</p>
+        <div class="group mb-24">
+          <div class="group-item">
+            <div class="group-item-icon">L0</div>
+            <div class="group-item-body">
+              <div class="group-item-title">无自动化</div>
+              <div class="group-item-desc">人全权驾驶；可有警告类功能。</div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">L1</div>
+            <div class="group-item-body">
+              <div class="group-item-title">驾驶支持</div>
+              <div class="group-item-desc">横向或纵向辅助其一（如自适应巡航或车道保持之一）。</div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">L2</div>
+            <div class="group-item-body">
+              <div class="group-item-title">部分自动化</div>
+              <div class="group-item-desc">横向+纵向同时辅助，人必须监督并随时接管。多数量产「高阶辅助」在此。</div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">L3</div>
+            <div class="group-item-body">
+              <div class="group-item-title">有条件自动化</div>
+              <div class="group-item-desc">系统在 ODD 内可执行动态驾驶任务，但会请求人接管。</div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">L4</div>
+            <div class="group-item-body">
+              <div class="group-item-title">高度自动化</div>
+              <div class="group-item-desc">在 ODD 内可不依赖人；Robotaxi 常见宣传层级。出 ODD 则限制运行。</div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">L5</div>
+            <div class="group-item-body">
+              <div class="group-item-title">完全自动化</div>
+              <div class="group-item-desc">任意可行驶环境、不需人。目前仍是长期目标，而非普遍量产现实。</div>
+            </div>
+          </div>
+        </div>
+        <div class="you-box">
+          <h4>你可以怎么用这个标准</h4>
+          <p>看车广告时问：它按 SAE 是 L几？是否要求手扶方向盘？是否限定高速/城市？别被「自动驾驶」四字带偏。</p>
+        </div>
+      </section>
+
+      <section id="agi">
+        <h2>F. 通向更强智能时：还可能高频出现的概念</h2>
+        <p>
+          以下不是科幻清单，而是<strong>已在论文、开源或产业路线中反复出现</strong>、并与具身/通用智能讨论强相关的概念。
+          「AGI 时代」这里指：系统在多样任务与环境中更通用、更少为单一场景重写规则——是否达到严格 AGI 定义，学界仍有争议。
+        </p>
+        <figure class="figure">
+          <div class="figure-media">
+            <img src="images/illustrations/agi-concepts.jpg" alt="具身与通用智能相关概念示意" width="1600" height="900" />
+          </div>
+          <figcaption class="figure-cap">
+            <strong>结构</strong>
+            <span>世界模型、多模态基座、VLA、仿真到现实、开放式学习与对齐安全——构成讨论「下一代具身」的常用词汇表。</span>
+          </figcaption>
+        </figure>
+
+        <div class="group">
+          <div class="group-item">
+            <div class="group-item-icon">1</div>
+            <div class="group-item-body">
+              <div class="group-item-title">World Model 世界模型</div>
+              <div class="group-item-desc">
+                <strong>是什么：</strong>内部模拟环境如何随动作变化，用于预测与规划。
+                代表脉络：Ha &amp; Schmidhuber 世界模型论文；Dreamer 系列（如 DreamerV3）；LeCun JEPA 等表示学习讨论；视频生成模型也被探索作世界模拟器（如 Sora 相关技术报告引发的讨论）。
+                <strong>和你有关：</strong>让机器人/车辆在「脑内预演」再行动，降低试错成本。
+              </div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">2</div>
+            <div class="group-item-body">
+              <div class="group-item-title">VLA · Vision-Language-Action</div>
+              <div class="group-item-desc">
+                <strong>是什么：</strong>统一看图、懂语言、出动作的模型。代表：RT-2（Google DeepMind 等，arXiv:2307.15818）、开源 OpenVLA。
+                <strong>和你有关：</strong>对机器人说「把红杯子放到左边」成为研究主航道之一。
+              </div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">3</div>
+            <div class="group-item-body">
+              <div class="group-item-title">Embodied Multimodal LM（如 PaLM-E）</div>
+              <div class="group-item-desc">
+                <strong>是什么：</strong>把连续传感器状态与语言放进同一大模型（PaLM-E, arXiv:2303.03378）。
+                <strong>和你有关：</strong>「大模型直接当机器人大脑」的路线图节点。
+              </div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">4</div>
+            <div class="group-item-body">
+              <div class="group-item-title">Skill grounding · SayCan 式接地</div>
+              <div class="group-item-desc">
+                <strong>是什么：</strong>语言模型提出步骤，再用价值/可行性函数选择机器人真正能执行的技能（SayCan）。
+                <strong>和你有关：</strong>对应软件侧的 Tool/Skill，只是工具变成「抓取、开门、导航」等身体技能。
+              </div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">5</div>
+            <div class="group-item-body">
+              <div class="group-item-title">Sim2Real 仿真到现实</div>
+              <div class="group-item-desc">
+                <strong>是什么：</strong>在仿真中训练策略，迁移到真机。开源仿真/平台如 Habitat、Isaac、MuJoCo 等被广泛使用。
+                <strong>和你有关：</strong>真机数据贵且危险，仿真是具身进步的加速器，也有「仿真偏差」问题。
+              </div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">6</div>
+            <div class="group-item-body">
+              <div class="group-item-title">ODD · 运营设计域</div>
+              <div class="group-item-desc">
+                <strong>是什么：</strong>系统被设计和验证可运行的条件集合（区域、天气、速度等）。自动驾驶安全论证的核心概念。
+                <strong>和你有关：</strong>解释为何 Robotaxi 先在固定城市运营，而不是「全国随便开」。
+              </div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">7</div>
+            <div class="group-item-body">
+              <div class="group-item-title">Foundation models for robotics</div>
+              <div class="group-item-desc">
+                <strong>是什么：</strong>用大规模预训练服务多种机器人任务（综述 arXiv:2402.02385）。
+                <strong>和你有关：</strong>类比 LLM 基座：少标数据也能适配新任务——仍在早期，但方向明确。
+              </div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">8</div>
+            <div class="group-item-body">
+              <div class="group-item-title">Open-ended / continual learning</div>
+              <div class="group-item-desc">
+                <strong>是什么：</strong>持续从新环境学习、扩展技能，而不灾难性遗忘。开放环境智能体研究的常见主题。
+                <strong>和你有关：</strong>家庭机器人要适应「你家独特的桌椅布局」，不能只靠出厂固定技能包。
+              </div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">9</div>
+            <div class="group-item-body">
+              <div class="group-item-title">Constitutional / scalable oversight · 具身对齐</div>
+              <div class="group-item-desc">
+                <strong>是什么：</strong>软件侧对齐方法延伸到「有身体的系统」：禁止危险动作、人在回路、可中断（与 Anthropic 等对齐研究、机器人安全文献交叉）。
+                <strong>和你有关：</strong>没有对齐与急停的具身系统，比会胡说的聊天机器人危险得多。
+              </div>
+            </div>
+          </div>
+          <div class="group-item">
+            <div class="group-item-icon">10</div>
+            <div class="group-item-body">
+              <div class="group-item-title">Multi-agent physical systems</div>
+              <div class="group-item-desc">
+                <strong>是什么：</strong>多车编队、多机器人协作仓储。对应软件 Multi-Agent，但增加空间冲突与通信约束。
+                <strong>和你有关：</strong>未来城市可能是「车队+路边单元+云端调度」的系统，而不只是单车智能。
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <blockquote>
+          <strong>结构收束：</strong>若 AGI 讨论落到工程，具身侧更可能是
+          「多模态世界模型 + 可接地技能 + 仿真与真机数据闭环 + 严格 ODD/安全案例」，
+          而不是单独一个无限聊天窗口。
+        </blockquote>
+      </section>
+
+      <section id="you">
+        <h2>G. 和你有什么关系 · 你可以怎么用</h2>
+        <div class="triad">
+          <div class="triad-card what">
+            <div class="triad-label">普通人</div>
+            <p>理解 L2 与 L4 差别；坐 Robotaxi 时知道 ODD 与远程协助；对「全自动驾驶已普及」类话术保持核查习惯。</p>
+          </div>
+          <div class="triad-card me">
+            <div class="triad-label">学生 / 转行</div>
+            <p>路径可参考：机器人感知（检测/SLAM 基础）→ 控制入门 → 强化学习/模仿学习 → 跟读 RT-2、OpenVLA、Dreamer 等开源与论文。</p>
+          </div>
+          <div class="triad-card use">
+            <div class="triad-label">产品 / 业务</div>
+            <p>先定义 ODD 与失败模式，再谈模型；优先可中断、可复盘的闭环。软件 Agent 经验（评测、护栏）可迁移到具身，但必须加物理安全层。</p>
+          </div>
+        </div>
+        <div class="you-box">
+          <h4>和前面五页如何拼在一起</h4>
+          <ul>
+            <li><a href="mindmap.html">① 结构</a>：具身是「应用层」下的另一条身体栈，与纯软件栈并行。</li>
+            <li><a href="history.html">② 历史</a>：LLM 爆发是软件侧；DARPA→Robotaxi 是物理侧。</li>
+            <li><a href="fundamentals.html">③ 通识</a>：感知≈检索世界，规划≈Agent，控制≈Tool 执行，ODD≈Guardrail。</li>
+            <li><a href="architectures.html">⑤ 架构</a>：模块化自动驾驶栈 vs 端到端/VLA，类似 Workflow vs 单一大模型路由。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="sources">
+        <h2>H. 论文 · 标准 · GitHub（可点击跳转）</h2>
+        <p>
+          下列链接均为公开可访问的论文页、官方站点或 GitHub 仓库，点击即可打开原文。
+          产业节点变化快时，以监管与公司最新公告为准。
+        </p>
+
+        <h3>论文（arXiv / 会议）</h3>
+        <div class="links-panel">
+          <div class="link-row">
+            <span class="link-kind">Paper</span>
+            <div class="link-body">
+              <strong>ALVINN — 神经网络道路跟随（经典）</strong>
+              <p>Pomerleau, NIPS 1988. 学习型自动驾驶早期代表。</p>
+              <a href="https://proceedings.neurips.cc/paper/1988/hash/812b4ba287f5ee0bc9d43bbf5bbe87fb-Abstract.html" target="_blank" rel="noopener noreferrer">https://proceedings.neurips.cc/paper/1988/hash/812b4ba287f5ee0bc9d43bbf5bbe87fb-Abstract.html</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind">Paper</span>
+            <div class="link-body">
+              <strong>SayCan — 语言接地到机器人技能</strong>
+              <p>Ahn et al., arXiv:2204.01691. Do As I Can, Not As I Say.</p>
+              <a href="https://arxiv.org/abs/2204.01691" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2204.01691</a>
+              · <a href="https://say-can.github.io/" target="_blank" rel="noopener noreferrer">项目主页</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind">Paper</span>
+            <div class="link-body">
+              <strong>PaLM-E — 具身多模态语言模型</strong>
+              <p>Driess et al., arXiv:2303.03378.</p>
+              <a href="https://arxiv.org/abs/2303.03378" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2303.03378</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind">Paper</span>
+            <div class="link-body">
+              <strong>RT-2 — Vision-Language-Action</strong>
+              <p>Brohan et al., arXiv:2307.15818. 将 VLM 能力迁移到机器人控制。</p>
+              <a href="https://arxiv.org/abs/2307.15818" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2307.15818</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind">Paper</span>
+            <div class="link-body">
+              <strong>OpenVLA — 开源 7B VLA</strong>
+              <p>Kim et al., arXiv:2406.09246. 开源视觉-语言-动作模型。</p>
+              <a href="https://arxiv.org/abs/2406.09246" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2406.09246</a>
+              · <a href="https://openvla.github.io/" target="_blank" rel="noopener noreferrer">项目主页</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind">Paper</span>
+            <div class="link-body">
+              <strong>Robotics with Foundation Models 综述</strong>
+              <p>Xu et al., arXiv:2402.02385. 机器人与基座模型综览。</p>
+              <a href="https://arxiv.org/abs/2402.02385" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2402.02385</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind">Paper</span>
+            <div class="link-body">
+              <strong>World Models</strong>
+              <p>Ha &amp; Schmidhuber, arXiv:1803.10122. 世界模型经典论文。</p>
+              <a href="https://arxiv.org/abs/1803.10122" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/1803.10122</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind">Paper</span>
+            <div class="link-body">
+              <strong>Attention Is All You Need（Transformer）</strong>
+              <p>Vaswani et al., arXiv:1706.03762. 现代 LLM 架构基础。</p>
+              <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/1706.03762</a>
+            </div>
+          </div>
+        </div>
+
+        <h3>GitHub 开源项目</h3>
+        <div class="links-panel">
+          <div class="link-row">
+            <span class="link-kind gh">GitHub</span>
+            <div class="link-body">
+              <strong>openvla/openvla</strong>
+              <p>开源 VLA 训练与推理代码。</p>
+              <a href="https://github.com/openvla/openvla" target="_blank" rel="noopener noreferrer">https://github.com/openvla/openvla</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind gh">GitHub</span>
+            <div class="link-body">
+              <strong>google-research / saycan</strong>
+              <p>SayCan 桌面仿真开源实现（官方仓库子目录）。</p>
+              <a href="https://github.com/google-research/google-research/tree/master/saycan" target="_blank" rel="noopener noreferrer">https://github.com/google-research/google-research/tree/master/saycan</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind gh">GitHub</span>
+            <div class="link-body">
+              <strong>facebookresearch/habitat-lab</strong>
+              <p>具身智能训练与评测高层库（Habitat）。</p>
+              <a href="https://github.com/facebookresearch/habitat-lab" target="_blank" rel="noopener noreferrer">https://github.com/facebookresearch/habitat-lab</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind gh">GitHub</span>
+            <div class="link-body">
+              <strong>danijar/dreamerv3</strong>
+              <p>DreamerV3 世界模型强化学习官方实现。</p>
+              <a href="https://github.com/danijar/dreamerv3" target="_blank" rel="noopener noreferrer">https://github.com/danijar/dreamerv3</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind gh">GitHub</span>
+            <div class="link-body">
+              <strong>HCPLab-SYSU/Embodied_AI_Paper_List</strong>
+              <p>具身智能论文与资源列表（社区维护，便于继续深挖）。</p>
+              <a href="https://github.com/HCPLab-SYSU/Embodied_AI_Paper_List" target="_blank" rel="noopener noreferrer">https://github.com/HCPLab-SYSU/Embodied_AI_Paper_List</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind gh">GitHub</span>
+            <div class="link-body">
+              <strong>langchain-ai/langgraph</strong>
+              <p>软件侧有状态 Agent / 工作流编排（与具身「规划循环」对照读）。</p>
+              <a href="https://github.com/langchain-ai/langgraph" target="_blank" rel="noopener noreferrer">https://github.com/langchain-ai/langgraph</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind gh">GitHub</span>
+            <div class="link-body">
+              <strong>langgenius/dify</strong>
+              <p>开源 LLM 应用平台（RAG / Agent / Workflow 低代码）。</p>
+              <a href="https://github.com/langgenius/dify" target="_blank" rel="noopener noreferrer">https://github.com/langgenius/dify</a>
+            </div>
+          </div>
+        </div>
+
+        <h3>标准 · 官方 · 赛事</h3>
+        <div class="links-panel">
+          <div class="link-row">
+            <span class="link-kind std">Standard</span>
+            <div class="link-body">
+              <strong>SAE J3016 — 驾驶自动化等级</strong>
+              <p>L0–L5 行业标准定义与说明（SAE 官方）。</p>
+              <a href="https://www.sae.org/standards/content/j3016_202104/" target="_blank" rel="noopener noreferrer">https://www.sae.org/standards/content/j3016_202104/</a>
+              · <a href="https://www.sae.org/news/blog/sae-levels-driving-automation-clarity-refinements" target="_blank" rel="noopener noreferrer">等级说明博文</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind web">Official</span>
+            <div class="link-body">
+              <strong>DARPA Grand Challenge 时间线</strong>
+              <p>2004/2005 等赛事官方介绍页。</p>
+              <a href="https://www.darpa.mil/about/innovation-timeline/grand-challenge" target="_blank" rel="noopener noreferrer">https://www.darpa.mil/about/innovation-timeline/grand-challenge</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind web">Official</span>
+            <div class="link-body">
+              <strong>IEEE Spectrum — DARPA 挑战 20 年复盘</strong>
+              <p>Stanley 夺冠与产业影响的权威科技媒体复盘。</p>
+              <a href="https://spectrum.ieee.org/darpa-grand-challenge" target="_blank" rel="noopener noreferrer">https://spectrum.ieee.org/darpa-grand-challenge</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind web">Official</span>
+            <div class="link-body">
+              <strong>Waymo — 公司与服务介绍</strong>
+              <p>Robotaxi 商业化与技术演进的公司官方入口。</p>
+              <a href="https://waymo.com/about/" target="_blank" rel="noopener noreferrer">https://waymo.com/about/</a>
+            </div>
+          </div>
+          <div class="link-row">
+            <span class="link-kind web">Workshop</span>
+            <div class="link-body">
+              <strong>CVPR Embodied AI Workshop</strong>
+              <p>具身智能年度研讨与挑战赛门户。</p>
+              <a href="https://embodied-ai.org/" target="_blank" rel="noopener noreferrer">https://embodied-ai.org/</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="you-box">
+          <h4>软件 Agent 框架仓库（对照阅读）</h4>
+          <p style="margin-bottom:8px;">与本站「架构选型」页对应，均可直接打开：</p>
+          <p>
+            <a href="https://github.com/langchain-ai/langchain" target="_blank" rel="noopener noreferrer">LangChain</a> ·
+            <a href="https://github.com/langchain-ai/langgraph" target="_blank" rel="noopener noreferrer">LangGraph</a> ·
+            <a href="https://github.com/crewAIInc/crewAI" target="_blank" rel="noopener noreferrer">CrewAI</a> ·
+            <a href="https://github.com/microsoft/autogen" target="_blank" rel="noopener noreferrer">AutoGen</a> ·
+            <a href="https://github.com/run-llama/llama_index" target="_blank" rel="noopener noreferrer">LlamaIndex</a>
+          </p>
+        </div>
+      </section>
+    </article>
+
+    <div class="hero-actions" style="margin-top: 40px; justify-content: flex-start;">
+      <a class="btn btn-primary" href="#sources">跳转到本页全部链接</a>
+      <a class="btn btn-secondary" href="glossary.html#embodied-ai">词库 · 具身词条</a>
+      <a class="btn btn-ghost" href="architectures.html">架构 · 软件框架 GitHub</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p><strong style="color:var(--ink)">AI 通识知识库</strong> · ⑥ 具身智能</p>
+      <p class="footer-note">节点依据公开论文、SAE 标准与机构/开源项目；通识叙述便于建立结构，细节以原文与监管文件为准。</p>
+    </div>
+  </footer>
+  <script src="js/shell.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

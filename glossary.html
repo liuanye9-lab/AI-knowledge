@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="AI 专有词库：是什么、和你有什么关系、怎么用。可搜索筛选。" />
+  <title>④ 词库 · AI 通识知识库</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="has-sidebar">
+  <nav class="nav" aria-label="主导航">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">
+        <span class="nav-logo">AI</span>
+        <span>通识知识库</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">学习</a>
+        <a class="nav-link active" href="glossary.html">词库</a>
+        <div class="nav-more-wrap">
+          <button type="button" class="nav-more-btn" aria-expanded="false">更多</button>
+          <div class="nav-more-panel">
+            <p class="hint">附录 · 内容完整保留</p>
+            <a href="mindmap.html">结构地图</a>
+            <a href="history.html">发展历史</a>
+            <a href="architectures.html">架构框架</a>
+            <a href="embodied.html">具身智能</a>
+            <a href="boundaries.html">边界深读</a>
+          </div>
+        </div>
+        <a class="nav-link nav-link-mobile-only" href="mindmap.html">结构地图</a>
+        <a class="nav-link nav-link-mobile-only" href="history.html">发展历史</a>
+        <a class="nav-link nav-link-mobile-only" href="architectures.html">架构框架</a>
+        <a class="nav-link nav-link-mobile-only" href="embodied.html">具身智能</a>
+        <a class="nav-link nav-link-mobile-only" href="boundaries.html">边界深读</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page page-narrow">
+    <header class="page-hero animate-in">
+      <div class="section-eyebrow">词库 · 随查</div>
+      <h1>专有词库</h1>
+      <p class="lead">
+        不用从头背。建议先在 <a href="index.html">首页学习</a> 按频率走主线，遇到生词再回这里搜。
+      </p>
+    </header>
+
+    <div class="you-box mb-24">
+      <h4>小白用法</h4>
+      <p>在文章/同事对话里碰到缩写 → 本页搜索 → 看「和你有关」→ 仍不懂再回 <a href="fundamentals.html">通识分层</a> 对应章节。不要在这里随机刷词。</p>
+    </div>
+
+    <figure class="figure mb-24 animate-in delay-1">
+      <div class="figure-media">
+        <img src="images/illustrations/terms-map.jpg" alt="AI 专有词关系示意" width="1600" height="900" />
+      </div>
+      <figcaption class="figure-cap">
+        <strong>挂回结构</strong>
+        <span>Token → Embedding → Prompt/Context → Tool/Skill/RAG/Memory → Workflow/Agent Loop。总图：<a href="mindmap.html">① 结构地图</a>。</span>
+      </figcaption>
+    </figure>
+
+    <div class="glossary-search-wrap">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/>
+        </svg>
+        <input id="glossary-search" type="search" placeholder="搜索：Skill、Workflow、RAG、幻觉…" autocomplete="off" />
+      </div>
+      <div class="filter-chips" role="group" aria-label="分类筛选">
+        <button type="button" class="chip active" data-cat="all">全部</button>
+        <button type="button" class="chip" data-cat="model">模型</button>
+        <button type="button" class="chip" data-cat="agent">Agent</button>
+        <button type="button" class="chip" data-cat="rag">检索/RAG</button>
+        <button type="button" class="chip" data-cat="eng">工程</button>
+        <button type="button" class="chip" data-cat="train">训练对齐</button>
+        <button type="button" class="chip" data-cat="safety">安全评测</button>
+      </div>
+    </div>
+
+    <div id="glossary-list">
+
+      <article class="term-card" id="llm" data-cat="model">
+        <div class="term-head">
+          <span class="term-en">LLM</span>
+          <span class="term-zh">大语言模型</span>
+          <span class="term-cat">模型</span>
+        </div>
+        <p class="term-plain">在海量文本上训练、以预测下一个 token 为核心能力的超大规模神经网络。聊天、写作、编程助手大多建立在它之上。</p>
+        <p class="term-origin"><strong>来龙去脉：</strong>2017 Transformer 架构 → 预训练大模型 → 指令对齐后成为「助手」。它是整棵 AI 应用树的树干。</p>
+        <p class="term-origin" style="background:var(--sage-wash);border-left-color:var(--sage);"><strong>和你有关 / 怎么用：</strong>ChatGPT、通义、豆包等都是它。用法：把任务写具体、要求格式、重要事实自己核实。详见 <a href="fundamentals.html#llm">通识 · LLM</a>。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>读过整个文库的超级续写器。语感极强，但不等于事实数据库。</p></div>
+      </article>
+
+      <article class="term-card" id="token" data-cat="model">
+        <div class="term-head">
+          <span class="term-en">Token</span>
+          <span class="term-zh">词元</span>
+          <span class="term-cat">模型</span>
+        </div>
+        <p class="term-plain">模型读写文本的最小计算与计费单位，可能是词、字的一部分或标点。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>不是按「字」收快递费，而是按打包块计费。</p></div>
+      </article>
+
+      <article class="term-card" id="context-window" data-cat="model">
+        <div class="term-head">
+          <span class="term-en">Context Window</span>
+          <span class="term-zh">上下文窗口</span>
+          <span class="term-cat">模型</span>
+        </div>
+        <p class="term-plain">模型一次能同时看见的最大 token 数。超出后旧内容会被截断或需摘要/外置记忆。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>书桌面积——材料再重要，桌子太小就摊不下。</p></div>
+      </article>
+
+      <article class="term-card" id="transformer" data-cat="model">
+        <div class="term-head">
+          <span class="term-en">Transformer</span>
+          <span class="term-zh">变换器架构</span>
+          <span class="term-cat">模型</span>
+        </div>
+        <p class="term-plain">2017 年提出，用自注意力让序列任意位置互相关注。现代 LLM 的主流骨架。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>读文章时能随时把任意两句用红线连起来看关系。</p></div>
+      </article>
+
+      <article class="term-card" id="embedding" data-cat="rag">
+        <div class="term-head">
+          <span class="term-en">Embedding</span>
+          <span class="term-zh">嵌入 / 向量</span>
+          <span class="term-cat">检索/RAG</span>
+        </div>
+        <p class="term-plain">把文本变成数字向量，使意思相近的内容在空间里更近，便于语义搜索。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>给每段话做气味指纹——苹果和梨接近，和螺丝钉差很远。</p></div>
+      </article>
+
+      <article class="term-card" id="vector-db" data-cat="rag">
+        <div class="term-head">
+          <span class="term-en">Vector Database</span>
+          <span class="term-zh">向量数据库</span>
+          <span class="term-cat">检索/RAG</span>
+        </div>
+        <p class="term-plain">专门存 embedding 并支持「找最相似向量」的数据库。RAG 的货架系统。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>按内容气味排的智慧书架，递气味卡甩出最像的几本。</p></div>
+      </article>
+
+      <article class="term-card" id="rag" data-cat="rag">
+        <div class="term-head">
+          <span class="term-en">RAG</span>
+          <span class="term-zh">检索增强生成</span>
+          <span class="term-cat">检索/RAG</span>
+        </div>
+        <p class="term-plain">先检索相关资料，再让 LLM 基于资料生成，降低胡编、贴合私有知识。</p>
+        <p class="term-origin"><strong>来龙去脉：</strong>约 2020 起工业界标配。解决「模型知识过时 / 不知公司内部事」；后来升级为 Agentic RAG。</p>
+        <p class="term-origin" style="background:var(--sage-wash);border-left-color:var(--sage);"><strong>和你有关 / 怎么用：</strong>上传 PDF 再提问、企业知识库助手，本质常是 RAG。个人技巧：先贴资料再问。详见 <a href="fundamentals.html#rag">通识 · RAG</a>。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>开卷考试——先翻到相关页再写答案。</p></div>
+      </article>
+
+      <article class="term-card" id="agentic-rag" data-cat="rag">
+        <div class="term-head">
+          <span class="term-en">Agentic RAG</span>
+          <span class="term-zh">智能体式 RAG</span>
+          <span class="term-cat">检索/RAG</span>
+        </div>
+        <p class="term-plain">把检索放进 Agent 循环：多轮改写查询、换数据源、判断够不够，而不是检索一次就生成。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>研究员连查三轮、交叉验证，而不是只问一次图书管理员。</p></div>
+      </article>
+
+      <article class="term-card" id="chunking" data-cat="rag">
+        <div class="term-head">
+          <span class="term-en">Chunking</span>
+          <span class="term-zh">文本分块</span>
+          <span class="term-cat">检索/RAG</span>
+        </div>
+        <p class="term-plain">把长文档切成适中片段以便嵌入与检索。切太大不精准，切太碎丢上下文。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>把书拆成索引卡片——太大难定位，太小没前因后果。</p></div>
+      </article>
+
+      <article class="term-card" id="graphrag" data-cat="rag">
+        <div class="term-head">
+          <span class="term-en">GraphRAG</span>
+          <span class="term-zh">图谱增强检索</span>
+          <span class="term-cat">检索/RAG</span>
+        </div>
+        <p class="term-plain">在向量检索之外引入知识图谱/实体关系，适合「人物-事件-组织」等多跳关联问题。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>不仅按气味找卡片，还按人物关系网串线索。</p></div>
+      </article>
+
+      <article class="term-card" id="rerank" data-cat="rag">
+        <div class="term-head">
+          <span class="term-en">Rerank</span>
+          <span class="term-zh">重排序</span>
+          <span class="term-cat">检索/RAG</span>
+        </div>
+        <p class="term-plain">先粗召回一批文档，再用更精的模型重排，把真正相关的顶到前面。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>先从仓库拉一车货，再让质检员挑出最该给客户的几件。</p></div>
+      </article>
+
+      <article class="term-card" id="hallucination" data-cat="model">
+        <div class="term-head">
+          <span class="term-en">Hallucination</span>
+          <span class="term-zh">幻觉</span>
+          <span class="term-cat">模型</span>
+        </div>
+        <p class="term-plain">模型生成看起来合理、实则错误或无中生有的内容。需检索、工具、核对与评测缓解。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>口才很好但不会也编得流畅的同学。</p></div>
+      </article>
+
+      <article class="term-card" id="multimodal" data-cat="model">
+        <div class="term-head">
+          <span class="term-en">Multimodal</span>
+          <span class="term-zh">多模态</span>
+          <span class="term-cat">模型</span>
+        </div>
+        <p class="term-plain">能处理或生成文本、图像、音频、视频等多种信息形态。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>五官齐全的助手，而不只是键盘侠。</p></div>
+      </article>
+
+      <article class="term-card" id="skill" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">Skill</span>
+          <span class="term-zh">技能 / 能力包</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">可复用的能力单元：通常包含说明指令、可用工具、步骤模板/示例与约束。可被多个 Workflow 或 Agent 调用。</p>
+        <p class="term-origin"><strong>来龙去脉：</strong>从「插件 / 工具集」演化而来。平台与 Agent 框架用 Skill 表达「会做某类事」，避免每次从零写提示。详见 <a href="fundamentals.html#skill">通识 · Skill</a>。</p>
+        <p class="term-origin" style="background:var(--sage-wash);border-left-color:var(--sage);"><strong>和你有关 / 怎么用：</strong>产品里的「插件/技能」；你也可把高频提示词整理成个人技能库（周报、纪要、竞品模板）。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>岗位技能证书 + 工具箱组合拳——「会写周报」「会查 CRM」可换项目复用。</p></div>
+      </article>
+
+      <article class="term-card" id="workflow" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">Workflow</span>
+          <span class="term-zh">工作流</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">有顺序的步骤网络：线性或带分支/并行/人审/重试。步骤里可调用 LLM、Tool、Skill、RAG 等。</p>
+        <p class="term-origin"><strong>来龙去脉：</strong>传统 RPA/BPM 思路遇上 LLM 节点。Dify、LangGraph、LlamaIndex Workflows 等都是不同实现。与 Agent 的区别：Workflow 偏预定路线，Agent 偏现场决策。详见 <a href="fundamentals.html#workflow">通识 · Workflow</a>。</p>
+        <p class="term-origin" style="background:var(--sage-wash);border-left-color:var(--sage);"><strong>和你有关 / 怎么用：</strong>客服分流、内容「写→审→发」、审批自动化。步骤稳定就用流程；路径开放再上 Agent。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>工厂 SOP 或上门维修流程：预约→检查→维修→回访，而不是走一步算一步。</p></div>
+      </article>
+
+      <article class="term-card" id="pipeline" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">Pipeline</span>
+          <span class="term-zh">流水线 / 管道</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">数据或任务按固定阶段依次处理的结构。常与 Workflow 近义，更强调「阶段串联」。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>自来水管一节接一节，水只能顺着流。</p></div>
+      </article>
+
+      <article class="term-card" id="agent" data-cat="agent">
+        <div class="term-head">
+          <span class="term-en">Agent</span>
+          <span class="term-zh">智能体</span>
+          <span class="term-cat">Agent</span>
+        </div>
+        <p class="term-plain">以目标为导向，在循环中规划、调用工具/Skill、观察结果并迭代，直到完成或停止的 LLM 系统。</p>
+        <p class="term-origin"><strong>来龙去脉：</strong>经典 AI「智能体」概念 + LLM 工具调用能力。2023 后工程化爆发。≠ 单纯聊天机器人。</p>
+        <p class="term-origin" style="background:var(--sage-wash);border-left-color:var(--sage);"><strong>和你有关 / 怎么用：</strong>自动调研、自动改代码类产品。用法：目标+边界+完成标准要写清；敏感操作必须人审。详见 <a href="fundamentals.html#agent">通识 · Agent</a>。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>会自己拆任务、跑腿、回报进度的实习生，而不只是答疑前台。</p></div>
+      </article>
+
+      <article class="term-card" id="multi-agent" data-cat="agent">
+        <div class="term-head">
+          <span class="term-en">Multi-Agent</span>
+          <span class="term-zh">多智能体</span>
+          <span class="term-cat">Agent</span>
+        </div>
+        <p class="term-plain">多个不同角色或工具的 Agent 协作，常有主管/编排者协调。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>项目组：产品、研发、测试分工，而不是一人包办。</p></div>
+      </article>
+
+      <article class="term-card" id="subagent" data-cat="agent">
+        <div class="term-head">
+          <span class="term-en">Subagent</span>
+          <span class="term-zh">子智能体</span>
+          <span class="term-cat">Agent</span>
+        </div>
+        <p class="term-plain">由主管 Agent 派生、负责子任务的下级 Agent。做完把结果交回。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>项目经理把调研外包给专员，专员交报告回来汇总。</p></div>
+      </article>
+
+      <article class="term-card" id="supervisor" data-cat="agent">
+        <div class="term-head">
+          <span class="term-en">Supervisor</span>
+          <span class="term-zh">主管 / 调度模式</span>
+          <span class="term-cat">Agent</span>
+        </div>
+        <p class="term-plain">一个中心 Agent 负责任务拆解、分配给工人 Agent、汇总结果的架构模式。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>编辑部主编分稿、收稿、定稿。</p></div>
+      </article>
+
+      <article class="term-card" id="react" data-cat="agent">
+        <div class="term-head">
+          <span class="term-en">ReAct</span>
+          <span class="term-zh">推理 + 行动</span>
+          <span class="term-cat">Agent</span>
+        </div>
+        <p class="term-plain">交替进行推理（Thought）与行动（Action），并根据观察（Observation）继续的流行范式。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>修电器——想原因、拧两下看现象、再想下一步。</p></div>
+      </article>
+
+      <article class="term-card" id="plan-execute" data-cat="agent">
+        <div class="term-head">
+          <span class="term-en">Plan-and-Execute</span>
+          <span class="term-zh">先规划后执行</span>
+          <span class="term-cat">Agent</span>
+        </div>
+        <p class="term-plain">先整体规划步骤，再按计划执行（可中途修正）。相对纯 ReAct 更少「走一步看一步」的抖动。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>先写旅行日程再出发，而不是下了高铁再想住哪。</p></div>
+      </article>
+
+      <article class="term-card" id="tool-calling" data-cat="agent">
+        <div class="term-head">
+          <span class="term-en">Tool / Function Calling</span>
+          <span class="term-zh">工具 / 函数调用</span>
+          <span class="term-cat">Agent</span>
+        </div>
+        <p class="term-plain">模型按约定结构选择外部函数/API 并填参数，由运行时执行后把结果返回模型。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>顾问正确呼叫水管工并说清地址——真正干活的是工具。</p></div>
+      </article>
+
+      <article class="term-card" id="mcp" data-cat="agent">
+        <div class="term-head">
+          <span class="term-en">MCP</span>
+          <span class="term-zh">Model Context Protocol</span>
+          <span class="term-cat">Agent</span>
+        </div>
+        <p class="term-plain">让 AI 应用以更标准方式连接外部工具与数据源的开放协议思路，减少私有对接。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>USB 标准——外设按统一接口做，主机不用为每个鼠标重写驱动。</p></div>
+      </article>
+
+      <article class="term-card" id="memory" data-cat="agent">
+        <div class="term-head">
+          <span class="term-en">Memory</span>
+          <span class="term-zh">记忆</span>
+          <span class="term-cat">Agent</span>
+        </div>
+        <p class="term-plain">保存并在需要时取回信息。短期（当前上下文/状态）与长期（跨会话存储+检索）。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>桌上便签 vs 档案柜。</p></div>
+      </article>
+
+      <article class="term-card" id="loop-engineering" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">Loop Engineering</span>
+          <span class="term-zh">循环工程</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">设计 Agent「想→做→看→再想」闭环：步数预算、重试、停止条件、人审、轨迹记录。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>给流水线装工序、质检与急停。</p></div>
+      </article>
+
+      <article class="term-card" id="context-engineering" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">Context Engineering</span>
+          <span class="term-zh">上下文工程</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">动态选择并组装模型每一步应看到的信息：指令、历史、检索、工具输出、记忆等。</p>
+        <p class="term-origin"><strong>来龙去脉：</strong>从 Prompt Engineering 升级。业界常说：很多 Agent 失败是上下文失败，不是模型不够聪明。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>操作系统管理内存：窗口是 RAM，装错内容 CPU 再强也算偏。</p></div>
+      </article>
+
+      <article class="term-card" id="prompt-engineering" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">Prompt Engineering</span>
+          <span class="term-zh">提示工程</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">设计与优化提示词（角色、步骤、示例、输出格式），以稳定获得期望输出。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>写清晰的任务说明书：目标、约束、样例、验收标准。</p></div>
+      </article>
+
+      <article class="term-card" id="orchestration" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">Orchestration</span>
+          <span class="term-zh">编排</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">把模型调用、工具、检索、条件分支、人工节点组织成可运行工作流的过程。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>项目经理排期：谁先谁后、谁并行、异常走哪条路。</p></div>
+      </article>
+
+      <article class="term-card" id="state-machine" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">State Machine / Graph</span>
+          <span class="term-zh">状态机 / 图编排</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">用节点（状态/步骤）与边（转移条件）描述流程。LangGraph 等采用此心智模型，便于持久化与调试。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>地铁线路图：站是节点，换乘是边，清楚你现在在哪一站。</p></div>
+      </article>
+
+      <article class="term-card" id="harness" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">Agent Harness</span>
+          <span class="term-zh">智能体外壳 / 运行时套件</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">围绕模型的运行外壳：工具注册、循环控制、记忆注入、日志、权限等，让 LLM「能跑起来并受控」。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>赛车底盘与安全带——引擎（模型）再强，没有车架也上不了赛道。</p></div>
+      </article>
+
+      <article class="term-card" id="structured-output" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">Structured Output</span>
+          <span class="term-zh">结构化输出</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">要求模型按 JSON/Schema 等固定结构输出，便于程序解析与下游节点消费。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>填表而不是写作文——格子对上，系统才好自动处理。</p></div>
+      </article>
+
+      <article class="term-card" id="cot" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">Chain-of-Thought</span>
+          <span class="term-zh">思维链 CoT</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">让模型把推理步骤写出来，常提升复杂题正确率；也有内部推理类模型变体。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>考试写过程，比直接拍答案更不易算错。</p></div>
+      </article>
+
+      <article class="term-card" id="hitl" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">Human-in-the-loop</span>
+          <span class="term-zh">人在回路</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">在自动化流程关键节点引入人工确认、纠错或决策。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>助理写好对外邮件，发送前必须老板点头。</p></div>
+      </article>
+
+      <article class="term-card" id="routing" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">Routing</span>
+          <span class="term-zh">路由</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">根据问题类型把请求分发给不同模型、工具、知识库或子 Agent。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>医院分诊台：发烧去内科，骨折去骨科。</p></div>
+      </article>
+
+      <article class="term-card" id="fine-tuning" data-cat="train">
+        <div class="term-head">
+          <span class="term-en">Fine-tuning</span>
+          <span class="term-zh">微调</span>
+          <span class="term-cat">训练对齐</span>
+        </div>
+        <p class="term-plain">在预训练模型上用领域数据继续训练。成本与收益需和 RAG 权衡。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>通才员工入职培训，学会公司话术——不是重读小学到博士。</p></div>
+      </article>
+
+      <article class="term-card" id="pretraining" data-cat="train">
+        <div class="term-head">
+          <span class="term-en">Pretraining</span>
+          <span class="term-zh">预训练</span>
+          <span class="term-cat">训练对齐</span>
+        </div>
+        <p class="term-plain">在大规模通用数据上训练基础能力。昂贵，通常由大厂/机构完成。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>完成通识教育，再谈专业上岗。</p></div>
+      </article>
+
+      <article class="term-card" id="rlhf" data-cat="train">
+        <div class="term-head">
+          <span class="term-en">RLHF</span>
+          <span class="term-zh">人类反馈强化学习</span>
+          <span class="term-cat">训练对齐</span>
+        </div>
+        <p class="term-plain">用人类偏好数据训练奖励模型再优化策略，使输出更有用、无害、诚实。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>作文被老师反复打分「哪篇更好」，逐渐写得合老师心意。</p></div>
+      </article>
+
+      <article class="term-card" id="alignment" data-cat="train">
+        <div class="term-head">
+          <span class="term-en">Alignment</span>
+          <span class="term-zh">对齐</span>
+          <span class="term-cat">训练对齐</span>
+        </div>
+        <p class="term-plain">让模型行为符合人类意图与价值观的训练与约束方法总称。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>把有能力的人训练成靠谱同事——能力之外还有规矩。</p></div>
+      </article>
+
+      <article class="term-card" id="lora" data-cat="train">
+        <div class="term-head">
+          <span class="term-en">LoRA</span>
+          <span class="term-zh">低秩适应微调</span>
+          <span class="term-cat">训练对齐</span>
+        </div>
+        <p class="term-plain">参数高效微调：只训练少量附加参数，降低显存与成本。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>不重粉整面墙，只贴可更换壁纸改风格。</p></div>
+      </article>
+
+      <article class="term-card" id="eval" data-cat="safety">
+        <div class="term-head">
+          <span class="term-en">Eval</span>
+          <span class="term-zh">评测</span>
+          <span class="term-cat">安全评测</span>
+        </div>
+        <p class="term-plain">用数据集、任务脚本或人工标准系统测量模型/Agent 表现。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>定期考试 + 真实工单回放，用分数说话。</p></div>
+      </article>
+
+      <article class="term-card" id="tracing" data-cat="safety">
+        <div class="term-head">
+          <span class="term-en">Tracing</span>
+          <span class="term-zh">轨迹追踪</span>
+          <span class="term-cat">安全评测</span>
+        </div>
+        <p class="term-plain">记录每次 LLM/工具调用、耗时与成本，便于调试 Agent 为何走偏。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>飞机黑匣子 + 快递轨迹。</p></div>
+      </article>
+
+      <article class="term-card" id="guardrails" data-cat="safety">
+        <div class="term-head">
+          <span class="term-en">Guardrails</span>
+          <span class="term-zh">护栏</span>
+          <span class="term-cat">安全评测</span>
+        </div>
+        <p class="term-plain">对输入输出与行为的安全合规约束：过滤、权限、拒答、结构化校验等。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>游乐设施安全带与限高牌。</p></div>
+      </article>
+
+      <article class="term-card" id="temperature" data-cat="model">
+        <div class="term-head">
+          <span class="term-en">Temperature</span>
+          <span class="term-zh">温度</span>
+          <span class="term-cat">模型</span>
+        </div>
+        <p class="term-plain">控制采样随机性。低更稳；高更发散也更不稳。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>低温度像严谨会计；高温度像即兴诗人。</p></div>
+      </article>
+
+      <article class="term-card" id="few-shot" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">Zero / Few-shot</span>
+          <span class="term-zh">零样本 / 少样本</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">不给或只给少量例子就完成新任务。提示里举例常能显著提效。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>零样本直接下任务；少样本先给两篇范文再写第三篇。</p></div>
+      </article>
+
+      <article class="term-card" id="grounding" data-cat="rag">
+        <div class="term-head">
+          <span class="term-en">Grounding</span>
+          <span class="term-zh">落地 / 有据生成</span>
+          <span class="term-cat">检索/RAG</span>
+        </div>
+        <p class="term-plain">让回答锚定在检索到的事实、工具结果或实时数据上，而不是凭空生成。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>发言必须出示引用页码，不能「我觉得」。</p></div>
+      </article>
+
+      <article class="term-card" id="a2a" data-cat="agent">
+        <div class="term-head">
+          <span class="term-en">A2A</span>
+          <span class="term-zh">Agent-to-Agent</span>
+          <span class="term-cat">Agent</span>
+        </div>
+        <p class="term-plain">多个 Agent 互相发现、通信与协作的协议与实践方向。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>公司之间的对接规范：工单怎么传、状态怎么同步。</p></div>
+      </article>
+
+      <article class="term-card" id="langgraph" data-cat="agent">
+        <div class="term-head">
+          <span class="term-en">LangGraph</span>
+          <span class="term-zh">图编排框架</span>
+          <span class="term-cat">Agent</span>
+        </div>
+        <p class="term-plain">用图/状态机编排可控、可持久的 Agent 与 Workflow。适合生产向复杂流程。</p>
+        <p class="term-origin"><strong>GitHub：</strong>
+          <a href="https://github.com/langchain-ai/langgraph" target="_blank" rel="noopener noreferrer">https://github.com/langchain-ai/langgraph</a>
+        </p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>可画流程图的生产调度台。详见 <a href="architectures.html">架构页</a>。</p></div>
+      </article>
+
+      <article class="term-card" id="crewai" data-cat="agent">
+        <div class="term-head">
+          <span class="term-en">CrewAI</span>
+          <span class="term-zh">角色团队框架</span>
+          <span class="term-cat">Agent</span>
+        </div>
+        <p class="term-plain">用角色 + 任务 + 团队隐喻快速搭建多 Agent 协作。</p>
+        <p class="term-origin"><strong>GitHub：</strong>
+          <a href="https://github.com/crewAIInc/crewAI" target="_blank" rel="noopener noreferrer">https://github.com/crewAIInc/crewAI</a>
+        </p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>一键组建剧组。</p></div>
+      </article>
+
+      <article class="term-card" id="autogen" data-cat="agent">
+        <div class="term-head">
+          <span class="term-en">AutoGen</span>
+          <span class="term-zh">对话式多 Agent</span>
+          <span class="term-cat">Agent</span>
+        </div>
+        <p class="term-plain">以 Agent 之间聊天推动任务的协作风格。</p>
+        <p class="term-origin"><strong>GitHub：</strong>
+          <a href="https://github.com/microsoft/autogen" target="_blank" rel="noopener noreferrer">https://github.com/microsoft/autogen</a>
+        </p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>会议室多位专家来回讨论。</p></div>
+      </article>
+
+      <article class="term-card" id="llamaindex" data-cat="rag">
+        <div class="term-head">
+          <span class="term-en">LlamaIndex</span>
+          <span class="term-zh">数据 / RAG 框架</span>
+          <span class="term-cat">检索/RAG</span>
+        </div>
+        <p class="term-plain">侧重把企业数据接入 LLM：索引、检索、查询引擎与工作流。</p>
+        <p class="term-origin"><strong>GitHub：</strong>
+          <a href="https://github.com/run-llama/llama_index" target="_blank" rel="noopener noreferrer">https://github.com/run-llama/llama_index</a>
+        </p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>专门对接公司网盘与数据库的数据管家。</p></div>
+      </article>
+
+      <article class="term-card" id="dify" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">Dify</span>
+          <span class="term-zh">开源 LLM 应用平台</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">可视化编排 RAG、Agent、Workflow 的一站式平台，适合快速产品化。</p>
+        <p class="term-origin"><strong>GitHub：</strong>
+          <a href="https://github.com/langgenius/dify" target="_blank" rel="noopener noreferrer">https://github.com/langgenius/dify</a>
+        </p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>AI 版低代码工作室。</p></div>
+      </article>
+
+      <article class="term-card" id="capability-boundary" data-cat="model">
+        <div class="term-head">
+          <span class="term-en">Capability Boundary</span>
+          <span class="term-zh">能力边界</span>
+          <span class="term-cat">模型</span>
+        </div>
+        <p class="term-plain">模型在特定任务、数据与安全约束下能稳定做对的范围。超出后需要工具、检索、流程或人类接管，而不是「再问一次就稳了」。</p>
+        <p class="term-origin" style="background:var(--sage-wash);border-left-color:var(--sage);"><strong>和你有关：</strong>决定能否直接交付、用哪一档模型、要不要人审。专页：<a href="boundaries.html">⑦ 能力边界</a>。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>顾问很会写方案，但不能保证药方/判决/股价正确——你要知道他职责边界。</p></div>
+      </article>
+
+      <article class="term-card" id="gpt-56-tiers" data-cat="model">
+        <div class="term-head">
+          <span class="term-en">GPT‑5.6 Sol / Terra / Luna</span>
+          <span class="term-zh">OpenAI 旗舰三档</span>
+          <span class="term-cat">模型</span>
+        </div>
+        <p class="term-plain">OpenAI GPT‑5.6 世代下的三档：Sol 最强、Terra 均衡、Luna 快省。数字表世代，名称表能力档位。</p>
+        <p class="term-origin"><strong>来源：</strong>
+          <a href="https://openai.com/index/previewing-gpt-5-6-sol/" target="_blank" rel="noopener noreferrer">OpenAI 官方说明</a>
+        </p>
+        <p class="term-origin" style="background:var(--sage-wash);border-left-color:var(--sage);"><strong>怎么用：</strong>默认中档；难题升 Sol；高频简单任务用 Luna。仍有知识截止与幻觉风险。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>同一代手机的 Pro / 标准 / 轻薄版——代数相同，定位不同。</p></div>
+      </article>
+
+      <article class="term-card" id="leaderboard" data-cat="safety">
+        <div class="term-head">
+          <span class="term-en">LLM Leaderboard</span>
+          <span class="term-zh">大模型排行榜</span>
+          <span class="term-cat">安全评测</span>
+        </div>
+        <p class="term-plain">公开比较模型能力的榜单。常见：Chatbot Arena 人类偏好、SWE-bench 软件工程、Open LLM 开放权重、Artificial Analysis 综合比较等。</p>
+        <p class="term-origin"><strong>入口：</strong>
+          <a href="https://lmarena.ai/?leaderboard" target="_blank" rel="noopener noreferrer">LMArena</a> ·
+          <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener noreferrer">Artificial Analysis</a> ·
+          <a href="https://www.swebench.com/" target="_blank" rel="noopener noreferrer">SWE-bench</a> ·
+          <a href="https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard" target="_blank" rel="noopener noreferrer">Open LLM</a>
+        </p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>体育联赛积分榜——有参考价值，但不能代替你自己项目的选拔赛。</p></div>
+      </article>
+
+      <article class="term-card" id="embodied-ai" data-cat="agent">
+        <div class="term-head">
+          <span class="term-en">Embodied AI</span>
+          <span class="term-zh">具身智能</span>
+          <span class="term-cat">Agent</span>
+        </div>
+        <p class="term-plain">强调智能体通过身体与环境交互：感知、行动、在反馈中学习。无人车、机器人、无人机都属此线。</p>
+        <p class="term-origin"><strong>来源：</strong>
+          <a href="https://arxiv.org/abs/2402.02385" target="_blank" rel="noopener noreferrer">综述 arXiv:2402.02385</a> ·
+          <a href="https://embodied-ai.org/" target="_blank" rel="noopener noreferrer">CVPR Embodied AI</a> ·
+          <a href="https://github.com/HCPLab-SYSU/Embodied_AI_Paper_List" target="_blank" rel="noopener noreferrer">论文列表 GitHub</a>
+        </p>
+        <p class="term-origin" style="background:var(--sage-wash);border-left-color:var(--sage);"><strong>和你有关 / 怎么用：</strong>理解「会聊天」与「会开车/抓杯子」不是同一能力栈。专页：<a href="embodied.html">⑥ 具身智能</a>。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>书斋谋士 vs 必须下场踢球的球员。</p></div>
+      </article>
+
+      <article class="term-card" id="sae-levels" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">SAE Levels L0–L5</span>
+          <span class="term-zh">驾驶自动化等级</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">SAE J3016 定义的 0–5 级驾驶自动化，用于统一「辅助驾驶/自动驾驶」沟通语言。L2 需人监督；L4 在 ODD 内可无人。</p>
+        <p class="term-origin"><strong>来源：</strong>
+          <a href="https://www.sae.org/standards/content/j3016_202104/" target="_blank" rel="noopener noreferrer">SAE J3016 标准页</a> ·
+          <a href="https://www.sae.org/news/blog/sae-levels-driving-automation-clarity-refinements" target="_blank" rel="noopener noreferrer">等级说明</a>
+        </p>
+        <p class="term-origin" style="background:var(--sage-wash);border-left-color:var(--sage);"><strong>和你有关 / 怎么用：</strong>看车广告时问清 L 几、是否要手扶方向盘、是否限定场景。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>驾照科目分级——名字好听不等于已是「完全无人」。</p></div>
+      </article>
+
+      <article class="term-card" id="odd" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">ODD</span>
+          <span class="term-zh">运营设计域</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">系统被设计与验证可安全运行的条件集合（区域、天气、道路类型、速度等）。自动驾驶安全论证核心概念。</p>
+        <p class="term-origin" style="background:var(--sage-wash);border-left-color:var(--sage);"><strong>和你有关：</strong>解释为何 Robotaxi 先在固定城市运营，而不是全国随处开。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>飞行员航线与气象限制——出了边界就不能假装还能飞。</p></div>
+      </article>
+
+      <article class="term-card" id="world-model" data-cat="model">
+        <div class="term-head">
+          <span class="term-en">World Model</span>
+          <span class="term-zh">世界模型</span>
+          <span class="term-cat">模型</span>
+        </div>
+        <p class="term-plain">学习环境如何随动作变化的内部模型，用于预测与规划。文献脉络含 Ha &amp; Schmidhuber World Models、Dreamer 系列等。</p>
+        <p class="term-origin"><strong>来源：</strong>
+          <a href="https://arxiv.org/abs/1803.10122" target="_blank" rel="noopener noreferrer">World Models 论文</a> ·
+          <a href="https://github.com/danijar/dreamerv3" target="_blank" rel="noopener noreferrer">DreamerV3 GitHub</a>
+        </p>
+        <p class="term-origin" style="background:var(--sage-wash);border-left-color:var(--sage);"><strong>和你有关：</strong>机器人/车辆可在「脑内预演」再行动，降低真机试错。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>下棋时在脑子里推演几步，而不是每步都真的把棋子摔出去试。</p></div>
+      </article>
+
+      <article class="term-card" id="vla" data-cat="agent">
+        <div class="term-head">
+          <span class="term-en">VLA</span>
+          <span class="term-zh">Vision-Language-Action</span>
+          <span class="term-cat">Agent</span>
+        </div>
+        <p class="term-plain">统一视觉、语言与动作输出的模型范式。代表：RT-2、开源 OpenVLA。</p>
+        <p class="term-origin"><strong>来源：</strong>
+          <a href="https://arxiv.org/abs/2307.15818" target="_blank" rel="noopener noreferrer">RT-2 论文</a> ·
+          <a href="https://arxiv.org/abs/2406.09246" target="_blank" rel="noopener noreferrer">OpenVLA 论文</a> ·
+          <a href="https://github.com/openvla/openvla" target="_blank" rel="noopener noreferrer">OpenVLA GitHub</a>
+        </p>
+        <p class="term-origin" style="background:var(--sage-wash);border-left-color:var(--sage);"><strong>和你有关：</strong>对机器人说自然语言指令并执行操作的研究主航道之一。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>眼看、耳听指令、手去做——三件事先统一成一个「大脑接口」。</p></div>
+      </article>
+
+      <article class="term-card" id="sim2real" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">Sim2Real</span>
+          <span class="term-zh">仿真到现实</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">在仿真中训练策略再迁移到真机。常用开源仿真/生态包括 MuJoCo、Habitat、Isaac 等。</p>
+        <p class="term-origin"><strong>来源：</strong>
+          <a href="https://github.com/facebookresearch/habitat-lab" target="_blank" rel="noopener noreferrer">Habitat-Lab GitHub</a>
+        </p>
+        <p class="term-origin" style="background:var(--sage-wash);border-left-color:var(--sage);"><strong>和你有关：</strong>真机数据贵且危险；仿真加速研发，但存在仿真与现实差距。</p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>飞行模拟器练手再上天——有用，但不能 100% 代替真飞。</p></div>
+      </article>
+
+      <article class="term-card" id="alvinn" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">ALVINN</span>
+          <span class="term-zh">神经网络自动驾驶经典系统</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">Pomerleau 的 ALVINN（NIPS 1988）用神经网络将传感器输入映射为方向，在 CMU NAVLAB 上做道路跟随，是学习型驾驶经典节点。</p>
+        <p class="term-origin"><strong>来源：</strong>
+          <a href="https://proceedings.neurips.cc/paper/1988/hash/812b4ba287f5ee0bc9d43bbf5bbe87fb-Abstract.html" target="_blank" rel="noopener noreferrer">NIPS 1988 论文页</a>
+        </p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>看人开车学会打方向——早期的「模仿学习开车」。</p></div>
+      </article>
+
+      <article class="term-card" id="darpa-gc" data-cat="eng">
+        <div class="term-head">
+          <span class="term-en">DARPA Grand Challenge</span>
+          <span class="term-zh">DARPA 无人车挑战赛</span>
+          <span class="term-cat">工程</span>
+        </div>
+        <p class="term-plain">2004 沙漠挑战无车完赛；2005 五车完赛（Stanford Stanley 夺冠）；2007 Urban Challenge 引入城市场景。被广泛认为点燃产业十年浪潮。</p>
+        <p class="term-origin"><strong>来源：</strong>
+          <a href="https://www.darpa.mil/about/innovation-timeline/grand-challenge" target="_blank" rel="noopener noreferrer">DARPA 官方</a> ·
+          <a href="https://spectrum.ieee.org/darpa-grand-challenge" target="_blank" rel="noopener noreferrer">IEEE Spectrum 复盘</a>
+        </p>
+        <div class="term-analogy"><span class="term-analogy-icon">💡</span><p><strong>类比：</strong>行业高考——一次公开竞赛证明「这事能做成」。</p></div>
+      </article>
+
+      <p id="glossary-empty" class="text-center" hidden style="padding:48px 0;color:var(--ink-mute);font-size:var(--fs-base);">
+        没有匹配的词条，试试别的关键词或切换分类。
+      </p>
+    </div>
+
+    <div class="hero-actions" style="margin-top: 40px; justify-content: flex-start;">
+      <a class="btn btn-primary" href="architectures.html">下一步：⑤ 架构选型</a>
+      <a class="btn btn-secondary" href="fundamentals.html">回：③ 通识分层</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p><strong style="color:var(--ink)">AI 通识知识库</strong> · 专有词</p>
+      <p class="footer-note">释义面向通识建立直觉；细节边界以论文与官方文档为准。生态演进快，词义会随实践扩展。</p>
+    </div>
+  </footer>
+  <script src="js/shell.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

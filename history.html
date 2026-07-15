@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="AI 发展史：按时间线讲清每一跃迁解决了什么问题，以及对普通人意味着什么。" />
+  <title>② 发展史 · AI 通识知识库</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="has-sidebar">
+  <nav class="nav" aria-label="主导航">
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">
+        <span class="nav-logo">AI</span>
+        <span>通识知识库</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">学习</a>
+        <a class="nav-link" href="glossary.html">词库</a>
+        <div class="nav-more-wrap">
+          <button type="button" class="nav-more-btn" aria-expanded="false">更多</button>
+          <div class="nav-more-panel">
+            <p class="hint">附录 · 内容完整保留</p>
+            <a href="mindmap.html">结构地图</a>
+            <a href="history.html">发展历史</a>
+            <a href="architectures.html">架构框架</a>
+            <a href="embodied.html">具身智能</a>
+            <a href="boundaries.html">边界深读</a>
+          </div>
+        </div>
+        <a class="nav-link nav-link-mobile-only" href="mindmap.html">结构地图</a>
+        <a class="nav-link nav-link-mobile-only" href="history.html">发展历史</a>
+        <a class="nav-link nav-link-mobile-only" href="architectures.html">架构框架</a>
+        <a class="nav-link nav-link-mobile-only" href="embodied.html">具身智能</a>
+        <a class="nav-link nav-link-mobile-only" href="boundaries.html">边界深读</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page page-narrow">
+    <header class="page-hero animate-in">
+      <div class="section-eyebrow">附录 · 时间线</div>
+      <h1>发展史</h1>
+      <p class="lead">
+        主线讲「怎么用」；本页讲「怎么长成今天这样」。可在走完
+        <a href="fundamentals.html">主线</a> 后当故事书补读。
+      </p>
+      <div class="page-hero-art">
+        <img src="images/illustrations/history-path.jpg" alt="AI 发展路径" width="1600" height="900" />
+      </div>
+    </header>
+
+    <div class="you-box mb-32">
+      <h4>小白怎么读时间线</h4>
+      <p>
+        不必背年份。每段只抓三句：<strong>当时卡在哪</strong> → <strong>出现了什么办法</strong> → <strong>和今天的你有什么关系</strong>。
+        读完回到 <a href="fundamentals.html">通识分层</a>，零件会更好懂。
+      </p>
+    </div>
+
+    <div class="timeline mb-48">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1950 · 提问</div>
+        <h3 class="timeline-title">图灵：机器能思考吗？</h3>
+        <p class="timeline-body">
+          图灵提出用对话测试来讨论「机器是否智能」——重点是<strong>把问题说清楚</strong>，不是马上做出 ChatGPT。
+        </p>
+        <div class="timeline-card">
+          <strong>和你有什么关系：</strong>今天所有「AI 像不像人」的争论，源头都在这类可讨论的标准，而不是神秘魔法。
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1956 · 命名</div>
+        <h3 class="timeline-title">「人工智能」成为学科</h3>
+        <p class="timeline-body">
+          达特茅斯会议正式提出 Artificial Intelligence。当时极乐观，以为很快能做出通用智能，也为后来的期望落空埋下伏笔。
+        </p>
+        <div class="timeline-card">
+          <strong>你可以怎么用这段历史：</strong>听到夸张承诺时保持冷静——行业反复经历过「热度 > 能力」然后回调。
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">早期几十年 · 规则派</div>
+        <h3 class="timeline-title">专家系统：把老师傅写成 if-else</h3>
+        <p class="timeline-body">
+          主流想法：智能 = 知识 + 逻辑规则。在窄领域（如某些诊断、配置）有用，但世界开放、例外太多时，规则维护崩溃。
+        </p>
+        <div class="triad" style="margin-top:12px;">
+          <div class="triad-card what"><div class="triad-label">当时在解决</div><p>让电脑在专业领域按专家经验做判断。</p></div>
+          <div class="triad-card me"><div class="triad-label">和你有关</div><p>公司里的「审批规则引擎」「固定流程机器人」仍是规则思想的亲戚。</p></div>
+          <div class="triad-card use"><div class="triad-label">你怎么用</div><p>规则适合「明确、少例外」；开放对话与模糊任务，才轮到 LLM。</p></div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">多次 · 寒冬</div>
+        <h3 class="timeline-title">期望落空 → 经费与热度下降</h3>
+        <p class="timeline-body">
+          当承诺的通用智能迟迟不来，资助收缩。寒冬不是「AI 死了」，而是叙事跑太快后的纠正。
+        </p>
+        <div class="timeline-card">
+          <strong>和你有什么关系：</strong>判断工具价值看<strong>能否稳定完成你的真实任务</strong>，而不是看热搜词。
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1980s–2000s · 机器学习</div>
+        <h3 class="timeline-title">从写规则 → 从数据里学规律</h3>
+        <p class="timeline-body">
+          垃圾邮件、推荐、风控等开始靠统计学习：喂例子，让模型自己找模式，而不是穷举规则。
+        </p>
+        <div class="timeline-card">
+          <strong>和你有什么关系：</strong>你刷到的信息流、电商推荐、信用卡风控，很早就在用「学习」而不是纯规则。LLM 是这条路上的新高峰。
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2012 前后 · 深度学习</div>
+        <h3 class="timeline-title">深度网络 + GPU：看图听声变强</h3>
+        <p class="timeline-body">
+          图像识别、语音识别大幅进步。大数据与算力成为燃料；很多特征不必人工设计。
+        </p>
+        <div class="timeline-card">
+          <strong>和你有什么关系：</strong>手机相册识人、语音转文字、拍照翻翻译，都受益于这波感知能力跃迁。
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2017 · 关键架构</div>
+        <h3 class="timeline-title">Transformer：现代大模型的骨架</h3>
+        <p class="timeline-body">
+          《Attention Is All You Need》提出的架构，让模型更擅长抓住长文本中的关系，也更适合大规模并行训练。之后的 GPT、BERT 等几乎都站在它上面。
+          论文：<a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer">arXiv:1706.03762</a>
+        </p>
+        <div class="triad" style="margin-top:12px;">
+          <div class="triad-card what"><div class="triad-label">解决了什么</div><p>旧序列模型难并行、难抓好全局依赖；Transformer 改善了这些。</p></div>
+          <div class="triad-card me"><div class="triad-label">和你有关</div><p>没有它，很难有今天又快又强的对话模型。</p></div>
+          <div class="triad-card use"><div class="triad-label">你要记住</div><p>听到 Transformer，知道是「现代 LLM 的底盘」即可，不必会推公式。</p></div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2018–2020 · 预训练时代</div>
+        <h3 class="timeline-title">先海量自学，再微调上岗</h3>
+        <p class="timeline-body">
+          模型先在广义语料上学会语言与世界知识，再针对任务微调。规模变大后，出现「给几个例子就会做」的能力。
+        </p>
+        <div class="timeline-card">
+          <strong>和你有什么关系：</strong>你不需要为每个小任务重新训练模型；会写提示、会给例子，就能调用通用能力。
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">约 2020 · RAG</div>
+        <h3 class="timeline-title">检索增强：给模型外挂「可更新书架」</h3>
+        <p class="timeline-body">
+          只靠训练知识会过时、不知你的内部文档。RAG 先检索再生成，成为企业知识问答的主流套路。
+        </p>
+        <div class="timeline-card">
+          <strong>你可以怎么用：</strong>重要问题「先贴资料再问」；选带知识库/上传文档的产品。详见 <a href="fundamentals.html#rag">通识 · RAG</a>。
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2022 末 · 大众爆发</div>
+        <h3 class="timeline-title">ChatGPT：人人可用的对话助手</h3>
+        <p class="timeline-body">
+          指令微调与人类反馈对齐，让模型更「听得懂吩咐」。AI 从实验室和开发者工具，变成亿级用户的日常入口。
+        </p>
+        <div class="triad" style="margin-top:12px;">
+          <div class="triad-card what"><div class="triad-label">变了什么</div><p>从「补全文字」变成「像助手一样对话协作」。</p></div>
+          <div class="triad-card me"><div class="triad-label">和你有关</div><p>写作、学习、编程、翻译的门槛骤降；同时幻觉与隐私问题进入日常生活。</p></div>
+          <div class="triad-card use"><div class="triad-label">你怎么用</div><p>把它当初级同事：任务要写清，产出要检查，隐私要脱敏。</p></div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2023–2024 · 能干活</div>
+        <h3 class="timeline-title">工具调用 · 开源模型 · Agent 框架井喷</h3>
+        <p class="timeline-body">
+          模型开始稳定调用外部工具；开源权重降低门槛；LangGraph、LlamaIndex、CrewAI、Dify 等让「编排流程/智能体」成为工程问题。国内大模型与应用同步爆发。
+        </p>
+        <div class="timeline-card">
+          <strong>和你有什么关系：</strong>AI 从「会说」走向「能查、能算、能走流程」。你会越来越多碰到插件、工作流、自动研究类功能。
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2024–现在 · 工程化</div>
+        <h3 class="timeline-title">从 Demo 到可靠员工：流程、记忆、护栏</h3>
+        <p class="timeline-body">
+          行业焦点从「能不能炫」转向「稳不稳、贵不贵、可不可控」。Skill（能力包）、Workflow（流水线）、Agent Loop（循环决策）、评测与权限成为关键词。
+        </p>
+        <div class="triad" style="margin-top:12px;">
+          <div class="triad-card what"><div class="triad-label">当前主线</div><p>系统层工程：上下文、循环急停、人在回路、可观测。</p></div>
+          <div class="triad-card me"><div class="triad-label">和你有关</div><p>选工具要问：能否中断？敏感操作是否确认？是否接入你的资料？</p></div>
+          <div class="triad-card use"><div class="triad-label">下一步学什么</div><p>进入 <a href="fundamentals.html">③ 通识分层</a>，按零件学；要选型再看 <a href="architectures.html">⑤ 架构</a>。</p></div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" style="padding-top:0;">
+      <div class="section-header">
+        <div class="section-eyebrow">Summary for beginners</div>
+        <h2 class="section-title">用一张表记住「时代 → 你多了什么」</h2>
+      </div>
+      <div class="table-wrap mb-32">
+        <table>
+          <thead>
+            <tr>
+              <th>时代</th>
+              <th>核心能力</th>
+              <th>普通人得到什么</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>规则 / 专家系统</td>
+              <td>固定逻辑</td>
+              <td>窄场景自动判断（流程、风控规则）</td>
+            </tr>
+            <tr>
+              <td>机器学习</td>
+              <td>从数据预测</td>
+              <td>推荐、反垃圾、信用评分</td>
+            </tr>
+            <tr>
+              <td>深度学习</td>
+              <td>感知（视听）</td>
+              <td>语音输入、影像识别、翻译</td>
+            </tr>
+            <tr>
+              <td>大模型对话</td>
+              <td>通用语言协作</td>
+              <td>写作、学习、编程助手人人可用</td>
+            </tr>
+            <tr>
+              <td>RAG + 工具 + Agent</td>
+              <td>有据回答 + 代办</td>
+              <td>基于你的文档问答、自动多步任务</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <blockquote style="padding:14px 18px;border-left:3px solid var(--dust-rose);background:var(--dust-rose-wash);border-radius:0 16px 16px 0;color:var(--ink-soft);font-size:var(--fs-base);line-height:1.65;">
+        <strong style="color:var(--dust-rose-deep);">读史结论</strong>：今天的热词很少是突然发明的魔法，而是「模型变强后，把检索、工具、记忆、流程重新组装」。
+        你要学的是这套组装逻辑——也就是下一页的通识分层。
+      </blockquote>
+    </section>
+
+    <div class="hero-actions" style="margin-top: 32px; justify-content: flex-start;">
+      <a class="btn btn-primary" href="fundamentals.html">下一步：③ 通识分层</a>
+      <a class="btn btn-secondary" href="mindmap.html">回顾：① 结构地图</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p><strong style="color:var(--ink)">AI 通识知识库</strong> · ② 发展史</p>
+      <p class="footer-note">时间线为通识叙事，帮助建立因果；具体论文与产品日期以原始文献为准。</p>
+    </div>
+  </footer>
+  <script src="js/shell.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
