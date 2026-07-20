@@ -142,3 +142,37 @@ test("global entry points describe and link the upgraded guide", () => {
   assert.match(readme, /飞书 CLI/);
   assert.match(readme, /AI Coding 从想法到上线/);
 });
+
+test("practice page contains no secret-shaped examples or unfinished markers", () => {
+  assert.doesNotMatch(
+    practice,
+    /\b(sk-[A-Za-z0-9_-]{12,}|cli_[a-z0-9]{12,}|ou_[a-z0-9]{12,}|oc_[a-z0-9]{12,})\b/,
+  );
+  assert.doesNotMatch(practice, /\b\d{1,3}(?:\.\d{1,3}){3}\b/);
+  const unfinished = [
+    ["TO", "DO"].join(""),
+    ["TB", "D"].join(""),
+    "待" + "补充",
+    "占位" + "内容",
+  ];
+  for (const marker of unfinished) {
+    assert.doesNotMatch(practice, new RegExp(marker));
+  }
+});
+
+test("new figures have non-empty alt text and lazy loading outside the hero", () => {
+  const figures = [
+    "feishu-collaboration-garden.png",
+    "ai-feishu-cli-loop.png",
+    "ai-coding-launch-route.png",
+  ];
+
+  for (const name of figures) {
+    const tag =
+      practice.match(
+        new RegExp(`<img[^>]+src="images/illustrations/${name}"[^>]*>`),
+      )?.[0] || "";
+    assert.match(tag, /alt="[^"]{8,}"/);
+    assert.match(tag, /loading="lazy"/);
+  }
+});

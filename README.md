@@ -6,7 +6,7 @@
 
 1. `index.html` 选入口（结构 / 时间 / 功能）  
 2. `fundamentals.html` 通识六站 + 知识点旁沙盒  
-3. `practice.html` **飞书 CLI + AI Coding 从想法到上线**  
+3. `practice.html` **飞书 CLI + AI Coding 从想法到上线**
 4. 需要时：`glossary.html` / `boundaries.html` / `embodied.html` …
 
 ## 企业专栏内容
