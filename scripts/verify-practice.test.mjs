@@ -119,3 +119,12 @@ test("attention and workflow components have dedicated responsive styles", () =>
   }
   assert.match(css, /@media \(max-width: 700px\)/);
 });
+
+test("practice interaction script preserves accessible button state", () => {
+  const js = read("js/practice.js");
+  assert.match(js, /function setProblemFilter\(filter\)/);
+  assert.match(js, /setAttribute\("aria-pressed"/);
+  assert.match(js, /classList\.toggle\("is-muted"/);
+  assert.match(js, /navigator\.clipboard\.writeText/);
+  assert.match(js, /复制失败/);
+});
