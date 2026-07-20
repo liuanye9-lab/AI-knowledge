@@ -96,3 +96,26 @@ test("community tools are labeled and external links are hardened", () => {
     assert.match(link, /rel="noopener noreferrer"/);
   }
 });
+
+test("attention and workflow components have dedicated responsive styles", () => {
+  const css = read("css/styles.css");
+  const classes = [
+    "attention-lead",
+    "capability-map",
+    "capability-card",
+    "role-triad",
+    "workflow-grid",
+    "workflow-card",
+    "problem-filter",
+    "phase-roadmap",
+    "phase-card",
+    "boundary-note",
+    "copy-block",
+    "iteration-loop",
+  ];
+
+  for (const name of classes) {
+    assert.match(css, new RegExp(`\\.${name}\\b`), `missing .${name}`);
+  }
+  assert.match(css, /@media \(max-width: 700px\)/);
+});
