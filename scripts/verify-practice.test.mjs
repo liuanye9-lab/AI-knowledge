@@ -128,3 +128,17 @@ test("practice interaction script preserves accessible button state", () => {
   assert.match(js, /navigator\.clipboard\.writeText/);
   assert.match(js, /复制失败/);
 });
+
+test("global entry points describe and link the upgraded guide", () => {
+  const shell = read("js/shell.js");
+  const index = read("index.html");
+  const readme = read("README.md");
+
+  for (const id of ["feishu", "cli-loops", "site", "daily", "refs"]) {
+    assert.match(shell, new RegExp(`practice\\.html#${id}`));
+  }
+  assert.match(index, /飞书 CLI/);
+  assert.match(index, /从想法到上线/);
+  assert.match(readme, /飞书 CLI/);
+  assert.match(readme, /AI Coding 从想法到上线/);
+});

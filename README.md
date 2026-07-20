@@ -6,15 +6,15 @@
 
 1. `index.html` 选入口（结构 / 时间 / 功能）  
 2. `fundamentals.html` 通识六站 + 知识点旁沙盒  
-3. `practice.html` **企业 ToB 提效 + AI Coding 做站/做应用**  
+3. `practice.html` **飞书 CLI + AI Coding 从想法到上线**  
 4. 需要时：`glossary.html` / `boundaries.html` / `embodied.html` …
 
 ## 企业专栏内容
 
-- 飞书 AI：知识问答、多维表格、智能体、开放平台当数据层  
-- AI Coding：从 PRD 到静态站；小应用 = 前端 + 多维表格后端  
-- 各岗位日常提效清单  
-- 治理与合规  
+- 飞书产品能力地图：内容、数据、协作、组织、AI 与应用交付的适用边界
+- 飞书 CLI：会议、知识、销售、经营和应用交付的六个价值闭环
+- AI Coding 从想法到上线：工具、Plan、本地验收、Git/测试、部署、备案与运维
+- 各岗位日常提效、数据安全、权限、成本与人工确认
 - 引用：WaytoAGI、Datawhale、Prompting Guide、HF Learn、论文与飞书官网  
 
 ## 本地打开
