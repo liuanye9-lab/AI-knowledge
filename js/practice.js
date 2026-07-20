@@ -9,10 +9,7 @@
 
   function setProblemFilter(filter) {
     filterButtons.forEach(function (button) {
-      button.setAttribute(
-        "aria-pressed",
-        button.dataset.filter === filter ? "true" : "false",
-      );
+      button.setAttribute("aria-pressed", button.dataset.filter === filter ? "true" : "false");
     });
 
     problemCards.forEach(function (card) {
