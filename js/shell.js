@@ -14,10 +14,11 @@
     '<div class="sidebar-inner">' +
     '<a class="sidebar-brand" href="index.html">' +
     '<span class="nav-logo">AI</span><span>通识知识库</span></a>' +
-    '<p class="sidebar-tagline">结构 · 时间 · 功能 · 练习</p>' +
+    '<p class="sidebar-tagline">连接 · 回忆 · 应用 · 复习</p>' +
     '<div class="sidebar-group">' +
     '<div class="sidebar-group-title">开始</div>' +
     '<a class="sidebar-link' + active("index.html") + '" href="index.html">首页概览</a>' +
+    '<a class="sidebar-link' + active("learning.html") + '" href="learning.html"><span class="sl-num">学</span>今天怎么学</a>' +
     "</div>" +
     '<div class="sidebar-group">' +
     '<div class="sidebar-group-title">三条逻辑线</div>' +
@@ -42,6 +43,8 @@
     '<div class="sidebar-group">' +
     '<div class="sidebar-group-title">实操 · 企业</div>' +
     '<a class="sidebar-link' + active("practice.html") + '" href="practice.html"><span class="sl-num">企</span>企业专栏 · ToB 提效</a>' +
+    '<a class="sidebar-link' + active("feishu-ai.html") + '" href="feishu-ai.html"><span class="sl-num">飞</span>飞书 AI 生态</a>' +
+    '<a class="sidebar-link' + active("automotive.html") + '" href="automotive.html"><span class="sl-num">车</span>汽车制造行业</a>' +
     '<a class="sidebar-link sub" href="practice.html#feishu">飞书 AI 生态</a>' +
     '<a class="sidebar-link sub" href="practice.html#site">AI Coding 做网站</a>' +
     '<a class="sidebar-link sub" href="practice.html#app">AI Coding 做应用</a>' +
