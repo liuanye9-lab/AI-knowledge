@@ -45,11 +45,12 @@
     '<a class="sidebar-link' + active("practice.html") + '" href="practice.html"><span class="sl-num">企</span>企业专栏 · ToB 提效</a>' +
     '<a class="sidebar-link' + active("feishu-ai.html") + '" href="feishu-ai.html"><span class="sl-num">飞</span>飞书 AI 生态</a>' +
     '<a class="sidebar-link' + active("automotive.html") + '" href="automotive.html"><span class="sl-num">车</span>汽车制造行业</a>' +
-    '<a class="sidebar-link sub" href="practice.html#feishu">飞书 AI 生态</a>' +
-    '<a class="sidebar-link sub" href="practice.html#site">AI Coding 做网站</a>' +
-    '<a class="sidebar-link sub" href="practice.html#app">AI Coding 做应用</a>' +
-    '<a class="sidebar-link sub" href="practice.html#daily">日常工种清单</a>' +
-    '<a class="sidebar-link sub" href="practice.html#refs">开源与论文引用</a>' +
+    '<a class="sidebar-link sub" href="practice.html#feishu">飞书产品能力地图</a>' +
+    '<a class="sidebar-link sub" href="practice.html#ai-cli">AI · Aily · CLI</a>' +
+    '<a class="sidebar-link sub" href="practice.html#cli-loops">飞书 CLI 价值闭环</a>' +
+    '<a class="sidebar-link sub" href="practice.html#site">AI Coding 从想法到上线</a>' +
+    '<a class="sidebar-link sub" href="practice.html#daily">岗位实操清单</a>' +
+    '<a class="sidebar-link sub" href="practice.html#refs">官方资料与核对日期</a>' +
     "</div>" +
     '<div class="sidebar-group">' +
     '<div class="sidebar-group-title">进阶专题</div>' +

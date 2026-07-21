@@ -3055,7 +3055,6 @@ body.has-sidebar {
   body.has-sidebar > .nav { display: none; }
   body.has-sidebar > .mobile-dock { display: none !important; }
 }
-
 /* =====================================================
    Editorial grid refinement · 2026-07
    Swiss grid discipline + restrained editorial typography.
@@ -3407,4 +3406,348 @@ p { max-width: 66ch; }
   .spine-nav { margin-left: -18px; margin-right: -18px; padding-left: 18px; padding-right: 18px; }
   .auto-chain { grid-template-columns: 1fr; }
   .auto-chain a { min-height: 0; }
+/* Enterprise practice · attention-led watercolor components */
+.attention-lead strong {
+  color: var(--sage-deep);
+  background: linear-gradient(transparent 62%, var(--sage-wash) 62%);
+  padding: 0 0.08em;
+}
+
+.hero-figure,
+.attention-figure { margin-top: 18px; }
+
+.station-thesis {
+  font-size: var(--fs-lg);
+  line-height: 1.75;
+  margin: 0 0 20px;
+}
+
+.station-thesis strong {
+  color: var(--sage-deep);
+  background: linear-gradient(transparent 66%, var(--sage-wash) 66%);
+}
+
+.attention-grid,
+.capability-map,
+.capability-grid,
+.workflow-grid,
+.role-grid,
+.governance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0 24px;
+}
+
+.attention-grid.four-up { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.attention-card,
+.capability-card,
+.workflow-card,
+.phase-card,
+.role-card,
+.role-action-card,
+.governance-card {
+  background: var(--paper-card);
+  border: 1.5px solid var(--line);
+  border-radius: 18px 24px 17px 22px;
+  box-shadow: var(--shadow);
+  padding: 18px;
+  position: relative;
+}
+
+.attention-card:nth-child(3n + 1),
+.capability-card:nth-child(3n + 1),
+.phase-card:nth-child(3n + 1),
+.governance-card:nth-child(3n + 1) {
+  background: linear-gradient(145deg, var(--sage-wash), #fff 58%);
+}
+
+.attention-card:nth-child(3n + 2),
+.capability-card:nth-child(3n + 2),
+.phase-card:nth-child(3n + 2),
+.governance-card:nth-child(3n + 2) {
+  background: linear-gradient(145deg, var(--blue-gray-wash), #fff 58%);
+}
+
+.attention-card:nth-child(3n),
+.capability-card:nth-child(3n),
+.phase-card:nth-child(3n),
+.governance-card:nth-child(3n) {
+  background: linear-gradient(145deg, var(--clay-wash), #fff 58%);
+}
+
+.attention-card h3,
+.capability-card h3,
+.workflow-card h3,
+.phase-card h3,
+.role-card h3,
+.role-action-card h3,
+.governance-card h3 { margin: 4px 0 9px; }
+
+.attention-card p,
+.capability-card p,
+.workflow-card p,
+.phase-card p,
+.role-card p,
+.role-action-card p,
+.governance-card p { font-size: var(--fs-sm); line-height: 1.7; }
+
+.card-index,
+.capability-tag,
+.phase-number {
+  display: inline-flex;
+  color: var(--sage-deep);
+  background: var(--sage-wash);
+  border-radius: var(--radius-pill);
+  padding: 3px 9px;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+}
+
+.boundary-line {
+  border-top: 1px dashed var(--line-strong);
+  padding-top: 9px;
+  margin-top: 9px;
+}
+
+.role-triad {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0 24px;
+}
+
+.role-symbol {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 46% 54% 51% 49%;
+  color: #fff;
+  background: var(--sage);
+  font-family: var(--font-hand);
+  font-size: var(--fs-lg);
+}
+
+.boundary-banner,
+.boundary-note {
+  background: var(--clay-wash);
+  border-left: 3px solid var(--clay);
+  border-radius: 6px 14px 14px 6px;
+  color: var(--ink-soft);
+  font-size: var(--fs-sm);
+  line-height: 1.65;
+  padding: 10px 12px;
+  margin: 12px 0;
+}
+
+.detail-panel {
+  margin: 18px 0;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-md);
+  background: var(--sand-wash);
+  padding: 12px 14px;
+}
+
+.detail-panel summary {
+  color: var(--ink);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.detail-panel p,
+.detail-panel ol { margin-top: 10px; color: var(--ink-soft); }
+
+.detail-panel ol { padding-left: 22px; list-style: decimal; }
+
+.workflow-card-head {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.workflow-number {
+  flex: 0 0 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 45% 55% 50% 50%;
+  background: var(--sage);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.workflow-kicker {
+  color: var(--ink-mute);
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.micro-flow,
+.iteration-loop {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 14px 0;
+}
+
+.micro-flow li,
+.iteration-loop span {
+  background: rgba(255,255,255,0.78);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  padding: 5px 10px;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.micro-flow li:not(:last-child)::after {
+  content: "→";
+  color: var(--ink-faint);
+  margin-left: 10px;
+}
+
+.problem-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 20px;
+}
+
+.problem-filter button {
+  min-height: 40px;
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  padding: 7px 12px;
+  color: var(--ink-mute);
+  background: var(--paper-card);
+}
+
+.problem-filter button[aria-pressed="true"] {
+  color: var(--sage-deep);
+  border-color: var(--sage);
+  background: var(--sage-wash);
+}
+
+.problem-filter button:focus-visible,
+.copy-block button:focus-visible {
+  outline: 3px solid var(--blue-gray-wash);
+  outline-offset: 2px;
+}
+
+.workflow-card {
+  transition: opacity 0.22s var(--ease), filter 0.22s var(--ease);
+}
+
+.workflow-card.is-muted {
+  opacity: 0.28;
+  filter: saturate(0.5);
+}
+
+.phase-roadmap {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.phase-card ul {
+  list-style: disc;
+  padding-left: 18px;
+  margin-top: 12px;
+}
+
+.phase-card li {
+  color: var(--ink-soft);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  margin-bottom: 7px;
+}
+
+.iteration-loop {
+  justify-content: center;
+  padding: 18px;
+  border: 1px dashed var(--sage);
+  border-radius: var(--radius-lg);
+  background: var(--sage-wash);
+}
+
+.iteration-loop i { color: var(--sage-deep); font-style: normal; }
+
+.copy-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.copy-block code {
+  flex: 1;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.copy-block button {
+  flex: 0 0 auto;
+  min-height: 36px;
+  border: 1px solid var(--sage);
+  border-radius: var(--radius-pill);
+  padding: 5px 10px;
+  color: var(--sage-deep);
+  background: var(--sage-wash);
+}
+
+.role-action-card a {
+  display: inline-flex;
+  margin-top: 10px;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+
+.reference-groups {
+  display: grid;
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.reference-groups section {
+  border-bottom: 1px dashed var(--line-strong);
+  padding-bottom: 14px;
+}
+
+.reference-date {
+  color: var(--ink-mute);
+  font-size: var(--fs-sm);
+}
+
+.next-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 900px) {
+  .phase-roadmap { grid-template-columns: 1fr 1fr; }
+  .attention-grid.four-up { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 700px) {
+  .attention-grid,
+  .attention-grid.four-up,
+  .capability-map,
+  .capability-grid,
+  .workflow-grid,
+  .role-triad,
+  .role-grid,
+  .governance-grid,
+  .phase-roadmap { grid-template-columns: 1fr; }
+
+  .copy-block { flex-direction: column; }
+  .copy-block button { width: 100%; }
+  .workflow-card.is-muted { display: none; }
+  .station-thesis { font-size: var(--fs-md); }
 }
