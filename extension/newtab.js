@@ -1,11 +1,10 @@
 (function () {
   "use strict";
-  const form = document.getElementById("intent-form");
-  const input = document.getElementById("intent-input");
   const label = document.getElementById("time-label");
   const memory = document.getElementById("remember-line");
   const memoryText = document.getElementById("remember-text");
   const dismiss = document.getElementById("dismiss-memory");
+  const openButton = document.getElementById("open-companion");
   const isExtension = location.protocol === "chrome-extension:" && typeof chrome !== "undefined" && chrome.storage?.local;
 
   const hour = new Date().getHours();
@@ -13,10 +12,7 @@
 
   async function readState() {
     if (isExtension) return chrome.storage.local.get(["savedMethod", "memoryDismissedOn"]);
-    return {
-      savedMethod: localStorage.getItem("savedMethod"),
-      memoryDismissedOn: localStorage.getItem("memoryDismissedOn")
-    };
+    return { savedMethod: localStorage.getItem("savedMethod"), memoryDismissedOn: localStorage.getItem("memoryDismissedOn") };
   }
 
   async function writeState(value) {
@@ -34,22 +30,8 @@
     memory.hidden = true;
   });
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const text = input.value.trim();
-    if (!text) {
-      input.focus();
-      return;
-    }
-    await writeState({
-      companionContext: { text, title: "新标签页里的当前任务", url: "", capturedAt: Date.now() },
-      companionAutoRun: true
-    });
-    if (isExtension && chrome.sidePanel?.open) {
-      const current = await chrome.windows.getCurrent();
-      await chrome.sidePanel.open({ windowId: current.id });
-    } else {
-      location.href = "sidepanel.html";
-    }
+  openButton.addEventListener("click", async () => {
+    if (!isExtension) return location.assign("sidepanel.html");
+    chrome.runtime.sendMessage({ type: "open-sidepanel" });
   });
 })();

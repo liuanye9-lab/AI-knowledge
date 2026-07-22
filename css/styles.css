@@ -669,18 +669,6 @@ p { color: var(--ink-soft); }
   margin: 0 auto;
   filter: saturate(0.92);
 }
-.figure-media.svg-wrap {
-  padding: 16px 12px 8px;
-  overflow-x: auto;
-  background:
-    radial-gradient(ellipse at 20% 30%, var(--sage-wash), transparent 50%),
-    radial-gradient(ellipse at 80% 70%, var(--blue-gray-wash), transparent 45%),
-    var(--paper-card);
-}
-.figure-media.svg-wrap svg {
-  margin: 0 auto;
-  min-width: 560px;
-}
 .figure-cap {
   padding: 12px 18px 14px;
   font-size: var(--fs-sm);
@@ -1258,11 +1246,8 @@ p { color: var(--ink-soft); }
   padding: 12px 16px;
   box-shadow: var(--shadow);
 }
-.search-box svg {
-  width: 18px; height: 18px;
-  color: var(--ink-mute);
-  flex-shrink: 0;
-}
+.search-icon { position: relative; width: 18px; height: 18px; flex: 0 0 18px; border: 2px solid var(--ink-mute); border-radius: 50%; }
+.search-icon::after { content: ""; position: absolute; width: 7px; height: 2px; right: -5px; bottom: -2px; border-radius: 2px; background: var(--ink-mute); transform: rotate(45deg); }
 .search-box input {
   flex: 1;
   border: none;
@@ -2860,8 +2845,6 @@ body.has-sidebar {
 .learning-hero-art { position: relative; aspect-ratio: 4/3; min-height: 340px; }
 .learning-hero-art > img { width: 100%; height: 100%; object-fit: cover; border-radius: 42% 58% 44% 56% / 50% 44% 56% 50%; opacity: .86; filter: saturate(.82) contrast(.96); }
 .learning-hero-art::after { content: ""; position: absolute; inset: -6%; background: radial-gradient(ellipse, transparent 48%, #fff 74%); pointer-events: none; }
-.learning-hero-art svg { position: absolute; inset: 12% 4% 8%; z-index: 2; width: 92%; height: 80%; }
-.learning-hero-art path { fill: none; stroke: rgba(95,122,92,.7); stroke-width: 2.2; stroke-dasharray: 6 7; }
 .watercolor-note { position: absolute; z-index: 3; padding: 8px 13px; background: rgba(255,255,255,.9); border: 1px solid var(--line); box-shadow: var(--shadow); font-family: var(--font-soft); font-size: 13px; }
 .note-one { left: 5%; bottom: 14%; transform: rotate(-3deg); border-radius: 44% 56% 48% 52%; }
 .note-two { right: 4%; top: 18%; transform: rotate(2deg); border-radius: 54% 46% 58% 42%; }
@@ -2895,8 +2878,7 @@ body.has-sidebar {
 .next-review { margin-top: 10px; color: var(--sage-deep); font-size: 13px; }
 .concept-rail { position: sticky; top: calc(var(--topbar-h) + 24px); padding-left: 28px; border-left: 1px solid var(--line); }
 .mini-concept-map { position: relative; height: 330px; margin: 18px 0 12px; }
-.mini-concept-map svg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
-.mini-concept-map path { stroke: rgba(95,122,92,.36); stroke-width: 1.5; fill: none; stroke-dasharray: 5 6; }
+.mini-concept-map .map-watercolor { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: contain; opacity: .68; mix-blend-mode: multiply; }
 .map-node { position: absolute; z-index: 1; display: grid; place-items: center; width: 76px; height: 76px; border-radius: 45% 55% 48% 52%; background: #fff; border: 1.5px solid var(--line-strong); color: var(--ink); font-family: var(--font-soft); font-size: 14px; box-shadow: var(--shadow); }
 .map-node small { display: block; color: var(--ink-mute); font-family: var(--font); font-size: 10px; }
 .map-node.core { left: calc(50% - 42px); top: 108px; width: 84px; height: 84px; background: var(--sage-wash); border-color: var(--sage); }

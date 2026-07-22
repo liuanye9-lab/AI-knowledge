@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="安装并启用 AI 伴学 Chrome 扩展。" />
+  <title>安装 AI 伴学</title>
+  <link rel="stylesheet" href="css/companion.css" />
+</head>
+<body class="companion-page install-page" data-store-url="">
+  <main class="install-shell">
+    <header class="hub-header">
+      <a class="quiet-brand" href="companion.html"><img src="images/product/companion-mark-watercolor.webp" alt="" /><span>AI 伴学</span></a>
+      <span id="install-status" class="install-status">正在检查扩展</span>
+    </header>
+
+    <section class="install-hero">
+      <div>
+        <h1 id="install-title">安装一次，之后自然出现</h1>
+        <p id="install-copy">确认安装后，新标签页会自动生效；点击浏览器工具栏里的 AI 伴学，就会直接打开侧边栏。</p>
+        <a id="install-action" class="companion-primary install-cta" href="downloads/ai-companion-extension.zip" download>下载 Chrome 内测版</a>
+        <p class="install-note" id="install-note">正式一键安装需要通过 Chrome Web Store 确认。当前内测包下载后解压，在扩展管理页选择“加载已解压的扩展程序”。</p>
+      </div>
+      <img src="images/product/install-workspace-watercolor.webp" alt="水彩画：AI 伴学安装后的浏览器工作空间" width="1536" height="1024" fetchpriority="high" />
+    </section>
+
+    <ol class="install-progress" aria-label="安装后自动完成的配置">
+      <li><span>1</span><div><strong>确认安装</strong><small>浏览器唯一一次安全确认</small></div></li>
+      <li><span>2</span><div><strong>新标签页自动生效</strong><small>不需要再改浏览器设置</small></div></li>
+      <li><span>3</span><div><strong>点击图标直接使用</strong><small>侧边栏自动读取当前场景</small></div></li>
+    </ol>
+
+    <section class="installed-actions" id="installed-actions" hidden>
+      <button id="open-sidepanel" class="companion-primary" type="button">打开浏览器侧边栏</button>
+      <p>扩展已经安装。新开一个标签页即可看到新界面。</p>
+    </section>
+  </main>
+  <script src="js/install.js"></script>
+</body>
+</html>

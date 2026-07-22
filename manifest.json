@@ -1,20 +1,37 @@
 {
   "manifest_version": 3,
   "name": "AI 伴学层",
-  "version": "0.1.0",
-  "description": "在新标签页与浏览器侧边栏中，把正在做的事变成一次自然的 AI 学习。",
+  "version": "1.0.0",
+  "description": "自动出现在新标签页与浏览器侧边栏，直接理解当前内容并给出一个建议。",
+  "minimum_chrome_version": "116",
+  "homepage_url": "https://ai-knowledge-sigma.vercel.app/companion",
   "permissions": ["activeTab", "contextMenus", "scripting", "sidePanel", "storage"],
   "host_permissions": ["https://ai-knowledge-sigma.vercel.app/*"],
   "background": {
     "service_worker": "extension/service-worker.js"
   },
+  "icons": {
+    "16": "extension/icons/icon-16.png",
+    "32": "extension/icons/icon-32.png",
+    "48": "extension/icons/icon-48.png",
+    "128": "extension/icons/icon-128.png"
+  },
   "action": {
-    "default_title": "打开 AI 伴学"
+    "default_title": "打开 AI 伴学",
+    "default_icon": {
+      "16": "extension/icons/icon-16.png",
+      "32": "extension/icons/icon-32.png"
+    }
   },
   "side_panel": {
     "default_path": "extension/sidepanel.html"
   },
   "chrome_url_overrides": {
     "newtab": "extension/newtab.html"
-  }
+  },
+  "content_scripts": [{
+    "matches": ["https://ai-knowledge-sigma.vercel.app/*"],
+    "js": ["extension/site-bridge.js"],
+    "run_at": "document_start"
+  }]
 }

@@ -63,13 +63,52 @@ test("model endpoint normalizes a structured upstream response", async () => {
 });
 
 test("extension keeps model credentials server-side", async () => {
-  const [manifest, sidepanel] = await Promise.all([
+  const [manifestText, sidepanel, sidepanelHtml, newtabHtml, installHtml] = await Promise.all([
     readFile(new URL("../manifest.json", import.meta.url), "utf8"),
-    readFile(new URL("../extension/sidepanel.js", import.meta.url), "utf8")
+    readFile(new URL("../extension/sidepanel.js", import.meta.url), "utf8"),
+    readFile(new URL("../extension/sidepanel.html", import.meta.url), "utf8"),
+    readFile(new URL("../extension/newtab.html", import.meta.url), "utf8"),
+    readFile(new URL("../install.html", import.meta.url), "utf8")
   ]);
-  assert.match(manifest, /ai-knowledge-sigma\.vercel\.app/);
+  const manifest = JSON.parse(manifestText);
+  assert.equal(manifest.version, "1.0.0");
+  assert.equal(manifest.chrome_url_overrides.newtab, "extension/newtab.html");
+  assert.equal(manifest.side_panel.default_path, "extension/sidepanel.html");
+  assert.match(manifestText, /ai-knowledge-sigma\.vercel\.app/);
   assert.doesNotMatch(sidepanel, /AI_API_KEY|Bearer\s+[A-Za-z0-9_-]{12,}/);
   assert.match(sidepanel, /模型暂不可用/);
+  assert.doesNotMatch(sidepanelHtml, /textarea|contenteditable|data-mode/);
+  assert.doesNotMatch(newtabHtml, /textarea|input|form/);
+  assert.match(sidepanel, /capture-page-context/);
+  assert.match(installHtml, /ai-companion-extension\.zip/);
+});
+
+test("primary product surfaces contain no SVG image content", async () => {
+  const files = ["../index.html", "../companion.html", "../install.html", "../learning.html", "../glossary.html", "../extension/newtab.html", "../extension/sidepanel.html"];
+  const contents = await Promise.all(files.map((file) => readFile(new URL(file, import.meta.url), "utf8")));
+  for (const content of contents) assert.doesNotMatch(content, /<svg|\.svg\b/i);
+});
+
+test("previous product slogan is restored", async () => {
+  const [home, hub] = await Promise.all([
+    readFile(new URL("../index.html", import.meta.url), "utf8"),
+    readFile(new URL("../companion.html", import.meta.url), "utf8")
+  ]);
+  assert.match(home, /用你已经知道的/);
+  assert.match(home, /连接 AI 新世界/);
+  assert.match(hub, /用你已经知道的/);
+});
+
+test("installed product links open their native browser surfaces", async () => {
+  const [hub, bridge, worker] = await Promise.all([
+    readFile(new URL("../companion.html", import.meta.url), "utf8"),
+    readFile(new URL("../extension/site-bridge.js", import.meta.url), "utf8"),
+    readFile(new URL("../extension/service-worker.js", import.meta.url), "utf8")
+  ]);
+  assert.match(hub, /data-companion-surface="newtab"/);
+  assert.match(hub, /data-companion-surface="sidepanel"/);
+  assert.match(bridge, /open-newtab/);
+  assert.match(worker, /chrome\.tabs\.create/);
 });
 
 test("Feishu Card 2.0 has one primary submit and a document link", async () => {

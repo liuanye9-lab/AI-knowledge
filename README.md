@@ -4,20 +4,24 @@
 
 ## 三个主要界面
 
-1. `extension/newtab.html`：新标签页，每天自然看见，只问当前要推进的事
-2. `extension/sidepanel.html`：浏览器侧边栏，读取选中文字并只给一个关键建议
-3. `feishu-companion.html`：飞书工作卡片，在会议与协作结果中补齐行动信息
+1. `extension/newtab.html`：新标签页，每天自然看见一个清晰行动，不要求输入
+2. `extension/sidepanel.html`：浏览器侧边栏，自动读取当前页面或选中文字，只给一个关键建议
+3. 飞书知识库：从产品入口直接进入已授权的飞书 Wiki，在真实协作结果中沉淀方法
 
 统一链路：真实任务 → 一个建议 → 一键采用 → 一句解释 → 留下方法 → 相似场景再出现。
 
-## 加载 Chrome 扩展原型
+## 安装 Chrome 产品
+
+用户入口是 `install.html`。上架 Chrome Web Store 后，只需把页面的 `data-store-url` 填成商店地址，按钮就会直接跳到浏览器安装确认；安装完成后，Manifest V3 会自动接管新标签页，点击工具栏图标直接打开侧边栏。
+
+当前可下载 `downloads/ai-companion-extension.zip` 作为企业内测包：
 
 1. 打开 `chrome://extensions`
 2. 开启「开发者模式」
 3. 选择「加载已解压的扩展程序」
-4. 选择本仓库根目录（包含 `manifest.json`）
+4. 选择解压后的目录（包含 `manifest.json`）
 
-扩展使用 Manifest V3，只申请 `activeTab`、`contextMenus`、`scripting`、`sidePanel` 与 `storage`。它不会静默读取所有网页；只有用户主动选择文字或点击读取时才获取当前上下文。模型请求通过服务端网关发送，未配置或暂不可用时自动回落到本地方法。
+扩展使用 Manifest V3，只申请 `activeTab`、`contextMenus`、`scripting`、`sidePanel` 与 `storage`。侧边栏打开时只读取当前活动页面，不会后台遍历浏览历史；有选中文字时优先使用选区。模型请求通过服务端网关发送，未配置或暂不可用时自动回落到本地方法。
 
 ## 大模型接入
 

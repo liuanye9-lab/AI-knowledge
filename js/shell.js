@@ -19,9 +19,9 @@
     '<div class="sidebar-group-title">产品主线</div>' +
     '<a class="sidebar-link' + active("index.html") + '" href="index.html">首页概览</a>' +
     '<a class="sidebar-link' + active("companion.html") + '" href="companion.html"><span class="sl-num">伴</span>AI 伴学层</a>' +
-    '<a class="sidebar-link' + active("newtab.html") + '" href="extension/newtab.html"><span class="sl-num">签</span>新标签页</a>' +
-    '<a class="sidebar-link' + active("sidepanel.html") + '" href="extension/sidepanel.html"><span class="sl-num">侧</span>浏览器侧边栏</a>' +
-    '<a class="sidebar-link' + active("feishu-companion.html") + '" href="feishu-companion.html"><span class="sl-num">飞</span>飞书工作卡片</a>' +
+    '<a class="sidebar-link' + active("install.html") + '" href="install.html?surface=newtab" data-companion-surface="newtab"><span class="sl-num">签</span>设置新标签页</a>' +
+    '<a class="sidebar-link' + active("install.html") + '" href="install.html?surface=sidepanel" data-companion-surface="sidepanel"><span class="sl-num">侧</span>启用浏览器侧边栏</a>' +
+    '<a class="sidebar-link" href="https://tcnf9ebkyh8x.feishu.cn/wiki/WHENwjm46iZYXokusvUcpZ9wn9d" target="_blank" rel="noopener noreferrer"><span class="sl-num">飞</span>飞书产品知识库</a>' +
     "</div>" +
     '<div class="sidebar-group">' +
     '<div class="sidebar-group-title">知识底座 · 需要时打开</div>' +
@@ -111,7 +111,7 @@
     top.innerHTML =
       '<button type="button" class="sidebar-toggle" aria-label="打开目录" aria-expanded="false">☰ 目录</button>' +
       '<div class="topbar-title">AI 伴学</div>' +
-      '<a class="topbar-cta" href="companion.html">打开伴学层</a>';
+      '<a class="topbar-cta" href="install.html">安装 AI 伴学</a>';
 
     if (oldNav) oldNav.remove();
     var dock = document.querySelector(".mobile-dock");
