@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI 伴学 · 新标签页</title>
+  <link rel="stylesheet" href="../css/companion.css" />
+</head>
+<body class="companion-page newtab-page">
+  <main class="newtab-shell">
+    <header class="quiet-brand"><span class="brand-seed" aria-hidden="true"></span><span>AI 伴学</span><span class="local-label">本地体验</span></header>
+    <section class="newtab-focus" aria-labelledby="newtab-title">
+      <div class="newtab-copy">
+        <p class="moment-label" id="time-label">今天</p>
+        <h1 id="newtab-title">今天要推进什么？</h1>
+        <form id="intent-form" class="intent-form">
+          <label class="sr-only" for="intent-input">说一句你正在做的事</label>
+          <textarea id="intent-input" rows="2" placeholder="说一句你正在做的事"></textarea>
+          <button class="companion-primary" type="submit">和 AI 一起开始 <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="gentle-note">不用先学方法。把眼前的事交给我就好。</p>
+      </div>
+      <div class="watercolor-garden" aria-hidden="true">
+        <span class="wash wash-a"></span><span class="wash wash-b"></span><span class="stem stem-a"></span><span class="stem stem-b"></span>
+      </div>
+    </section>
+    <aside class="remember-line" id="remember-line">
+      <span aria-hidden="true">❧</span>
+      <div><small>上次留下的方法</small><p id="remember-text">先说目标，再给背景，最后约束输出。</p></div>
+      <button id="dismiss-memory" type="button">今天不看</button>
+    </aside>
+    <p class="newtab-foot">每天看见，但不要求每天学习</p>
+  </main>
+  <script src="newtab.js"></script>
+</body>
+</html>

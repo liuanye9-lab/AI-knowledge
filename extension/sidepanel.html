@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI 伴学 · 侧边栏</title>
+  <link rel="stylesheet" href="../css/companion.css" />
+</head>
+<body class="companion-page sidepanel-page">
+  <main class="sidepanel-shell">
+    <header class="sidepanel-head">
+      <a href="../companion.html" class="quiet-brand"><span class="brand-seed" aria-hidden="true"></span><span>AI 伴学</span></a>
+      <span class="context-status" id="context-status">检查模型连接</span>
+    </header>
+
+    <section class="context-block" aria-labelledby="context-title">
+      <div class="section-row"><p class="micro-label" id="context-title">正在陪你处理</p><button id="capture-btn" class="text-button" type="button">读取选中文字</button></div>
+      <label class="sr-only" for="selected-text">当前要处理的内容</label>
+      <textarea id="selected-text" rows="4">我们计划在下个季度推出新的协作功能，以提升团队在跨部门项目中的效率。</textarea>
+      <p class="source-line" id="source-line">示例任务 · 你可以直接试用</p>
+      <p class="privacy-line"><span aria-hidden="true">◇</span> 只发送你主动放进来的这段文字，不读取整页。</p>
+    </section>
+
+    <nav class="mode-tabs" aria-label="希望 AI 怎样帮助">
+      <button type="button" data-mode="clarify" aria-pressed="true">说清楚</button>
+      <button type="button" data-mode="check" aria-pressed="false">检查</button>
+      <button type="button" data-mode="action" aria-pressed="false">转成行动</button>
+    </nav>
+
+    <div class="analysis-action" id="analysis-action">
+      <button id="analyze-btn" class="companion-primary full" type="button">给我一个关键建议</button>
+      <span id="model-label">可离线使用</span>
+    </div>
+
+    <section class="suggestion-block" id="suggestion-block" aria-live="polite" hidden>
+      <p class="micro-label">一个关键建议</p>
+      <h1 id="suggestion-title">先补上读者和决策目标</h1>
+      <div class="rewrite-block">
+        <p class="micro-label">改写后</p>
+        <p id="rewrite-text">面向跨部门项目负责人，说明下季度协作功能的价值与落地方式，目标是获得试点团队的采纳和资源支持。</p>
+      </div>
+      <button id="apply-btn" class="companion-primary full" type="button">复制并采用</button>
+      <p class="why-line"><span aria-hidden="true">?</span><span id="why-text">为什么：明确读者会让 AI 自动调整信息粒度。</span></p>
+      <button id="save-method" class="save-method" type="button">把这个方法留给下次</button>
+      <button id="retry-btn" class="retry-button" type="button">重新生成</button>
+    </section>
+
+    <footer class="sidepanel-foot"><span>一次只改进一件事</span><a href="../learning.html">想深入时再看原理</a></footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </main>
+  <script src="sidepanel.js"></script>
+</body>
+</html>

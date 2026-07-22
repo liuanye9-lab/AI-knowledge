@@ -1,0 +1,41 @@
+{
+  "schema": "2.0",
+  "config": {
+    "update_multi": true,
+    "width_mode": "default",
+    "summary": { "content": "会议行动项已写入文档" }
+  },
+  "header": {
+    "title": { "tag": "plain_text", "content": "行动已经接住" },
+    "subtitle": { "tag": "plain_text", "content": "AI 伴学 · 已同步到关联文档" },
+    "template": "green",
+    "icon": { "tag": "standard_icon", "token": "todo_colorful" },
+    "text_tag_list": [
+      { "tag": "text_tag", "text": { "tag": "plain_text", "content": "已完成" }, "color": "green" }
+    ]
+  },
+  "body": {
+    "direction": "vertical",
+    "padding": "12px 12px 20px 12px",
+    "vertical_spacing": "large",
+    "elements": [
+      {
+        "tag": "markdown",
+        "content": "**2 个行动项已补全负责人并写入文档。**\n<font color='grey'>任务仍由人在飞书中确认和推进，AI 不代替责任人作决定。</font>"
+      },
+      {
+        "tag": "button",
+        "text": { "tag": "plain_text", "content": "打开行动记录" },
+        "type": "primary_filled",
+        "width": "fill",
+        "behaviors": [
+          { "type": "open_url", "default_url": "__DOC_URL__" }
+        ]
+      },
+      {
+        "tag": "markdown",
+        "content": "<font color='grey'>这次学到：负责人、时间和完成标准会让会议结论真正进入执行。</font>"
+      }
+    ]
+  }
+}

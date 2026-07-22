@@ -1,10 +1,51 @@
-# AI 通识知识库
+# AI 伴学层 + AI 通识知识库
 
-左侧课程目录 · 通识主线（含沙盒）· **企业专栏实操** · 附录专题
+产品主线不再是课程或题库，而是嵌入高频工作入口的轻量伴学体验。知识库保留为需要时才打开的深度底座。
 
-## 推荐路径
+## 三个主要界面
 
-1. `learning.html` 用旧知识连接、主动回忆与间隔复习进入当天学习
+1. `extension/newtab.html`：新标签页，每天自然看见，只问当前要推进的事
+2. `extension/sidepanel.html`：浏览器侧边栏，读取选中文字并只给一个关键建议
+3. `feishu-companion.html`：飞书工作卡片，在会议与协作结果中补齐行动信息
+
+统一链路：真实任务 → 一个建议 → 一键采用 → 一句解释 → 留下方法 → 相似场景再出现。
+
+## 加载 Chrome 扩展原型
+
+1. 打开 `chrome://extensions`
+2. 开启「开发者模式」
+3. 选择「加载已解压的扩展程序」
+4. 选择本仓库根目录（包含 `manifest.json`）
+
+扩展使用 Manifest V3，只申请 `activeTab`、`contextMenus`、`scripting`、`sidePanel` 与 `storage`。它不会静默读取所有网页；只有用户主动选择文字或点击读取时才获取当前上下文。模型请求通过服务端网关发送，未配置或暂不可用时自动回落到本地方法。
+
+## 大模型接入
+
+服务端接口位于 `api/companion.js`，浏览器扩展不会保存模型密钥。当前默认使用第三方 OpenAI-compatible 网关与 `gpt-5.6-luna`：
+
+```text
+AI_PROVIDER=openai-compatible
+AI_BASE_URL=https://api.llm-token.cn/v1
+AI_MODEL=gpt-5.6-luna
+AI_API_KEY=只在 Vercel 等服务端环境中配置
+```
+
+接口使用 OpenAI-compatible Chat Completions 协议。该地址不是 OpenAI 官方接口；正式处理企业敏感资料前，应单独核验供应商的数据保留、隐私、稳定性与计费。模型不可用时，侧边栏会明确降级为本地方法，不阻断用户任务。
+
+## 飞书文档 + Bot
+
+本地桥接器位于 `scripts/feishu/bridge.mjs`，Card 2.0 模板位于 `feishu/cards/`。完整流程和权限说明见 `docs/feishu-companion-integration.md`。
+
+```bash
+node scripts/feishu/bridge.mjs status
+node scripts/feishu/bridge.mjs send-card --chat-id oc_xxx --doc-url "飞书文档URL"
+```
+
+发送默认是 dry-run；只有显式增加 `--yes` 才会向真实群聊发送。卡片提交后，通过 `card.action.trigger` 将行动项追加到指定文档并更新原卡片状态。
+
+## 知识底座
+
+1. `learning.html` 了解旧知识连接、主动提取与间隔复现的设计依据
 2. `fundamentals.html` 从 AI 基础到使用、验收的通识六站
 3. `practice.html` 飞书 CLI、企业 ToB 提效与 AI Coding 从想法到上线
 4. `feishu-ai.html` 飞书 AI 生态全景；`automotive.html` 汽车制造行业专题

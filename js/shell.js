@@ -13,15 +13,19 @@
   var html =
     '<div class="sidebar-inner">' +
     '<a class="sidebar-brand" href="index.html">' +
-    '<span class="nav-logo">AI</span><span>通识知识库</span></a>' +
-    '<p class="sidebar-tagline">连接 · 回忆 · 应用 · 复习</p>' +
+    '<span class="nav-logo">AI</span><span>AI 伴学</span></a>' +
+    '<p class="sidebar-tagline">在工作里自然用会 AI</p>' +
     '<div class="sidebar-group">' +
-    '<div class="sidebar-group-title">开始</div>' +
+    '<div class="sidebar-group-title">产品主线</div>' +
     '<a class="sidebar-link' + active("index.html") + '" href="index.html">首页概览</a>' +
-    '<a class="sidebar-link' + active("learning.html") + '" href="learning.html"><span class="sl-num">学</span>今天怎么学</a>' +
+    '<a class="sidebar-link' + active("companion.html") + '" href="companion.html"><span class="sl-num">伴</span>AI 伴学层</a>' +
+    '<a class="sidebar-link' + active("newtab.html") + '" href="extension/newtab.html"><span class="sl-num">签</span>新标签页</a>' +
+    '<a class="sidebar-link' + active("sidepanel.html") + '" href="extension/sidepanel.html"><span class="sl-num">侧</span>浏览器侧边栏</a>' +
+    '<a class="sidebar-link' + active("feishu-companion.html") + '" href="feishu-companion.html"><span class="sl-num">飞</span>飞书工作卡片</a>' +
     "</div>" +
     '<div class="sidebar-group">' +
-    '<div class="sidebar-group-title">三条逻辑线</div>' +
+    '<div class="sidebar-group-title">知识底座 · 需要时打开</div>' +
+    '<a class="sidebar-link' + active("learning.html") + '" href="learning.html"><span class="sl-num">学</span>学习方法</a>' +
     '<a class="sidebar-link' + active("mindmap.html") + '" href="mindmap.html"><span class="sl-num">结</span>结构地图</a>' +
     '<a class="sidebar-link' + active("history.html") + '" href="history.html"><span class="sl-num">时</span>发展史 · 时间线</a>' +
     '<a class="sidebar-link' + active("fundamentals.html") + '" href="fundamentals.html"><span class="sl-num">功</span>通识主线 · 含沙盒</a>' +
@@ -106,8 +110,8 @@
     top.className = "topbar";
     top.innerHTML =
       '<button type="button" class="sidebar-toggle" aria-label="打开目录" aria-expanded="false">☰ 目录</button>' +
-      '<div class="topbar-title">AI 通识知识库</div>' +
-      '<a class="topbar-cta" href="fundamentals.html">通识主线</a>';
+      '<div class="topbar-title">AI 伴学</div>' +
+      '<a class="topbar-cta" href="companion.html">打开伴学层</a>';
 
     if (oldNav) oldNav.remove();
     var dock = document.querySelector(".mobile-dock");

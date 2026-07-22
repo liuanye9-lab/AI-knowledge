@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "AI 伴学层",
+  "version": "0.1.0",
+  "description": "在新标签页与浏览器侧边栏中，把正在做的事变成一次自然的 AI 学习。",
+  "permissions": ["activeTab", "contextMenus", "scripting", "sidePanel", "storage"],
+  "host_permissions": ["https://ai-knowledge-sigma.vercel.app/*"],
+  "background": {
+    "service_worker": "extension/service-worker.js"
+  },
+  "action": {
+    "default_title": "打开 AI 伴学"
+  },
+  "side_panel": {
+    "default_path": "extension/sidepanel.html"
+  },
+  "chrome_url_overrides": {
+    "newtab": "extension/newtab.html"
+  }
+}

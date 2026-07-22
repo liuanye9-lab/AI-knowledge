@@ -1,0 +1,91 @@
+{
+  "schema": "2.0",
+  "config": {
+    "update_multi": true,
+    "width_mode": "default",
+    "summary": { "content": "会议行动项待确认" },
+    "style": {
+      "text_size": {
+        "caption": { "default": "notation", "pc": "notation", "mobile": "notation" }
+      },
+      "color": {
+        "companion-muted": {
+          "light_mode": "rgba(100,106,115,1)",
+          "dark_mode": "rgba(154,159,166,1)"
+        }
+      }
+    }
+  },
+  "header": {
+    "title": { "tag": "plain_text", "content": "会议结束了，先把行动留下" },
+    "subtitle": { "tag": "plain_text", "content": "AI 伴学 · 来自会议纪要" },
+    "template": "green",
+    "icon": { "tag": "standard_icon", "token": "todo_colorful" },
+    "text_tag_list": [
+      { "tag": "text_tag", "text": { "tag": "plain_text", "content": "待补全" }, "color": "yellow" }
+    ]
+  },
+  "body": {
+    "direction": "vertical",
+    "padding": "12px 12px 20px 12px",
+    "vertical_spacing": "large",
+    "elements": [
+      {
+        "tag": "markdown",
+        "content": "**一个最重要的缺口：行动项还没有明确承接人。**\n<font color='grey'>补全后会写入关联文档，并保留在原有协作流程中。</font>"
+      },
+      {
+        "tag": "form",
+        "name": "meeting_actions",
+        "direction": "vertical",
+        "vertical_spacing": "medium",
+        "elements": [
+          {
+            "tag": "markdown",
+            "content": "**整理并分享客户反馈摘要**\n<font color='grey'>截止：本周五 · 完成标准：项目群可查看摘要</font>"
+          },
+          {
+            "tag": "select_person",
+            "name": "owner_1",
+            "required": true,
+            "width": "fill",
+            "placeholder": { "tag": "plain_text", "content": "选择负责人" }
+          },
+          {
+            "tag": "markdown",
+            "content": "**确认试点用户名单并发起访谈**\n<font color='grey'>截止：下周三 · 完成标准：名单确认并发出邀请</font>"
+          },
+          {
+            "tag": "select_person",
+            "name": "owner_2",
+            "required": true,
+            "width": "fill",
+            "placeholder": { "tag": "plain_text", "content": "选择负责人" }
+          },
+          {
+            "tag": "button",
+            "name": "commit_actions",
+            "text": { "tag": "plain_text", "content": "补全并写入文档" },
+            "type": "primary_filled",
+            "width": "fill",
+            "form_action_type": "submit"
+          }
+        ]
+      },
+      {
+        "tag": "button",
+        "text": { "tag": "plain_text", "content": "查看关联文档" },
+        "type": "default",
+        "width": "fill",
+        "behaviors": [
+          { "type": "open_url", "default_url": "__DOC_URL__" }
+        ]
+      },
+      {
+        "tag": "markdown",
+        "text_size": "caption",
+        "content": "<font color='grey'>这次学到：任务最好同时包含负责人、截止时间和完成标准。</font>"
+      }
+    ]
+  }
+}
