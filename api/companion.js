@@ -74,6 +74,7 @@ function defaultIntelligence(scenario, requestedRole) {
 function isAllowedOrigin(origin) {
   return !origin || origin.startsWith("chrome-extension://") ||
     origin === "https://ai-knowledge-sigma.vercel.app" ||
+    origin === "https://ai.lay28.top" ||
     /^http:\/\/(127\.0\.0\.1|localhost)(:\d+)?$/.test(origin);
 }
 
