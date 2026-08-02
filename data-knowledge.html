@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="普通人如何用 AI 把杂乱资料去噪、验证、存储为可追溯、可检索、可复用的知识。" />
+  <title>数据沉淀 · AI 通识知识库</title>
+  <link rel="stylesheet" href="css/styles.css?v=8" />
+</head>
+<body class="has-sidebar data-knowledge-page">
+  <div class="app-shell">
+    <aside id="sidebar-root" class="sidebar" aria-label="课程目录"></aside>
+    <div class="main-col">
+      <header class="topbar">
+        <button type="button" class="sidebar-toggle" aria-label="打开目录" aria-expanded="false">☰ 目录</button>
+        <div class="topbar-title">数据沉淀 · 技术知识库</div>
+        <a class="topbar-cta" href="knowledge-map.html">从真实资料开始</a>
+      </header>
+
+      <main class="page data-kb-shell">
+        <section class="data-hero">
+          <div class="data-hero-copy">
+            <p class="eyebrow">从杂乱信息到可复用认知</p>
+            <h1>存下来，<br />还不等于形成知识。</h1>
+            <p class="lead">AI 的价值不是替你制造更多摘要，而是把来源、时间、条件和结论连在一起，让重要信息在需要时找得到、信得过、能继续行动。</p>
+            <div class="data-thesis">
+              <strong>第一原则</strong>
+              <span>原始证据不可丢；摘要、标签、向量与关系图属于可重建层。</span>
+            </div>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#pipeline">看完整流程</a>
+              <a class="btn btn-secondary" href="#starter">先整理一个文件夹</a>
+            </div>
+          </div>
+          <figure class="data-hero-art">
+            <img src="images/product/data-to-knowledge-watercolor.png" alt="水彩画：杂乱的文档、记录和媒体经过筛选，沉淀为有序的知识花园" width="1536" height="1024" fetchpriority="high" />
+            <figcaption>AI 负责筛选与连接，人负责目标、边界和最终判断。</figcaption>
+          </figure>
+        </section>
+
+        <section class="data-section" id="pipeline" aria-labelledby="pipeline-title">
+          <header class="data-section-head">
+            <div><p class="eyebrow">一条完整主线</p><h2 id="pipeline-title">七步把信息变成可用知识</h2></div>
+            <p>不是“一键上传后问答”，而是一条可检查、可回滚的流水线。</p>
+          </header>
+          <ol class="knowledge-pipeline">
+            <li><span>01</span><strong>收集</strong><small>登记来源、时间、作者与权限</small></li>
+            <li><span>02</span><strong>解析</strong><small>保留标题、段落、表格与页码</small></li>
+            <li><span>03</span><strong>去噪</strong><small>去重、过滤广告、标记冲突与过期</small></li>
+            <li><span>04</span><strong>知识卡片</strong><small>把长材料拆成带证据的最小认知单元</small></li>
+            <li><span>05</span><strong>分层存储</strong><small>原文、表格、索引与关系各归其位</small></li>
+            <li><span>06</span><strong>检索</strong><small>按问题找证据，回答必须能回到原文</small></li>
+            <li><span>07</span><strong>反馈</strong><small>纠错、更新、淘汰，并沉淀为 Skill</small></li>
+          </ol>
+        </section>
+
+        <section class="data-section knowledge-object-section" aria-labelledby="object-title">
+          <header class="data-section-head">
+            <div><p class="eyebrow">不要只存摘要</p><h2 id="object-title">一条“知识”至少包含什么？</h2></div>
+            <p>没有出处和适用条件的结论，只是容易传播的文字。</p>
+          </header>
+          <div class="knowledge-object">
+            <div class="object-core"><small>核心内容</small><strong>事实 / 主张</strong><p>一句能被验证、引用或用于决策的话。</p></div>
+            <dl>
+              <div><dt>来源定位</dt><dd>文件、链接、页码或时间戳</dd></div>
+              <div><dt>时间版本</dt><dd>何时成立，何时更新</dd></div>
+              <div><dt>上下文</dt><dd>对象、范围、前提与例外</dd></div>
+              <div><dt>状态</dt><dd>已核验、待确认、存在冲突</dd></div>
+              <div><dt>关系</dt><dd>支持、反驳、因果、属于</dd></div>
+              <div><dt>权限</dt><dd>谁能看、谁能改、能否外发</dd></div>
+              <div><dt>下一步</dt><dd>能用于什么决策或行动</dd></div>
+            </dl>
+          </div>
+        </section>
+
+        <section class="data-section storage-section" aria-labelledby="storage-title">
+          <header class="data-section-head">
+            <div><p class="eyebrow">数据该存在哪里</p><h2 id="storage-title">一种数据，一种最合适的容器</h2></div>
+            <p>不要把所有内容都塞进向量数据库。搜索索引不是事实本身。</p>
+          </header>
+          <div class="storage-layout">
+            <figure>
+              <img src="images/product/knowledge-storage-layers-watercolor.png" alt="水彩画：从原始资料、结构化表格、知识卡片、语义索引到关系图谱的分层知识柜" width="1536" height="1024" loading="lazy" />
+              <figcaption>下层保留证据，上层服务理解与行动；上层随时可以重建。</figcaption>
+            </figure>
+            <div class="storage-stack">
+              <article><span>01 · 事实源</span><h3>原始资料</h3><p>录音、PDF、网页快照、图片与原始表格。只追加、少覆盖，保留校验值和版本。</p><small>文件系统 / 对象存储 / 飞书云文档</small></article>
+              <article><span>02 · 可计算层</span><h3>结构化数据</h3><p>把人物、日期、金额、事件和指标整理成稳定字段，便于过滤、统计和回溯。</p><small>CSV / Parquet / DuckDB / SQLite / 多维表格</small></article>
+              <article><span>03 · 治理层</span><h3>元数据</h3><p>记录来源、权限、版本、有效期、处理状态与数据血缘。</p><small>SQLite / PostgreSQL / 数据目录</small></article>
+              <article><span>04 · 找回层</span><h3>语义索引</h3><p>向量负责“意思相近”，关键词负责专有名词与精确编号，两者混合更稳。</p><small>Qdrant + 全文检索；索引可删除重建</small></article>
+              <article><span>05 · 关系层</span><h3>关系图谱</h3><p>只有当问题需要跨文档关系、全局主题或多跳推理时再构建，避免过度工程。</p><small>实体、关系、社区摘要；不是所有知识库都需要</small></article>
+            </div>
+          </div>
+        </section>
+
+        <section class="data-section" aria-labelledby="denoise-title">
+          <header class="data-section-head">
+            <div><p class="eyebrow">AI 去噪不是“删得多”</p><h2 id="denoise-title">让机器做粗活，让规则守住底线</h2></div>
+            <p>先做可解释的确定性处理，再让模型做语义判断。</p>
+          </header>
+          <div class="denoise-grid">
+            <article><span>确定性规则</span><h3>先清理</h3><ul><li>文件哈希与近重复检测</li><li>统一日期、单位和字段名</li><li>过滤导航、广告与模板页脚</li><li>保留原文到清洗结果的映射</li></ul></article>
+            <article><span>轻量模型</span><h3>再识别</h3><ul><li>主题、实体、时间与行动项</li><li>个人信息与敏感内容</li><li>明显无关、低信息密度内容</li><li>不确定项进入待确认队列</li></ul></article>
+            <article><span>推理模型</span><h3>后综合</h3><ul><li>发现跨来源冲突与更新关系</li><li>生成带引用的阶段总结</li><li>回答“为什么”和“有什么影响”</li><li>证据不足时明确拒答</li></ul></article>
+            <article class="human-gate"><span>人的决策点</span><h3>只确认高影响问题</h3><ul><li>哪些来源可信</li><li>冲突以哪个版本为准</li><li>哪些内容允许共享</li><li>哪些结论可以驱动外部动作</li></ul></article>
+          </div>
+        </section>
+
+        <section class="data-section research-section" aria-labelledby="research-title">
+          <header class="data-section-head">
+            <div><p class="eyebrow">论文给出的设计信号</p><h2 id="research-title">不要把全部资料直接塞进上下文</h2></div>
+            <p>研究支持分层检索、时间意识、引用和可拒答，而不是无限延长提示词。</p>
+          </header>
+          <div class="research-cards">
+            <article><span>同行评审 · TACL 2024</span><h3>长上下文也会“看漏中间”</h3><p>相关信息位于长上下文中部时，模型表现会下降。知识库应先检索，再提供少量关键证据。</p><a href="https://aclanthology.org/2024.tacl-1.9/" target="_blank" rel="noreferrer">Lost in the Middle ↗</a></article>
+            <article><span>同行评审 · ICLR 2024</span><h3>长文档需要层级摘要</h3><p>RAPTOR 把片段递归聚类和摘要成树，说明细节检索与全局理解需要不同粒度。</p><a href="https://openreview.net/forum?id=GN921JHCRw" target="_blank" rel="noreferrer">RAPTOR ↗</a></article>
+            <article><span>论文 · 2024</span><h3>全局问题适合图结构</h3><p>GraphRAG 从实体关系建立社区摘要，适合回答跨大量文档的主题与整体问题。</p><a href="https://arxiv.org/abs/2404.16130" target="_blank" rel="noreferrer">GraphRAG ↗</a></article>
+            <article><span>论文 · 2024</span><h3>记忆必须处理时间与更新</h3><p>LongMemEval 把长期记忆拆为信息提取、多会话、时间、更新和拒答，提醒我们不能只做相似度搜索。</p><a href="https://arxiv.org/abs/2410.10813" target="_blank" rel="noreferrer">LongMemEval ↗</a></article>
+          </div>
+        </section>
+
+        <section class="data-section" aria-labelledby="tools-title">
+          <header class="data-section-head">
+            <div><p class="eyebrow">开源组件 · 截至 2026-07-23 核验</p><h2 id="tools-title">按问题选工具，不按热度堆技术</h2></div>
+            <p>以下项目均链接到官方仓库；部署前仍需核验最新许可证、版本与数据边界。</p>
+          </header>
+          <div class="tool-table-wrap">
+            <table class="tool-table">
+              <thead><tr><th>环节</th><th>项目</th><th>适合做什么</th><th>注意事项</th></tr></thead>
+              <tbody>
+                <tr><td>解析</td><td><a href="https://github.com/docling-project/docling" target="_blank" rel="noreferrer">Docling ↗</a><small>MIT</small></td><td>本地解析 PDF、Office、网页、表格、公式与 OCR，输出 Markdown / JSON。</td><td>先验证复杂表格和扫描件质量；原文件仍要保留。</td></tr>
+                <tr><td>检索工作台</td><td><a href="https://github.com/infiniflow/ragflow" target="_blank" rel="noreferrer">RAGFlow ↗</a><small>Apache-2.0</small></td><td>文档理解、切块可视化、检索和引用，适合团队做完整 RAG 流程。</td><td>运维成本高于个人知识库；先用真实问题做小规模评估。</td></tr>
+                <tr><td>向量索引</td><td><a href="https://github.com/qdrant/qdrant" target="_blank" rel="noreferrer">Qdrant ↗</a><small>Apache-2.0</small></td><td>语义检索、过滤与混合搜索；适合资料量和并发增长后使用。</td><td>向量不是事实库，必须保留 source_id 和定位信息。</td></tr>
+                <tr><td>全局关系</td><td><a href="https://github.com/microsoft/graphrag" target="_blank" rel="noreferrer">Microsoft GraphRAG ↗</a><small>MIT</small></td><td>从非结构化材料抽取实体关系并建立社区摘要。</td><td>索引成本可能较高；官方也建议先从小数据集开始。</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="data-section quality-section" aria-labelledby="quality-title">
+          <header class="data-section-head">
+            <div><p class="eyebrow">完成标准</p><h2 id="quality-title">衡量“有用”，而不是衡量“存了多少”</h2></div>
+            <p>一套知识库只有在真实问题上可靠，才算完成沉淀。</p>
+          </header>
+          <div class="quality-grid">
+            <article><strong>可追溯</strong><p>每个结论能回到文件、页码或时间戳。</p></article>
+            <article><strong>够新</strong><p>过期内容有状态，更新不会与旧版本混成一条。</p></article>
+            <article><strong>不重复</strong><p>同一事实合并展示，但保留多个独立来源。</p></article>
+            <article><strong>会冲突</strong><p>不强行合并矛盾，明确列出差异和待确认项。</p></article>
+            <article><strong>权限正确</strong><p>检索结果继承源数据权限，敏感内容不越界。</p></article>
+            <article><strong>能拒答</strong><p>证据不足时说不知道，不用流畅文字填空。</p></article>
+          </div>
+        </section>
+
+        <section class="data-section starter-section" id="starter" aria-labelledby="starter-title">
+          <div class="starter-copy">
+            <p class="eyebrow">普通人的最小可行方案</p>
+            <h2 id="starter-title">今天只整理一个真实文件夹</h2>
+            <p>不必先搭建复杂系统。选一个你经常反复查找的主题，例如客户资料、会议记录或行业研究。</p>
+          </div>
+          <ol>
+            <li><span>1</span><div><strong>保留原件</strong><p>建立“原始资料”目录，不让 AI 覆盖源文件。</p></div></li>
+            <li><span>2</span><div><strong>统一命名</strong><p>用日期、主题、来源命名，并在表格登记链接和权限。</p></div></li>
+            <li><span>3</span><div><strong>生成知识卡片</strong><p>要求 AI 输出结论、证据定位、适用条件、状态和下一步。</p></div></li>
+            <li><span>4</span><div><strong>用五个真实问题测试</strong><p>看能否找对来源、识别冲突、在证据不足时拒答。</p></div></li>
+            <li><span>5</span><div><strong>沉淀为 Skill</strong><p>保存有效的输入格式、处理步骤、质量检查和输出模板。</p></div></li>
+          </ol>
+          <div class="starter-action">
+            <div><small>有一批资料不知道如何整理？</small><strong>把目标、资料类型和最终要做的决定告诉项目 Agent。</strong></div>
+            <a class="btn btn-primary" href="knowledge-map.html">生成我的整理方案</a>
+          </div>
+        </section>
+
+        <aside class="data-boundary">
+          <strong>隐私边界</strong>
+          <p>个人身份、医疗、财务、合同和企业机密资料应优先本地处理或使用经组织批准的环境；上传前先脱敏，并明确删除、导出和权限继承机制。</p>
+        </aside>
+      </main>
+    </div>
+  </div>
+  <script src="js/knowledge-map.js?v=1"></script>
+  <script src="js/shell.js?v=17"></script>
+</body>
+</html>

@@ -4,25 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AI 伴学 · 新标签页</title>
-  <link rel="stylesheet" href="../css/companion.css" />
+  <link rel="stylesheet" href="../css/companion.css?v=3" />
 </head>
 <body class="companion-page newtab-page">
-  <main class="newtab-shell">
-    <header class="quiet-brand"><img src="icons/icon-48.png" alt="" /><span>AI 伴学</span></header>
-    <section class="newtab-focus" aria-labelledby="newtab-title">
-      <div class="newtab-copy">
+  <main class="newtab-shell search-newtab">
+    <header class="newtab-head">
+      <a class="quiet-brand" href="https://ai-knowledge-sigma.vercel.app/knowledge-map"><img src="icons/icon-48.png" alt="" /><span>判断力知识库</span></a>
+      <a class="header-link" href="https://ai-knowledge-sigma.vercel.app/knowledge-map">打开能力地图</a>
+    </header>
+
+    <section class="newtab-search-focus" aria-labelledby="newtab-title">
+      <div class="newtab-search-copy">
         <p class="moment-label" id="time-label">今天</p>
-        <h1 id="newtab-title">今天，先完成一件重要的事</h1>
-        <p class="newtab-instruction">打开你正在处理的页面，点击右上角 AI 伴学。我会直接看当前内容，只给你一个最值得采用的建议。</p>
-        <button class="companion-primary newtab-action" id="open-companion" type="button">打开浏览器侧边栏</button>
+        <h1 id="newtab-title">打开，<br />就到达。</h1>
+        <form class="web-search" id="web-search" role="search">
+          <label class="sr-only" for="search-query">搜索或输入网址</label>
+          <input id="search-query" type="search" placeholder="搜索或输入网址" autocomplete="off" autofocus />
+          <button type="submit">前往</button>
+        </form>
+
+        <nav class="frequent-sites" aria-label="经常打开的页面">
+          <div class="frequent-head"><h2>常用</h2><small>根据浏览器本地记录自动出现</small></div>
+          <div class="frequent-list" id="frequent-list"><span class="frequent-loading">正在读取常用页面…</span></div>
+        </nav>
       </div>
-      <img class="newtab-art" src="../images/product/newtab-action-watercolor.webp" alt="水彩画：工作者从熟悉的资料走向一个清晰行动" width="1536" height="1024" fetchpriority="high" />
+
+      <img class="newtab-art" src="../images/product/newtab-action-watercolor.webp" alt="水彩画：工作者从熟悉资料中找到一个清晰行动" width="1536" height="1024" fetchpriority="high" />
     </section>
-    <aside class="remember-line" id="remember-line">
-      <div><small>上次留下的方法</small><p id="remember-text">先说目标，再给背景，最后约束输出。</p></div>
-      <button id="dismiss-memory" type="button">今天不看</button>
+
+    <aside class="newtab-learning-line project-entry-line" id="remember-line">
+      <div>
+        <small>有一件事，但不知道 AI 能不能帮？</small>
+        <p>先看这件事需要哪几种判断，再从最相关的一层开始。</p>
+      </div>
+      <button id="open-knowledge-map" type="button">打开能力地图</button>
     </aside>
   </main>
-  <script src="newtab.js"></script>
+  <script src="newtab.js?v=4"></script>
 </body>
 </html>

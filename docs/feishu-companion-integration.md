@@ -58,6 +58,13 @@ AI_PROVIDER=openai-compatible
 AI_BASE_URL=https://api.llm-token.cn/v1
 AI_MODEL=gpt-5.6-luna
 AI_API_KEY=在部署平台中配置，不写入仓库
+
+# 轻量文字任务（服务端专用）
+AGNES_API_URL=https://apihub.agnes-ai.com/v1/chat/completions
+AGNES_MODEL=agnes-2.0-flash
+AGNES_API_KEY=在部署平台中配置，不写入仓库
 ```
 
 接口兼容 OpenAI Chat Completions，但当前地址是第三方网关，不代表 OpenAI 官方服务。切换模型只需要更换服务端变量；前端协议保持 `{title,rewrite,why,method,risk}` 不变。
+
+请求显式携带 `task=recognize`、`normalize` 或 `classify` 时，服务端才会路由到轻量模型；其余解释、改写、风险检查和行动生成仍走主模型。轻量路由只接收用户明确提交的文字，不在后台自动读取或上传整页内容。当前未假定该第三方接口支持图片输入，因此截图应先经过可信的本地 OCR，再提交识别文字进行整理。

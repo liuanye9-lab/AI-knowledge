@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="企业如何用 AI 提效：看清飞书产品能力边界，用飞书 CLI 串起真实工作，再把 AI Coding 产品从想法推进到安全上线。" />
+  <meta name="description" content="企业如何用 AI 提效：看清飞书产品能力边界，用协同流程串起真实工作，再把 AI Coding 产品从想法推进到安全上线。" />
   <title>企业专栏 · 飞书 + AI Coding · AI 通识知识库</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='20' fill='%238fa88a'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-size='25' fill='white'%3EAI%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/png" href="extension/icons/icon-32.png" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body class="has-sidebar">
@@ -35,22 +35,20 @@
             </div>
             <figcaption class="figure-cap">
               <strong>本页路线</strong>
-              <span>先看飞书能做什么，再看 CLI 怎样串起工作，最后把产品从想法推进到上线。</span>
+              <span>先看飞书能做什么，再看协同流程怎样串起工作，最后把产品从想法推进到上线。</span>
             </figcaption>
           </figure>
         </header>
 
         <nav class="spine-nav" aria-label="本专栏目录">
-          <a href="#map">提效地图</a>
-          <a href="#feishu">飞书能力</a>
-          <a href="feishu-ai.html">飞书 AI 全景</a>
-          <a href="automotive.html">汽车制造</a>
-          <a href="#ai-cli">AI · Aily · CLI</a>
-          <a href="#cli-loops">CLI 闭环</a>
-          <a href="#site">AI Coding 上线</a>
-          <a href="#daily">岗位实操</a>
-          <a href="#gov">治理运维</a>
-          <a href="#refs">官方资料</a>
+          <a href="#map"><span>01</span>全局</a>
+          <a href="#feishu"><span>02</span>能力</a>
+          <a href="#ai-roles"><span>03</span>角色</a>
+          <a href="#collaboration-loops"><span>04</span>闭环</a>
+          <a href="#site"><span>05</span>上线</a>
+          <a href="#daily"><span>06</span>岗位</a>
+          <a href="#gov"><span>07</span>治理</a>
+          <a href="#refs"><span>08</span>资料</a>
         </nav>
 
         <article class="station" id="map">
@@ -76,7 +74,7 @@
             <section class="attention-card">
               <span class="card-index">04</span>
               <h3>系统层</h3>
-              <p>用 API、CLI 和应用把重复动作可靠地连起来。</p>
+              <p>用开放能力和应用把重复动作可靠地连起来。</p>
             </section>
           </div>
           <div class="you-box">
@@ -149,10 +147,10 @@
           </details>
         </article>
 
-        <article class="station" id="ai-cli">
+        <article class="station" id="ai-roles">
           <div class="station-label"><span class="dot"></span>第 3 站 · 分清角色</div>
-          <h2>飞书 AI、Aily 和 CLI，不是同一个东西</h2>
-          <p class="station-thesis"><strong>脑子、装配台和手，分工不同；把它们接起来才形成闭环。</strong></p>
+          <h2>飞书 AI、Aily 和协同流程，不是同一个东西</h2>
+          <p class="station-thesis"><strong>脑力助手、应用装配台和协同流程，分工不同；理解边界才能形成闭环。</strong></p>
           <div class="role-triad">
             <section class="role-card">
               <span class="role-symbol" aria-hidden="true">想</span>
@@ -166,34 +164,40 @@
             </section>
             <section class="role-card">
               <span class="role-symbol" aria-hidden="true">做</span>
-              <h3>飞书 CLI 是 AI 的操作手</h3>
-              <p>让 Agent 在授权范围内读写文档、消息、日历、任务和业务数据。</p>
+              <h3>协同流程是 AI 的落地路径</h3>
+              <p>让文档、消息、日历、任务和业务数据在授权边界内形成可检查的协作闭环。</p>
             </section>
           </div>
           <figure class="figure attention-figure">
             <div class="figure-media">
               <img src="images/illustrations/ai-feishu-cli-loop.png"
-                   alt="人提出目标，AI 理解，飞书 CLI 执行动作，再由人检查结果的循环"
+                   alt="人提出目标，AI 理解，协同流程形成行动草稿，再由人检查结果的循环"
                    width="1672" height="941" loading="lazy" />
             </div>
             <figcaption class="figure-cap">
               <strong>正确循环</strong>
-              <span>人说目标 → AI 拆解 → CLI 读写飞书 → 人验收；高影响动作在执行前停下来确认。</span>
+              <span>人说目标 → AI 拆解 → 飞书协同形成草稿 → 人验收；高影响动作在执行前停下来确认。</span>
             </figcaption>
           </figure>
           <div class="boundary-banner">
             <strong>最小权限：</strong>只给完成当前任务所需的最少数据和动作权限。机器人不能天然看到所有人的资源，用户授权也只覆盖其可访问范围。
           </div>
           <details class="detail-panel">
-            <summary>CLI 能做什么，又不能替你做什么？</summary>
-            <p>它可以把明确动作标准化，例如查日历、读妙记、创建任务、更新多维表格。它不能绕过企业权限，也不该替人决定发给谁、批准什么或发布什么。</p>
+            <summary>协同自动化能做什么，又不能替你做什么？</summary>
+            <p>它可以把明确动作标准化，例如整理日历、妙记、任务和多维表格。它不能绕过企业权限，也不该替人决定发给谁、批准什么或发布什么。</p>
           </details>
         </article>
 
-        <article class="station" id="cli-loops">
+        <article class="station" id="collaboration-loops">
           <div class="station-label"><span class="dot"></span>第 4 站 · 做出价值</div>
-          <h2>飞书 CLI 最值得做的六个闭环</h2>
+          <h2>飞书 AI 最值得做的六个协同闭环</h2>
           <p class="station-thesis"><strong>真正的价值不是“调用了多少 API”，而是把信息变成下一步行动，并且能检查、能追溯。</strong></p>
+          <div class="workflow-legend" aria-label="每个闭环的阅读方式">
+            <span><i>输入</i>工作现场</span>
+            <span><i>AI</i>理解与整理</span>
+            <span><i>输出</i>落回飞书</span>
+            <span><i>确认</i>人做决定</span>
+          </div>
           <div class="problem-filter" data-problem-filter aria-label="选择你想解决的问题">
             <button type="button" data-filter="all" aria-pressed="true">全部</button>
             <button type="button" data-filter="knowledge" aria-pressed="false">知识</button>
@@ -209,11 +213,15 @@
                 <span class="workflow-number">01</span>
                 <div><p class="workflow-kicker">消息、日程和任务各在一处</p><h3>每日工作简报</h3></div>
               </div>
-              <p><strong>价值：</strong>上班先看到今天必须关注的会议、待办和风险。</p>
-              <ol class="micro-flow" aria-label="每日工作简报步骤"><li>查日历</li><li>查任务</li><li>读关键消息</li><li>合并去重</li><li>生成简报</li></ol>
-              <div class="boundary-note"><strong>写入前确认：</strong>默认只读；不要替用户回复消息或修改日程。</div>
+              <p class="workflow-value"><span>你会得到</span>上班先看到今天必须关注的会议、待办和风险。</p>
+              <ol class="workflow-route" aria-label="每日工作简报：从输入到输出">
+                <li><span>输入</span><strong>日历 · 任务 · 关键消息</strong></li>
+                <li><span>AI 整理</span><strong>合并去重 · 排出优先级</strong></li>
+                <li><span>飞书产出</span><strong>一页工作简报</strong></li>
+              </ol>
+              <div class="boundary-note"><span>人来确认</span><p><strong>默认只读</strong>，不替你回复消息或修改日程。</p></div>
               <details>
-                <summary>给 AI 的一句话</summary>
+                <summary>直接使用这条 AI 指令</summary>
                 <div class="copy-block"><code>读取我今天的日历、待办和已授权消息，按重要性生成一页简报；只读，不发送或修改任何内容。</code><button type="button" data-copy-command aria-label="复制每日工作简报提示词">复制</button></div>
               </details>
             </article>
@@ -223,11 +231,15 @@
                 <span class="workflow-number">02</span>
                 <div><p class="workflow-kicker">会议信息散在录音和聊天里</p><h3>会议闭环</h3></div>
               </div>
-              <p><strong>价值：</strong>会议不是“总结完就结束”，而是自动变成负责人、截止时间和下一步行动。</p>
-              <ol class="micro-flow" aria-label="会议闭环步骤"><li>查日程</li><li>读妙记</li><li>提炼结论</li><li>创建任务</li><li>通知负责人</li></ol>
-              <div class="boundary-note"><strong>写入前确认：</strong>建任务、发消息、邀请成员前，让人核对对象和内容。</div>
+              <p class="workflow-value"><span>你会得到</span>会议不止有总结，还会留下负责人、截止时间和下一步。</p>
+              <ol class="workflow-route" aria-label="会议闭环：从输入到输出">
+                <li><span>输入</span><strong>日程 · 妙记 · 会中消息</strong></li>
+                <li><span>AI 整理</span><strong>结论 · 待办 · 负责人</strong></li>
+                <li><span>飞书产出</span><strong>任务草稿 · 通知草稿</strong></li>
+              </ol>
+              <div class="boundary-note"><span>人来确认</span><p>建任务、发消息和邀请成员前，核对<strong>对象与内容</strong>。</p></div>
               <details>
-                <summary>给 AI 的一句话</summary>
+                <summary>直接使用这条 AI 指令</summary>
                 <div class="copy-block"><code>读取我今天这场会议的妙记，先列出结论和待办草稿；不要发消息或创建任务，等我确认。</code><button type="button" data-copy-command aria-label="复制会议闭环提示词">复制</button></div>
               </details>
             </article>
@@ -237,11 +249,15 @@
                 <span class="workflow-number">03</span>
                 <div><p class="workflow-kicker">制度很多，但大家仍反复问人</p><h3>企业知识运营</h3></div>
               </div>
-              <p><strong>价值：</strong>找出知识缺口，让高频问题回到可维护、可引用的知识库。</p>
-              <ol class="micro-flow" aria-label="企业知识运营步骤"><li>收集问题</li><li>检索知识库</li><li>标记无答案</li><li>生成补充草稿</li><li>人工发布</li></ol>
-              <div class="boundary-note"><strong>写入前确认：</strong>制度更新必须由内容负责人审核，AI 不直接覆盖原文。</div>
+              <p class="workflow-value"><span>你会得到</span>高频问题回到可维护、可引用的知识库，不再反复问人。</p>
+              <ol class="workflow-route" aria-label="企业知识运营：从输入到输出">
+                <li><span>输入</span><strong>重复问题 · 现有知识</strong></li>
+                <li><span>AI 整理</span><strong>检索引用 · 标记知识缺口</strong></li>
+                <li><span>飞书产出</span><strong>答案卡 · 补充草稿</strong></li>
+              </ol>
+              <div class="boundary-note"><span>人来确认</span><p>内容负责人审核后发布，AI <strong>不覆盖原文</strong>。</p></div>
               <details>
-                <summary>给 AI 的一句话</summary>
+                <summary>直接使用这条 AI 指令</summary>
                 <div class="copy-block"><code>整理本周重复问题，引用现有知识库给出答案；无法引用的单独列为知识缺口，不要修改文档。</code><button type="button" data-copy-command aria-label="复制企业知识运营提示词">复制</button></div>
               </details>
             </article>
@@ -251,11 +267,15 @@
                 <span class="workflow-number">04</span>
                 <div><p class="workflow-kicker">客户沟通后，线索表总是忘记更新</p><h3>销售跟进</h3></div>
               </div>
-              <p><strong>价值：</strong>把沟通事实变成结构化进展，让下一次跟进有依据。</p>
-              <ol class="micro-flow" aria-label="销售跟进步骤"><li>读授权记录</li><li>提取事实</li><li>匹配客户</li><li>生成更新草稿</li><li>确认写表</li></ol>
-              <div class="boundary-note"><strong>写入前确认：</strong>客户身份、金额和阶段必须核对；不得猜测敏感信息。</div>
+              <p class="workflow-value"><span>你会得到</span>沟通事实变成结构化进展，下一次跟进有依据。</p>
+              <ol class="workflow-route" aria-label="销售跟进：从输入到输出">
+                <li><span>输入</span><strong>已授权的沟通记录</strong></li>
+                <li><span>AI 整理</span><strong>提取事实 · 标记不确定项</strong></li>
+                <li><span>飞书产出</span><strong>客户表更新草稿</strong></li>
+              </ol>
+              <div class="boundary-note"><span>人来确认</span><p>核对<strong>客户、金额与阶段</strong>，不猜敏感信息。</p></div>
               <details>
-                <summary>给 AI 的一句话</summary>
+                <summary>直接使用这条 AI 指令</summary>
                 <div class="copy-block"><code>根据我选中的客户沟通记录，生成线索表更新草稿并标出不确定项；确认前不要写入。</code><button type="button" data-copy-command aria-label="复制销售跟进提示词">复制</button></div>
               </details>
             </article>
@@ -265,11 +285,15 @@
                 <span class="workflow-number">05</span>
                 <div><p class="workflow-kicker">周报靠复制粘贴，口径还不一致</p><h3>经营周报</h3></div>
               </div>
-              <p><strong>价值：</strong>用固定口径汇总业务数据，把异常和依据一起交给管理者。</p>
-              <ol class="micro-flow" aria-label="经营周报步骤"><li>读数据表</li><li>校验口径</li><li>计算指标</li><li>解释变化</li><li>生成周报</li></ol>
-              <div class="boundary-note"><strong>写入前确认：</strong>数据缺失和口径变化必须显式标记，不能让 AI 补数字。</div>
+              <p class="workflow-value"><span>你会得到</span>固定口径的经营周报，异常、依据和缺失一目了然。</p>
+              <ol class="workflow-route" aria-label="经营周报：从输入到输出">
+                <li><span>输入</span><strong>业务数据 · 指标口径</strong></li>
+                <li><span>AI 整理</span><strong>校验 · 计算 · 解释变化</strong></li>
+                <li><span>飞书产出</span><strong>带来源的经营周报</strong></li>
+              </ol>
+              <div class="boundary-note"><span>人来确认</span><p>显式标记缺失和口径变化，AI <strong>不能补数字</strong>。</p></div>
               <details>
-                <summary>给 AI 的一句话</summary>
+                <summary>直接使用这条 AI 指令</summary>
                 <div class="copy-block"><code>按已批准的指标口径生成本周经营周报，列出数据来源、异常和缺失；不要自行填补空值。</code><button type="button" data-copy-command aria-label="复制经营周报提示词">复制</button></div>
               </details>
             </article>
@@ -279,11 +303,15 @@
                 <span class="workflow-number">06</span>
                 <div><p class="workflow-kicker">想法很多，却很难变成团队能用的工具</p><h3>AI 应用交付</h3></div>
               </div>
-              <p><strong>价值：</strong>把需求、知识和数据接成一个有权限、有测试、有负责人的内部应用。</p>
-              <ol class="micro-flow" aria-label="AI 应用交付步骤"><li>写清问题</li><li>选择数据</li><li>搭建应用</li><li>小范围测试</li><li>审批发布</li></ol>
-              <div class="boundary-note"><strong>写入前确认：</strong>发布范围、工具权限和真实数据访问由管理员与业务负责人确认。</div>
+              <p class="workflow-value"><span>你会得到</span>一个有权限、有测试、有负责人的内部 AI 应用。</p>
+              <ol class="workflow-route" aria-label="AI 应用交付：从输入到输出">
+                <li><span>输入</span><strong>真实问题 · 知识 · 数据</strong></li>
+                <li><span>AI 搭建</span><strong>应用方案 · 小范围测试</strong></li>
+                <li><span>飞书产出</span><strong>可审批的应用版本</strong></li>
+              </ol>
+              <div class="boundary-note"><span>人来确认</span><p>管理员与业务负责人确认<strong>范围、权限和数据</strong>。</p></div>
               <details>
-                <summary>给 AI 的一句话</summary>
+                <summary>直接使用这条 AI 指令</summary>
                 <div class="copy-block"><code>把这个需求拆成输入、处理、输出、权限和验收标准；先生成方案，不创建或发布应用。</code><button type="button" data-copy-command aria-label="复制 AI 应用交付提示词">复制</button></div>
               </details>
             </article>
@@ -386,17 +414,17 @@
             <section class="role-action-card">
               <h3>管理者</h3>
               <p>把会议、项目和指标合成一页决策简报。</p>
-              <a href="#cli-loops">试试：每日简报 / 经营周报</a>
+              <a href="#collaboration-loops">试试：每日简报 / 经营周报</a>
             </section>
             <section class="role-action-card">
               <h3>销售与客户成功</h3>
               <p>把沟通记录变成事实、待确认项和下次行动。</p>
-              <a href="#cli-loops">试试：销售跟进</a>
+              <a href="#collaboration-loops">试试：销售跟进</a>
             </section>
             <section class="role-action-card">
               <h3>运营与人事</h3>
               <p>让制度有出处、常见问题可复用、行动有人接。</p>
-              <a href="#cli-loops">试试：知识运营 / 会议闭环</a>
+              <a href="#collaboration-loops">试试：知识运营 / 会议闭环</a>
             </section>
             <section class="role-action-card">
               <h3>产品与技术</h3>
@@ -472,7 +500,7 @@
         <div class="station-next">
           <p>现在，选一个每周重复的问题，先跑通一次“输入 → AI → 工具 → 人工确认 → 输出”。</p>
           <div class="next-actions">
-            <a class="btn btn-primary btn-sm" href="#cli-loops">选择一个闭环</a>
+            <a class="btn btn-primary btn-sm" href="#collaboration-loops">选择一个闭环</a>
             <a class="btn btn-secondary btn-sm" href="#site">开始做产品</a>
             <a class="btn btn-ghost btn-sm" href="index.html">返回首页</a>
           </div>
@@ -481,13 +509,14 @@
 
       <footer class="footer">
         <div class="footer-inner">
-          <p><strong style="color:var(--ink)">企业专栏</strong> · 飞书 · CLI · AI Coding · 日常提效</p>
+          <p><strong style="color:var(--ink)">企业专栏</strong> · 飞书 · 协同自动化 · AI Coding · 日常提效</p>
           <p class="footer-note">能力受版本、套餐、租户、权限与授权影响；外部写入请人工确认。</p>
         </div>
       </footer>
     </div>
   </div>
-  <script src="js/shell.js"></script>
+  <script src="js/knowledge-map.js?v=1"></script>
+  <script src="js/shell.js?v=17"></script>
   <script src="js/app.js"></script>
   <script src="js/sandboxes.js"></script>
   <script src="js/practice.js"></script>

@@ -3,44 +3,127 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="汽车制造行业 AI 提效专题：把飞书 AI 生态映射到 IPD、研发、供应商、生产、质量、销售与售后全链路。" />
-  <title>汽车制造 · 行业 AI 提效</title>
+  <meta name="description" content="一套让非行业专家快速看懂业务流程、识别 AI 提效机会并形成可验证解决方案的方法；以汽车制造为完整示范。" />
+  <title>快速看懂一个行业 · AI 提效方法</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body class="has-sidebar industry-page auto-page">
+<body class="has-sidebar industry-page industry-discovery-page">
   <div class="app-shell"><aside id="sidebar-root" class="sidebar" aria-label="课程目录"></aside><div class="main-col">
-    <header class="topbar"><button type="button" class="sidebar-toggle" aria-label="打开目录" aria-expanded="false">☰ 目录</button><div class="topbar-title">行业 AI 提效 · 汽车制造</div><a class="topbar-cta" href="feishu-ai.html">飞书 AI 全景</a></header>
+    <header class="topbar"><button type="button" class="sidebar-toggle" aria-label="打开目录" aria-expanded="false">☰ 目录</button><div class="topbar-title">行业 AI 提效 · 通用方法</div><a class="topbar-cta" href="knowledge-map.html">分析我的场景</a></header>
     <main class="page page-wide">
-      <header class="industry-hero auto-hero"><div><h1>把 AI 放进一辆车的全生命周期</h1><p class="lead">汽车不是单一工厂场景，而是一条从用户声音、产品定义、软硬件研发、供应链、制造质量，到销售售后的复杂协作链。AI 的价值在于缩短信息流，而不是替代最终工程责任。</p><div class="hero-actions"><a class="btn btn-primary" href="#value-chain">查看全链路</a><a class="btn btn-secondary" href="#pilot">选择首个试点</a></div></div><figure class="auto-watercolor"><img src="images/illustrations/automotive-lifecycle-watercolor.png" alt="从用户声音、研发、供应链、制造、质量到服务的汽车全生命周期水彩图" width="1536" height="1024" /><figcaption>用户声音 → 研发 → 供应链 → 制造 → 质量 → 服务</figcaption></figure></header>
-      <nav class="spine-nav"><a href="#value-chain">价值链</a><a href="#scenarios">场景深挖</a><a href="#cases">官方案例</a><a href="#pilot">90 天试点</a><a href="#risk">风险边界</a></nav>
+      <header class="industry-hero industry-discovery-hero">
+        <div>
+          <p class="eyebrow">行业侦察 · 从真实业务出发</p>
+          <h1>先看懂价值怎样流动，再决定 AI 放在哪里</h1>
+          <p class="lead">不要求先成为行业专家。沿着客户、交付、信息、决策和结果走一遍，就能在 48 小时内形成第一版行业地图，并找出一个值得验证的 AI 切口。</p>
+          <div class="industry-thesis"><strong>人的核心任务</strong><span>理解目标、判断例外、确认责任；资料搜集、对照、归纳和草案交给 Agent。</span></div>
+          <div class="hero-actions"><a class="btn btn-primary" href="#method">从六步开始</a><a class="btn btn-secondary" href="#auto-example">看汽车示范</a></div>
+        </div>
+        <figure class="industry-discovery-art"><img src="images/illustrations/industry-discovery-watercolor.png" alt="从客户与一线证据追踪行业价值流，并由人与 AI 共同寻找瓶颈的水彩插画" width="1536" height="1024" /><figcaption>现实证据 → 业务流程 → 瓶颈 → 小实验 → 可复用方案</figcaption></figure>
+      </header>
 
-      <section class="station" id="value-chain"><div class="station-label"><span class="dot"></span>行业总图</div><h2>先看信息怎样穿过整车业务</h2><div class="auto-chain">
-        <a href="#s-user"><b>01</b><strong>用户与市场</strong><span>VOC · 竞品 · 需求</span></a><a href="#s-rd"><b>02</b><strong>产品与研发</strong><span>IPD · 软件 · 试验</span></a><a href="#s-supplier"><b>03</b><strong>供应链</strong><span>APQP · 交付物 · 风险</span></a><a href="#s-plant"><b>04</b><strong>工厂制造</strong><span>异常 · 班组 · 产能</span></a><a href="#s-quality"><b>05</b><strong>质量闭环</strong><span>缺陷 · 8D · 追溯</span></a><a href="#s-sales"><b>06</b><strong>销售与售后</strong><span>线索 · 工单 · 复盘</span></a>
-      </div><div class="principle-callout"><strong>判断一个 AI 场景值不值得做：</strong><span>信息量大 + 重复判断多 + 有明确标准 + 有人可验收。四项越齐，越适合先试。</span></div></section>
+      <nav class="spine-nav" aria-label="本页目录"><a href="#method">六步侦察</a><a href="#deliverable">最终产物</a><a href="#ai-fit">AI 机会</a><a href="#auto-example">汽车示范</a><a href="#principles">第一性原理</a><a href="#resources">书·论文·项目</a></nav>
 
-      <section class="station" id="scenarios"><div class="station-label"><span class="dot"></span>本站场景蓝图 · 非官方产品承诺</div><h2>六段业务，十二个可落地切口</h2>
-        <article class="scenario-block" id="s-user"><header><span>01</span><div><h3>用户与市场：让真实声音进入产品定义</h3><p>输入来自客服、门店、试驾、社媒和调研，先统一结构，再进入需求判断。</p></div></header><div class="scenario-cases"><div><h4>VOC 自动归因</h4><p><b>飞书组合：</b>多维表格表单 + AI 字段 + 仪表盘</p><p><b>AI 动作：</b>从长文本提取车型、部件、问题、情绪和使用情境；聚类重复反馈。</p><p><b>人审：</b>产品经理确认标签口径与样本偏差。</p><em>KPI：人工标注时长、有效需求转化率、重复问题识别时间</em></div><div><h4>竞品情报周报</h4><p><b>飞书组合：</b>知识库 + Aily Workflow + 群推送</p><p><b>AI 动作：</b>按固定框架归纳公开资料并附来源，生成差异变化。</p><p><b>人审：</b>市场研究员核验来源与结论。</p><em>KPI：周报制作周期、引用完整率、被采纳洞察数</em></div></div></article>
-        <article class="scenario-block" id="s-rd"><header><span>02</span><div><h3>产品与研发：把需求、决策和验证连成线</h3><p>智能汽车同时包含机械、电气、软件和数据，最怕“需求在文档里、问题在群里、结论在脑子里”。</p></div></header><div class="scenario-cases"><div><h4>需求拆解与影响分析</h4><p><b>飞书组合：</b>飞书项目 + 文档知识 + Aily</p><p><b>AI 动作：</b>把用户语言转成候选需求，关联历史模块、变更与缺陷，提示潜在影响面。</p><p><b>人审：</b>系统工程师负责需求基线和安全等级。</p><em>KPI：需求链路时长、复用率、遗漏依赖数</em></div><div><h4>评审纪要进入研发任务</h4><p><b>飞书组合：</b>智能纪要 + 妙记 + 飞书项目</p><p><b>AI 动作：</b>提取争议、结论、责任人和验证条件，生成待确认任务。</p><p><b>人审：</b>评审主席确认决策，不自动变更基线。</p><em>KPI：纪要耗时、行动项遗漏率、任务创建时延</em></div></div></article>
-        <article class="scenario-block" id="s-supplier"><header><span>03</span><div><h3>供应链与 APQP：先预审，再让专家做判断</h3><p>供应商文档多、版本杂、交付物标准明确，适合 AI 做完整性检查，不适合让 AI 直接放行。</p></div></header><div class="scenario-cases"><div><h4>供应商交付物预审</h4><p><b>飞书组合：</b>飞书项目 + Aily 知识问答 + 多维表格</p><p><b>AI 动作：</b>对照清单检查缺件、字段不一致、过期版本与证据缺口，生成预审说明。</p><p><b>人审：</b>SQE 决定通过、补充或升级。</p><em>KPI：首次完整率、预审时长、退回轮次</em></div><div><h4>供应风险早报</h4><p><b>飞书组合：</b>多维表格 + 自动化 + 仪表盘解释</p><p><b>AI 动作：</b>汇总交期、质量、产能与沟通记录，解释异常变化并推送负责人。</p><p><b>人审：</b>采购与供应链确认原因和处置。</p><em>KPI：风险发现提前量、缺料次数、响应时长</em></div></div></article>
-        <article class="scenario-block" id="s-plant"><header><span>04</span><div><h3>工厂制造：缩短异常从发现到闭环的路径</h3><p>飞书适合承载协同与轻量业务层；实时控制、设备安全联锁仍应留在 MES / SCADA / PLC 等专业系统。</p></div></header><div class="scenario-cases"><div><h4>现场异常工单</h4><p><b>飞书组合：</b>多维表格表单 + 图片理解 + 自动化</p><p><b>AI 动作：</b>从文字与图片提取产线、工位、现象、影响范围，推荐问题类别并路由。</p><p><b>人审：</b>班组长确认停线等级和处置。</p><em>KPI：上报完整率、首响时间、闭环周期</em></div><div><h4>班组交接与日报</h4><p><b>飞书组合：</b>多维表格 + Aily + 群消息</p><p><b>AI 动作：</b>汇总产量、停机、异常、待办，生成按角色可读的交接摘要。</p><p><b>人审：</b>班组长签字确认关键数据。</p><em>KPI：交接准备时间、遗漏事项、重复沟通量</em></div></div></article>
-        <article class="scenario-block" id="s-quality"><header><span>05</span><div><h3>质量闭环：让历史问题真正被复用</h3><p>AI 可以加速检索相似案例和整理证据，但根因判断、控制计划和放行仍由质量体系承担。</p></div></header><div class="scenario-cases"><div><h4>相似缺陷与 8D 辅助</h4><p><b>飞书组合：</b>知识问答 + 缺陷库 + Aily</p><p><b>AI 动作：</b>检索相似现象、零件与工艺，归纳历史遏制措施和验证结果。</p><p><b>人审：</b>质量工程师验证根因，禁止复制结论代替试验。</p><em>KPI：相似案例检索时长、重复缺陷率、8D 周期</em></div><div><h4>质量周会闭环</h4><p><b>飞书组合：</b>智能纪要 + 任务 + 仪表盘</p><p><b>AI 动作：</b>把问题、责任人、截止日和证据链接沉淀到统一看板。</p><p><b>人审：</b>质量负责人确认关闭标准。</p><em>KPI：逾期率、证据完整率、会议后补录时间</em></div></div></article>
-        <article class="scenario-block" id="s-sales"><header><span>06</span><div><h3>销售与售后：从对话中识别下一步行动</h3><p>把门店、区域、客服与产品团队拉进同一条反馈链，而不是只生成一段“看起来不错”的话术。</p></div></header><div class="scenario-cases"><div><h4>试驾线索与跟进建议</h4><p><b>飞书组合：</b>多维表格 CRM + AI 字段 + 自动化</p><p><b>AI 动作：</b>提取预算、家庭结构、关注点和异议，生成个性化跟进草稿。</p><p><b>人审：</b>销售确认承诺、价格与合规表述。</p><em>KPI：录入时长、跟进及时率、试驾到订单转化</em></div><div><h4>售后工单归类与知识推荐</h4><p><b>飞书组合：</b>Aily + 服务知识库 + 开放平台</p><p><b>AI 动作：</b>识别意图与紧急度，检索标准处理步骤，复杂问题转人工。</p><p><b>人审：</b>技师/客服确认安全相关建议。</p><em>KPI：首次响应、一次解决率、误路由率</em></div></div></article>
+      <section class="station" id="method">
+        <div class="station-label"><span class="dot"></span>一套可迁移的方法</div>
+        <div class="industry-section-head"><div><h2>六步看懂任何行业</h2><p>先建立“够用的真实模型”，再逐层补知识；不从百页行业报告开始。</p></div><strong>48 小时<br />第一版</strong></div>
+        <ol class="industry-scout">
+          <li><span>01</span><div><small>定义边界</small><h3>客户为什么付钱？</h3><p>写清客户、待完成任务、付费结果、主要成本与不可犯的错误。</p><b>Agent 做：</b>整理公开资料、生成假设清单。<b>人确认：</b>谁真正付钱、谁真正使用。</div></li>
+          <li><span>02</span><div><small>画业务骨架</small><h3>价值经过哪些环节？</h3><p>用“获客 → 设计 → 采购 → 交付 → 服务 → 回款”建立一级流程，再按行业增删。</p><b>Agent 做：</b>以 APQC PCF 对照遗漏。<b>人确认：</b>本企业真实做法。</div></li>
+          <li><span>03</span><div><small>收集现实证据</small><h3>工作实际上怎样发生？</h3><p>访谈一线、跟走一次订单，收集表格、聊天、工单、会议和系统事件日志。</p><b>Agent 做：</b>抽取角色、输入、动作、输出、等待。<b>人确认：</b>例外与潜规则。</div></li>
+          <li><span>04</span><div><small>找到约束</small><h3>哪里最慢、最贵、最容易错？</h3><p>不要平均优化。先找吞吐量受限处，以及重复录入、等待审批、返工和信息断点。</p><b>Agent 做：</b>统计周期、返工和异常模式。<b>人确认：</b>真正的系统瓶颈。</div></li>
+          <li><span>05</span><div><small>匹配 AI 角色</small><h3>AI 是看懂、判断还是执行？</h3><p>区分提取归类、检索对照、生成建议、跨系统行动；越靠近执行，授权和验证越严格。</p><b>Agent 做：</b>给出候选方案与风险。<b>人确认：</b>决策权和不可自动化边界。</div></li>
+          <li><span>06</span><div><small>做最小实验</small><h3>怎样证明它真的有效？</h3><p>用一类输入、一个团队、一个结果跑 2–4 周；保留基线、人工复核和回滚。</p><b>Agent 做：</b>执行可逆步骤并留证。<b>人确认：</b>是否扩展并沉淀为 Skill。</div></li>
+        </ol>
+        <div class="source-strip"><a href="https://www.apqc.org/process-frameworks">APQC PCF 8.0 · 流程目录</a><a href="https://www.omg.org/spec/BPMN/2.0/About-BPMN">OMG BPMN 2.0 · 流程表达</a><a href="https://www.processmining.org/introduction.html">Process Mining · 用日志还原事实</a></div>
       </section>
 
-      <section class="station" id="cases"><div class="station-label"><span class="dot"></span>飞书官方公开案例</div><h2>已经发生的行业实践</h2><div class="case-ledger">
-        <a href="https://project.feishu.cn/home/customers/NIO"><span>整车 · 蔚来</span><strong>IPD、IT 研发、能源销售、供应商协同</strong><p>官方披露：研发链路覆盖率 80%，研发效能提升 30%，供应商平台接入 300+ 供应商并使用 AI 预审与质量打分。</p></a>
-        <a href="https://project.feishu.cn/home/customer/ingeek"><span>Tier 1 · 银基科技</span><strong>APQP 与软硬件一体化研发</strong><p>官方披露：70 余个核心流程、9000 余项目；审批从 48 小时压缩至 24 小时内，关键节点流转效率提升 50%。</p></a>
-        <a href="https://www.feishu.cn/customers/xingyu/"><span>零部件 · 星宇车灯</span><strong>内部流程与产业链上下游协同</strong><p>飞书作为统一协作工具连接内外部流程；官网案例披露每月处理约 300 条安全隐患问题。</p></a>
-        <a href="https://www.feishu.cn/customers/wanxiang"><span>整车制造 · 万象汽车</span><strong>战略、生产线管控与成本核算</strong><p>传统客车制造企业用飞书推动管理升级，覆盖三大事业部。</p></a>
-        <a href="https://www.feishu.cn/content/wechat_post_2520"><span>整车 · 理想汽车</span><strong>跨专业协作、OKR 与共创周会</strong><p>多人实时共创文档让不同业务环节在同一上下文中讨论与持续更新。</p></a>
-      </div><p class="source-disclaimer">以上数字仅复述相应官方案例，不推断可直接复制到其他企业。具体收益取决于流程基础、数据质量、使用覆盖与治理水平。</p></section>
+      <section class="station" id="deliverable">
+        <div class="station-label"><span class="dot"></span>不是一份行业报告</div>
+        <h2>最后只交付一张“行业作战图”</h2>
+        <div class="industry-canvas">
+          <article class="canvas-core"><small>一句话业务模型</small><strong>谁，在什么情境下，为哪种可验证结果付钱？</strong><p>所有知识都挂到这句话上。不能解释客户结果的资料，先放入候选区，不进入主线。</p></article>
+          <dl>
+            <div><dt>价值流</dt><dd>从需求出现到客户获得结果</dd></div><div><dt>关键角色</dt><dd>付款者、使用者、执行者、决策者</dd></div>
+            <div><dt>证据与系统</dt><dd>文档、对话、工单、表格、事件日志</dd></div><div><dt>瓶颈</dt><dd>等待、返工、错误、波动、知识断层</dd></div>
+            <div><dt>AI 切口</dt><dd>输入、动作、输出、人审与失败队列</dd></div><div><dt>商业结果</dt><dd>周期、成本、质量、收入或风险</dd></div>
+          </dl>
+        </div>
+        <div class="principle-callout"><strong>防止“看起来很懂”：</strong><span>每条结论必须附来源、日期、适用范围和待验证假设；流程图必须由一线人员走查。</span></div>
+      </section>
 
-      <section class="station" id="pilot"><div class="station-label"><span class="dot"></span>落地方法</div><h2>第一个 90 天试点怎么选</h2><div class="pilot-grid"><article><span>第 1–2 周</span><h3>画现状流</h3><p>只选一个痛点，记录输入、等待、重复录入、决策人与现有基线。</p></article><article><span>第 3–5 周</span><h3>人机并行</h3><p>AI 只给建议，不自动写回；抽样统计正确率、拒答与节省时长。</p></article><article><span>第 6–9 周</span><h3>接入闭环</h3><p>把确认后的输出写入多维表格/项目，补上通知、审批和失败队列。</p></article><article><span>第 10–12 周</span><h3>决定扩展</h3><p>比较基线，达到门槛才扩；否则修知识、口径或直接停止。</p></article></div><div class="pilot-picker"><h3>推荐首批试点</h3><p>优先级：<strong>会议行动项 → VOC 标注 → 供应商交付物预审 → 现场异常摘要</strong>。它们可回滚、有人验收、价值较容易测量。</p></div></section>
+      <section class="station" id="ai-fit">
+        <div class="station-label"><span class="dot"></span>从问题到解决方案</div>
+        <h2>先判断 AI 适不适合，再谈模型</h2>
+        <div class="ai-role-grid">
+          <article><span>低风险 · 高起点</span><h3>看懂</h3><p>OCR、提取字段、分类、摘要、去重、结构化。</p><small>适合：资料多、规则清楚、人工容易抽查。</small></article>
+          <article><span>需要证据</span><h3>判断辅助</h3><p>检索历史案例、对照标准、发现异常、给出候选原因。</p><small>适合：有知识库、有明确验收人。</small></article>
+          <article><span>需要确认</span><h3>生成方案</h3><p>起草回复、计划、报告、报价或任务分解，并附依据。</p><small>适合：输出可编辑、错误可恢复。</small></article>
+          <article><span>高风险 · 后置</span><h3>执行行动</h3><p>写入系统、创建任务、发送消息、触发工作流。</p><small>必须：权限最小化、确认门、日志和回滚。</small></article>
+        </div>
+        <div class="solution-formula"><div><small>方案不是“接一个大模型”</small><strong>业务问题 × 可信数据 × AI 动作 × 人工决策 × 系统闭环 × 衡量指标</strong></div><p>缺任何一项，都只是演示。优先选择<strong>量大、重复、标准明确、有证据、可复核、可回滚</strong>的任务。</p></div>
+      </section>
 
-      <section class="station" id="risk"><div class="station-label"><span class="dot"></span>工程与合规边界</div><h2>汽车行业不能交给生成式 AI 的最后一票</h2><div class="risk-lines"><div><strong>功能安全与法规结论</strong><span>AI 可整理证据，不可替代签字与认证。</span></div><div><strong>实时生产控制</strong><span>协同层不替代 PLC / SCADA / MES 的实时与安全机制。</span></div><div><strong>根因与放行</strong><span>AI 可推荐相似案例，不得直接决定 8D 根因或质量放行。</span></div><div><strong>客户与车辆数据</strong><span>按企业数据分级、最小权限、用途限制和审计要求处理。</span></div><div><strong>模型输出行动</strong><span>写系统、发外部承诺、改基线前必须有明确授权与人工门。</span></div></div></section>
-      <div class="station-next"><p>下一行业可复用同一模板：价值链 → 场景 → 人机边界 → KPI → 90 天试点。</p><div class="next-actions"><a class="btn btn-primary btn-sm" href="feishu-ai.html">返回飞书 AI 全景</a><a class="btn btn-secondary btn-sm" href="practice.html">企业专栏总览</a></div></div>
+      <section class="station" id="auto-example">
+        <div class="station-label"><span class="dot"></span>示范行业 · 汽车制造</div>
+        <div class="industry-section-head"><div><h2>把方法跑一遍，而不是背汽车术语</h2><p>汽车行业用来展示复杂研发、供应链、制造、质量与服务如何连成一条价值流。</p></div><strong>示范<br />不是模板</strong></div>
+        <div class="auto-chain">
+          <a href="#auto-cuts"><b>01</b><strong>用户与市场</strong><span>VOC · 竞品 · 定义</span></a><a href="#auto-cuts"><b>02</b><strong>产品与研发</strong><span>需求 · 变更 · 试验</span></a><a href="#auto-cuts"><b>03</b><strong>供应链</strong><span>交付物 · 产能 · 风险</span></a><a href="#auto-cuts"><b>04</b><strong>工厂制造</strong><span>节拍 · 异常 · 交接</span></a><a href="#auto-cuts"><b>05</b><strong>质量闭环</strong><span>缺陷 · 根因 · 追溯</span></a><a href="#auto-cuts"><b>06</b><strong>销售与售后</strong><span>线索 · 工单 · 反馈</span></a>
+        </div>
+        <div class="auto-example-cuts" id="auto-cuts">
+          <article><span>瓶颈 01</span><h3>VOC 到需求太慢</h3><p><b>AI：</b>从客服、门店和试驾记录提取车型、部件、情境与问题，聚类重复反馈并保留原文证据。</p><small>人审产品优先级 · KPI：标注时长、重复问题发现时间</small></article>
+          <article><span>瓶颈 02</span><h3>供应商资料反复退回</h3><p><b>AI：</b>对照 APQP 清单检查缺件、字段冲突和过期版本，只生成预审说明。</p><small>SQE 决定通过 · KPI：首次完整率、退回轮次</small></article>
+          <article><span>瓶颈 03</span><h3>现场异常信息不全</h3><p><b>AI：</b>从表单、文字和图片提取产线、工位、现象与影响范围，路由给正确责任人。</p><small>班组长确认等级 · KPI：首响时间、闭环周期</small></article>
+          <article><span>瓶颈 04</span><h3>历史质量问题找不到</h3><p><b>AI：</b>按现象、零件和工艺检索相似案例，归纳旧措施及验证结果，不替代根因分析。</p><small>质量工程师验证 · KPI：检索时长、重复缺陷率</small></article>
+        </div>
+        <div class="auto-boundary"><strong>汽车行业的最后一票仍在人</strong><p>功能安全、质量放行、实时设备控制、法规结论、客户承诺与基线变更不能由生成式 AI 自动决定。Toyota 的“自働化”也不是无人化，而是在异常时停下来，让问题被看见并由人处理。</p><a href="https://www.toyota-global.com/company/history_of_toyota/75years/data/automotive_business/production/system/change.html">查看 Toyota TPS 官方说明</a></div>
+      </section>
+
+      <section class="station" id="principles">
+        <div class="station-label"><span class="dot"></span>知名实践者的第一性原理</div>
+        <h2>五条足够指导大多数行业诊断</h2>
+        <div class="industry-principles">
+          <article><span>Michael Porter</span><h3>竞争发生在活动系统，不在口号</h3><p>先看一组活动怎样共同创造差异与成本优势，再判断 AI 改变的是哪项活动及其联动。</p></article>
+          <article><span>Eliyahu Goldratt</span><h3>系统产出由约束决定</h3><p>优化非瓶颈可能只制造更多在制品。先找到限制整体吞吐量的一个约束。</p></article>
+          <article><span>Taiichi Ohno</span><h3>到现场，看事实</h3><p>流程文件描述“应该怎样”，一线观察与事件日志揭示“实际怎样”；先暴露异常，再自动化。</p></article>
+          <article><span>Womack & Jones</span><h3>价值由客户定义</h3><p>识别价值、画出价值流、建立流动和拉动，再持续消除不创造客户价值的浪费。</p></article>
+          <article><span>Wil van der Aalst</span><h3>用事件数据还原真实流程</h3><p>从案例 ID、活动和时间戳发现流程、偏差与瓶颈，避免只靠访谈拼出理想流程。</p></article>
+        </div>
+      </section>
+
+      <section class="station" id="resources">
+        <div class="station-label"><span class="dot"></span>经过来源与许可核验</div>
+        <h2>书、论文与可复用项目</h2>
+        <div class="industry-resource-columns">
+          <div><h3>先读这五本</h3><ol class="reading-route">
+            <li><span>01</span><div><strong>《Understanding Michael Porter》</strong><p>行业结构、价值链与活动系统；先学如何问战略问题。</p></div></li>
+            <li><span>02</span><div><strong>《The Goal》</strong><p>用故事理解约束、吞吐量、库存与运营费用。</p></div></li>
+            <li><span>03</span><div><strong>《Lean Thinking》</strong><p>从客户价值到价值流、流动、拉动和持续改进。</p></div></li>
+            <li><span>04</span><div><strong>《Learning to See》</strong><p>把当前状态与未来状态画成可共同讨论的价值流图。</p></div></li>
+            <li><span>05</span><div><strong>《Process Mining: Data Science in Action》</strong><p>用事件日志做流程发现、一致性检查和性能分析。</p></div></li>
+          </ol></div>
+          <div><h3>研究证据</h3><div class="research-ledger">
+            <a href="https://www.nber.org/papers/w31161"><span>NBER · Generative AI at Work</span><strong>平均效率提升不等于所有任务都有效</strong><p>5,179 名客服样本中平均生产率提升约 14%，低经验者收益更大；适合启发“AI 先补知识与表达差距”，不应外推为所有行业的固定收益。</p></a>
+            <a href="https://www.hbs.edu/ris/Publication%20Files/24-013_d9b45b68-9e74-42d6-a1c6-c72fb70c7282.pdf"><span>HBS · Jagged Technological Frontier</span><strong>任务边界是锯齿状的</strong><p>边界内任务可显著提速提质，边界外过度依赖会损害正确率；所以必须按任务验证，而不是按岗位笼统部署。</p></a>
+            <a href="https://www.nist.gov/itl/ai-risk-management-framework"><span>NIST · AI RMF / GenAI Profile</span><strong>治理、映射、测量、管理贯穿生命周期</strong><p>把风险容忍度、数据、使用情境、测试与持续监控一起纳入方案。</p></a>
+          </div></div>
+        </div>
+        <h3 class="resource-subhead">开源与源码可见工具：先看用途，再看许可证</h3>
+        <div class="industry-tools">
+          <article><span>流程发现</span><h3><a href="https://github.com/process-intelligence-solutions/pm4py">PM4Py</a></h3><p>从事件日志发现实际流程、偏差和瓶颈。</p><small>AGPL-3.0；闭源商用需评估其许可要求。</small></article>
+          <article><span>流程执行</span><h3><a href="https://github.com/flowable/flowable-engine">Flowable</a></h3><p>BPMN / CMMN / DMN 引擎，适合有明确规则和人机任务的流程。</p><small>Apache-2.0；仍需评估集成与运维成本。</small></article>
+          <article><span>Agent 工作流</span><h3><a href="https://github.com/langflow-ai/langflow">Langflow</a></h3><p>可视化构建 Agent 与工具调用流程，适合快速验证。</p><small>MIT；生产前补权限、评测、日志与失败处理。</small></article>
+          <article><span>AI 应用平台</span><h3><a href="https://github.com/langgenius/dify">Dify</a></h3><p>工作流、RAG、Agent、模型与可观测能力整合。</p><small>修改版 Apache-2.0，含多租户与前端标识限制；属于源码可见，复用前需法务核验。</small></article>
+        </div>
+      </section>
+
+      <section class="station industry-start">
+        <div><div class="station-label"><span class="dot"></span>下一步</div><h2>带着一个真实行业问题开始</h2><p>例如：“我想快速了解连锁餐饮的门店补货流程，并找出一个两周可验证的 AI 提效方案。”系统应先追问必要条件，再生成行业作战图，而不是给一篇泛泛的行业介绍。</p></div>
+        <a class="btn btn-primary" href="knowledge-map.html">让 AI 分析我的场景</a>
+      </section>
     </main>
-    <footer class="footer"><div class="footer-inner"><p><strong style="color:var(--ink)">汽车制造行业专题</strong> · 官方案例 + 本站场景蓝图</p><p class="footer-note">调研核验于 2026-07-22；场景建议不替代功能安全、质量、法务与信息安全评审。</p></div></footer>
-  </div></div><script src="js/shell.js"></script><script src="js/app.js"></script>
+    <footer class="footer"><div class="footer-inner"><p><strong style="color:var(--ink)">行业 AI 提效方法</strong> · 通用框架 + 汽车制造示范</p><p class="footer-note">来源核验于 2026-07-23；建议不替代行业专家、法务、质量、安全与信息安全评审。</p></div></footer>
+  </div></div>
+  <script src="js/knowledge-map.js?v=1"></script><script src="js/shell.js?v=17"></script><script src="js/app.js"></script>
 </body>
 </html>

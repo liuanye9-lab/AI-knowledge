@@ -1,96 +1,79 @@
-/* 左侧课程目录 · 全站统一 */
+/* 全站知识导航与 80/20 判断单元 */
 (function () {
   "use strict";
 
+  var map = window.AI_KNOWLEDGE_MAP;
   var path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-  if (!path || path === "") path = "index.html";
+  if (path && path.indexOf(".") === -1) path += ".html";
+  if (!path) path = "index.html";
 
   function active(href) {
-    var h = href.split("#")[0].toLowerCase();
-    return h === path ? " is-active" : "";
+    return href.split("#")[0].toLowerCase() === path ? " is-active" : "";
   }
 
-  var html =
-    '<div class="sidebar-inner">' +
-    '<a class="sidebar-brand" href="index.html">' +
-    '<span class="nav-logo">AI</span><span>AI 伴学</span></a>' +
-    '<p class="sidebar-tagline">在工作里自然用会 AI</p>' +
-    '<div class="sidebar-group">' +
-    '<div class="sidebar-group-title">产品主线</div>' +
-    '<a class="sidebar-link' + active("index.html") + '" href="index.html">首页概览</a>' +
-    '<a class="sidebar-link' + active("companion.html") + '" href="companion.html"><span class="sl-num">伴</span>AI 伴学层</a>' +
-    '<a class="sidebar-link' + active("install.html") + '" href="install.html?surface=newtab" data-companion-surface="newtab"><span class="sl-num">签</span>设置新标签页</a>' +
-    '<a class="sidebar-link' + active("install.html") + '" href="install.html?surface=sidepanel" data-companion-surface="sidepanel"><span class="sl-num">侧</span>启用浏览器侧边栏</a>' +
-    '<a class="sidebar-link" href="https://tcnf9ebkyh8x.feishu.cn/wiki/WHENwjm46iZYXokusvUcpZ9wn9d" target="_blank" rel="noopener noreferrer"><span class="sl-num">飞</span>飞书产品知识库</a>' +
-    "</div>" +
-    '<div class="sidebar-group">' +
-    '<div class="sidebar-group-title">知识底座 · 需要时打开</div>' +
-    '<a class="sidebar-link' + active("learning.html") + '" href="learning.html"><span class="sl-num">学</span>学习方法</a>' +
-    '<a class="sidebar-link' + active("mindmap.html") + '" href="mindmap.html"><span class="sl-num">结</span>结构地图</a>' +
-    '<a class="sidebar-link' + active("history.html") + '" href="history.html"><span class="sl-num">时</span>发展史 · 时间线</a>' +
-    '<a class="sidebar-link' + active("fundamentals.html") + '" href="fundamentals.html"><span class="sl-num">功</span>通识主线 · 含沙盒</a>' +
-    "</div>" +
-    '<div class="sidebar-group">' +
-    '<div class="sidebar-group-title">主线章节（功能）</div>' +
-    '<a class="sidebar-link sub" href="fundamentals.html#s1">1. LLM 大脑</a>' +
-    '<a class="sidebar-link sub" href="fundamentals.html#s2">2. 对话 · 提示沙盒</a>' +
-    '<a class="sidebar-link sub" href="fundamentals.html#s3">3. 开卷 · RAG 沙盒</a>' +
-    '<a class="sidebar-link sub" href="fundamentals.html#s4">4. 工具 / Skill 沙盒</a>' +
-    '<a class="sidebar-link sub" href="fundamentals.html#s5">5. 多步 · Agent 沙盒</a>' +
-    '<a class="sidebar-link sub" href="fundamentals.html#s6">6. 边界 · 分档沙盒</a>' +
-    "</div>" +
-    '<div class="sidebar-group">' +
-    '<div class="sidebar-group-title">巩固</div>' +
-    '<a class="sidebar-link' + active("boundaries.html") + '" href="boundaries.html">能力边界 · 排行榜</a>' +
-    '<a class="sidebar-link' + active("glossary.html") + '" href="glossary.html">专有词库</a>' +
-    "</div>" +
-    '<div class="sidebar-group">' +
-    '<div class="sidebar-group-title">实操 · 企业</div>' +
-    '<a class="sidebar-link' + active("practice.html") + '" href="practice.html"><span class="sl-num">企</span>企业专栏 · ToB 提效</a>' +
-    '<a class="sidebar-link' + active("feishu-ai.html") + '" href="feishu-ai.html"><span class="sl-num">飞</span>飞书 AI 生态</a>' +
-    '<a class="sidebar-link' + active("automotive.html") + '" href="automotive.html"><span class="sl-num">车</span>汽车制造行业</a>' +
-    '<a class="sidebar-link sub" href="practice.html#feishu">飞书产品能力地图</a>' +
-    '<a class="sidebar-link sub" href="practice.html#ai-cli">AI · Aily · CLI</a>' +
-    '<a class="sidebar-link sub" href="practice.html#cli-loops">飞书 CLI 价值闭环</a>' +
-    '<a class="sidebar-link sub" href="practice.html#site">AI Coding 从想法到上线</a>' +
-    '<a class="sidebar-link sub" href="practice.html#daily">岗位实操清单</a>' +
-    '<a class="sidebar-link sub" href="practice.html#refs">官方资料与核对日期</a>' +
-    "</div>" +
-    '<div class="sidebar-group">' +
-    '<div class="sidebar-group-title">进阶专题</div>' +
-    '<a class="sidebar-link' + active("architectures.html") + '" href="architectures.html">架构与框架</a>' +
-    '<a class="sidebar-link' + active("embodied.html") + '" href="embodied.html">具身 · 无人驾驶</a>' +
-    "</div>" +
-    '<div class="sidebar-foot">' +
-    '<a href="practice.html">企业实操专栏 →</a>' +
-    "</div></div>";
+  function link(href, label, mark) {
+    return '<a class="sidebar-link' + active(href) + '" href="' + href + '">' +
+      (mark ? '<span class="sl-num">' + mark + '</span>' : "") + label + "</a>";
+  }
+
+  function sidebarHtml() {
+    var hubs = map ? map.hubs : [];
+    return '<div class="sidebar-inner">' +
+      '<a class="sidebar-brand" href="index.html"><span class="nav-logo">AI</span><span>判断力知识库</span></a>' +
+      '<p class="sidebar-tagline">理解 → 判断 → 应用 → 复盘</p>' +
+      '<div class="sidebar-group"><div class="sidebar-group-title">从真实任务开始</div>' +
+      link("knowledge-map.html", "跨学科判断力地图", "图") +
+      "</div>" +
+      '<div class="sidebar-group"><div class="sidebar-group-title">四个知识枢纽</div>' +
+      hubs.map(function (hub, index) { return link(hub.href, hub.title, "0" + (index + 1)); }).join("") +
+      "</div>" +
+      '<div class="sidebar-group"><div class="sidebar-group-title">技术与系统节点</div>' +
+      link("fundamentals.html", "AI 心智模型", "技") +
+      link("architectures.html", "架构与 Agent", "架") +
+      link("data-knowledge.html", "数据与知识沉淀", "数") +
+      link("boundaries.html", "风险、权限与边界", "界") +
+      "</div>" +
+      '<div class="sidebar-group"><div class="sidebar-group-title">商业、产品与行业节点</div>' +
+      link("productivity-revolutions.html", "生产力革命与资本", "势") +
+      link("innovation.html", "创新创业", "创") +
+      link("practice.html", "企业 AI 提效", "企") +
+      link("automotive.html", "快速看懂一个行业", "行") +
+      link("feishu-ai.html", "飞书协同生态", "协") +
+      "</div>" +
+      '<div class="sidebar-group"><div class="sidebar-group-title">人、组织与表达节点</div>' +
+      link("learning.html", "学习与认知", "学") +
+      link("cognitive-management-ai.html", "脑科学 × 管理 × AI", "智") +
+      link("social-intelligence.html", "社会认知与关系协作", "人") +
+      link("career-direction.html", "职业发展与引路人网络", "路") +
+      link("structured-expression.html", "结构化表达", "构") +
+      "</div>" +
+      '<div class="sidebar-group"><div class="sidebar-group-title">随查</div>' +
+      link("mindmap.html", "原有 AI 结构地图") +
+      link("history.html", "发展史与时间线") +
+      link("glossary.html", "专有词库") +
+      "</div>" +
+      '<div class="sidebar-foot"><a href="knowledge-map.html">判断不是天赋，而是可以被组织的能力 →</a></div></div>';
+  }
 
   function mount() {
     var root = document.getElementById("sidebar-root");
     if (!root) return;
-    root.innerHTML = html;
-    // 隐藏旧顶栏，避免双导航
-    document.querySelectorAll("body > .nav, .main-col > .nav").forEach(function (n) {
-      n.style.display = "none";
+    root.setAttribute("aria-label", "跨学科知识目录");
+    root.innerHTML = sidebarHtml();
+    document.querySelectorAll("body > .nav, .main-col > .nav, .mobile-dock").forEach(function (node) {
+      node.style.display = "none";
     });
-    document.querySelectorAll(".mobile-dock").forEach(function (n) {
-      n.style.display = "none";
-    });
-    root.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", function () {
+    root.querySelectorAll("a").forEach(function (anchor) {
+      anchor.addEventListener("click", function () {
         document.body.classList.remove("sidebar-open");
-        var t = document.querySelector(".sidebar-toggle");
-        if (t) t.setAttribute("aria-expanded", "false");
+        var toggle = document.querySelector(".sidebar-toggle");
+        if (toggle) toggle.setAttribute("aria-expanded", "false");
       });
     });
   }
 
   function ensureShell() {
-    if (document.getElementById("sidebar-root")) {
-      mount();
-      return;
-    }
-    // Auto-wrap legacy pages that still use top nav only
+    if (document.getElementById("sidebar-root")) return mount();
     var oldNav = document.querySelector("body > .nav");
     var main = document.querySelector("body > main");
     var footer = document.querySelector("body > footer");
@@ -102,39 +85,31 @@
     var aside = document.createElement("aside");
     aside.id = "sidebar-root";
     aside.className = "sidebar";
-    aside.setAttribute("aria-label", "课程目录");
-    var col = document.createElement("div");
-    col.className = "main-col";
-
+    var column = document.createElement("div");
+    column.className = "main-col";
     var top = document.createElement("header");
     top.className = "topbar";
     top.innerHTML =
       '<button type="button" class="sidebar-toggle" aria-label="打开目录" aria-expanded="false">☰ 目录</button>' +
-      '<div class="topbar-title">AI 伴学</div>' +
-      '<a class="topbar-cta" href="install.html">安装 AI 伴学</a>';
-
+      '<div class="topbar-title">跨学科判断力知识库</div>' +
+      '<a class="topbar-cta" href="knowledge-map.html">打开能力地图</a>';
     if (oldNav) oldNav.remove();
     var dock = document.querySelector(".mobile-dock");
     if (dock) dock.remove();
-
-    var parent = main.parentNode;
-    parent.insertBefore(shell, main);
-    shell.appendChild(aside);
-    shell.appendChild(col);
-    col.appendChild(top);
-    col.appendChild(main);
-    if (footer) col.appendChild(footer);
-
+    main.parentNode.insertBefore(shell, main);
+    shell.append(aside, column);
+    column.append(top, main);
+    if (footer) column.appendChild(footer);
     mount();
-    bindToggle();
   }
 
   function bindToggle() {
-    var btn = document.querySelector(".sidebar-toggle");
-    if (!btn) return;
-    btn.addEventListener("click", function () {
+    var button = document.querySelector(".sidebar-toggle");
+    if (!button || button.dataset.bound === "true") return;
+    button.dataset.bound = "true";
+    button.addEventListener("click", function () {
       var open = document.body.classList.toggle("sidebar-open");
-      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      button.setAttribute("aria-expanded", open ? "true" : "false");
     });
     var mask = document.querySelector(".sidebar-mask");
     if (!mask) {
@@ -144,17 +119,66 @@
     }
     mask.addEventListener("click", function () {
       document.body.classList.remove("sidebar-open");
-      btn.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-expanded", "false");
     });
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", function () {
-      ensureShell();
-      bindToggle();
-    });
-  } else {
+  function pageVisual(lensIds) {
+    var specific = {
+      "fundamentals.html": "images/product/technology-layers-watercolor.webp",
+      "boundaries.html": "images/product/systems-uncertainty-map-watercolor.webp",
+      "learning.html": "images/product/cognition-design-loop-watercolor.webp",
+      "architectures.html": "images/product/technology-layers-watercolor.webp",
+      "practice.html": "images/product/tech-business-product-triangle-watercolor.webp",
+      "automotive.html": "images/illustrations/industry-discovery-watercolor.png",
+      "innovation.html": "images/product/business-value-loop-watercolor.webp",
+      "data-knowledge.html": "images/product/technology-layers-watercolor.webp",
+      "cognitive-management-ai.html": "images/product/cognition-design-loop-watercolor.webp",
+      "social-intelligence.html": "images/product/organization-decision-map-watercolor.webp",
+      "career-direction.html": "images/product/role-capability-paths-watercolor.webp",
+      "structured-expression.html": "images/product/systems-uncertainty-map-watercolor.webp"
+      ,"productivity-revolutions.html": "images/product/productivity-revolutions-watercolor.webp"
+    };
+    if (specific[path]) return specific[path];
+    var first = lensIds[0];
+    if (first === "technology") return "images/product/technology-layers-watercolor.webp";
+    if (first === "business" || first === "product") return "images/product/business-value-loop-watercolor.webp";
+    if (first === "organization") return "images/product/organization-decision-map-watercolor.webp";
+    if (first === "systems") return "images/product/systems-uncertainty-map-watercolor.webp";
+    return "images/product/cognition-design-loop-watercolor.webp";
+  }
+
+  function addJudgmentUnit() {
+    if (!map || path === "index.html" || document.querySelector(".global-judgment-unit")) return;
+    var lensIds = map.pageLenses[path];
+    if (!lensIds || !lensIds.length) return;
+    var main = document.querySelector(".main-col main, body > main");
+    if (!main) return;
+    var lenses = lensIds.map(function (id) { return map.lenses[id]; }).filter(Boolean);
+    var primary = lenses[0];
+    var section = document.createElement("section");
+    section.className = "global-judgment-unit";
+    section.setAttribute("aria-label", "本页 80/20 判断单元");
+    section.innerHTML =
+      '<figure><img src="' + pageVisual(lensIds) + '" alt="' + lenses.map(function (x) { return x.name; }).join("、") + '的水彩判断模型" width="1536" height="1024" loading="lazy" /></figure>' +
+      '<div class="global-judgment-copy"><p class="eyebrow">一张图 · 三个判断</p>' +
+      '<h2>这页不是要求学完，而是帮助你做出更好的决定。</h2>' +
+      '<div class="global-lens-list">' + lenses.map(function (lens) { return '<a href="' + lens.hub + '"><strong>' + lens.name + '</strong><span>' + lens.short + '</span></a>'; }).join("") + '</div>' +
+      '<ol><li>现实中要改善的结果是什么？</li><li>Agent 可以执行什么，哪里容易失真？</li><li>哪些取舍、权限和责任必须由人保留？</li></ol>' +
+      '<a class="global-unit-action" href="' + primary.hub + '">进入对应知识枢纽 →</a></div>';
+    var hero = main.querySelector(":scope > header.page-hero, :scope > section[class*='hero']");
+    var firstSection = main.querySelector(":scope > section");
+    if (hero) hero.insertAdjacentElement("afterend", section);
+    else if (firstSection) firstSection.insertAdjacentElement("afterend", section);
+    else main.insertBefore(section, main.firstChild);
+  }
+
+  function init() {
     ensureShell();
     bindToggle();
+    addJudgmentUnit();
   }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
 })();

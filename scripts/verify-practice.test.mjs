@@ -9,8 +9,8 @@ test("practice page exposes the approved eight-station route", () => {
   const ids = [
     "map",
     "feishu",
-    "ai-cli",
-    "cli-loops",
+    "ai-roles",
+    "collaboration-loops",
     "site",
     "daily",
     "gov",
@@ -45,14 +45,15 @@ test("new watercolor assets exist and are referenced with explicit dimensions", 
   }
 });
 
-test("first-principles copy distinguishes Feishu AI, Aily, and CLI", () => {
+test("first-principles copy distinguishes Feishu AI, Aily, and collaboration flow", () => {
   assert.match(practice, /飞书 AI 是现成的脑力助手/);
   assert.match(practice, /Aily 是 AI 应用装配台/);
-  assert.match(practice, /飞书 CLI 是 AI 的操作手/);
+  assert.match(practice, /协同流程是 AI 的落地路径/);
   assert.match(practice, /AI 负责理解和生成/);
+  assert.doesNotMatch(practice, /飞书 CLI/);
 });
 
-test("six CLI value loops and confirmation boundaries are present", () => {
+test("six collaboration loops and confirmation boundaries are present", () => {
   const loops = [
     "每日工作简报",
     "会议闭环",
@@ -63,8 +64,18 @@ test("six CLI value loops and confirmation boundaries are present", () => {
   ];
 
   for (const loop of loops) assert.match(practice, new RegExp(loop));
-  assert.match(practice, /写入前确认/);
+  assert.match(practice, /人来确认/);
   assert.match(practice, /最小权限/);
+});
+
+test("collaboration loops use a scannable input-AI-output-confirmation hierarchy", () => {
+  assert.equal((practice.match(/class="workflow-route"/g) || []).length, 6);
+  assert.equal((practice.match(/class="workflow-value"/g) || []).length, 6);
+  assert.equal((practice.match(/<span>人来确认<\/span>/g) || []).length, 6);
+  assert.match(practice, /每个闭环的阅读方式/);
+  assert.match(practice, /工作现场/);
+  assert.match(practice, /理解与整理/);
+  assert.match(practice, /落回飞书/);
 });
 
 test("AI Coding route uses five stages and corrects absolute claims", () => {
@@ -118,6 +129,18 @@ test("attention and workflow components have dedicated responsive styles", () =>
     assert.match(css, new RegExp(`\\.${name}\\b`), `missing .${name}`);
   }
   assert.match(css, /@media \(max-width: 700px\)/);
+  assert.match(css, /\.workflow-route\s*\{/);
+  assert.match(css, /grid-template-columns:\s*repeat\(3, minmax\(0, 1fr\)\)/);
+
+  const narrowPhoneStart = css.indexOf("@media (max-width: 390px)");
+  const enterpriseStart = css.indexOf("/* Enterprise practice");
+  const narrowPhoneBlock = css.slice(narrowPhoneStart, enterpriseStart);
+  assert.match(narrowPhoneBlock, /\}\s*$/, "390px media query must close before enterprise styles");
+});
+
+test("practice page uses a raster favicon instead of inline SVG", () => {
+  assert.match(practice, /<link rel="icon" type="image\/png"/);
+  assert.doesNotMatch(practice, /data:image\/svg\+xml/);
 });
 
 test("practice interaction script preserves accessible button state", () => {
@@ -129,16 +152,28 @@ test("practice interaction script preserves accessible button state", () => {
   assert.match(js, /复制失败/);
 });
 
-test("global entry points describe and link the upgraded guide", () => {
+test("global entry points describe and link the interdisciplinary judgment system", () => {
   const shell = read("js/shell.js");
+  const knowledgeMap = read("js/knowledge-map.js");
   const index = read("index.html");
   const readme = read("README.md");
 
-  for (const id of ["feishu", "cli-loops", "site", "daily", "refs"]) {
-    assert.match(shell, new RegExp(`practice\\.html#${id}`));
+  for (const hub of ["技术与工程", "商业与产品", "人脑与设计", "组织与决策"]) {
+    assert.match(knowledgeMap, new RegExp(hub));
   }
-  assert.match(index, /飞书 CLI/);
+  assert.match(shell, /技术与系统节点/);
+  assert.match(shell, /商业、产品与行业节点/);
+  assert.match(shell, /人、组织与表达节点/);
+  assert.match(shell, /职业发展与引路人网络/);
+  assert.match(shell, /原有 AI 结构地图/);
+  assert.match(shell, /跨学科判断力地图/);
+  assert.match(shell, /knowledge-map\.html/);
+  assert.match(index, /内容收敛到四个知识枢纽/);
+  assert.match(index, /技术判断力/);
+  assert.match(index, /业务判断力/);
+  assert.match(index, /产品判断力/);
   assert.match(index, /从想法到上线/);
+  assert.match(readme, /AI/);
   assert.match(readme, /飞书 CLI/);
   assert.match(readme, /AI Coding 从想法到上线/);
 });
