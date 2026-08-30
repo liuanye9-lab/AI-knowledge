@@ -1,0 +1,128 @@
+{
+  "schema_version": "deep-content-synthesis-v1",
+  "source": {
+    "title": "梁文锋四小时投资人会议实录",
+    "sha256": "abab9857d1c79c2edc03517a077bca6293871b988daabe3c2a6a0d4fae0f5dd8",
+    "section_description": "elsewhere 于 2026-07-22 发布的长图文章；导语及编号 1-52 的二手语录整理"
+  },
+  "thesis": "材料以提高实现 AGI 的概率为目标函数，把技术聚焦、持续学习、成本效率、开源让利、生态合作和团队稳定连接成一套战略克制逻辑。",
+  "user_keywords": [
+    {"keyword": "AGI 主线", "status": "covered", "evidence_anchors": ["条目1-6"], "chain_ids": ["mainline-to-learning"], "reason": ""},
+    {"keyword": "持续学习", "status": "covered", "evidence_anchors": ["条目7-13"], "chain_ids": ["mainline-to-learning"], "reason": ""},
+    {"keyword": "成本效率", "status": "covered", "evidence_anchors": ["条目14-17", "条目26-32"], "chain_ids": ["compute-to-competition"], "reason": ""},
+    {"keyword": "开源", "status": "covered", "evidence_anchors": ["条目20-25", "条目50-51"], "chain_ids": ["open-ecosystem"], "reason": ""},
+    {"keyword": "超级 App", "status": "covered", "evidence_anchors": ["条目33-36"], "chain_ids": ["restraint-to-focus"], "reason": ""},
+    {"keyword": "团队稳定", "status": "covered", "evidence_anchors": ["条目37-41"], "chain_ids": ["organization-to-compounding"], "reason": ""},
+    {"keyword": "愿景驱动", "status": "covered", "evidence_anchors": ["条目42-45"], "chain_ids": ["organization-to-compounding"], "reason": ""},
+    {"keyword": "战略克制", "status": "covered", "evidence_anchors": ["条目46-52"], "chain_ids": ["restraint-to-focus", "open-ecosystem"], "reason": ""}
+  ],
+  "segments": [
+    {"segment_id": "s0", "substantive": true, "summary": "来源说明明确 52 条内容来自多方收集，部分措辞可能与原文不同。", "evidence_anchors": ["导语"], "output_sections": ["10. 来源边界与覆盖说明"], "exclusion_reason": ""},
+    {"segment_id": "s1", "substantive": true, "summary": "产品与组件服从 AGI 主线，当前优先 Coding Agent 和通用 Agent。", "evidence_anchors": ["条目1-6"], "output_sections": ["2. AGI 主线"], "exclusion_reason": ""},
+    {"segment_id": "s2", "substantive": true, "summary": "持续学习被视为下一代模型瓶颈，并连接 AI 自我迭代与具身智能。", "evidence_anchors": ["条目7-13"], "output_sections": ["2. AGI 主线"], "exclusion_reason": ""},
+    {"segment_id": "s3", "substantive": true, "summary": "合理利润、低价和成本效率共同服务于能力扩散与更大模型训练。", "evidence_anchors": ["条目14-19"], "output_sections": ["3. 成本效率"], "exclusion_reason": ""},
+    {"segment_id": "s4", "substantive": true, "summary": "开源被描述为适合当前组织规模的战略让利与生态选择。", "evidence_anchors": ["条目20-25"], "output_sections": ["4. 开源与合理利润"], "exclusion_reason": ""},
+    {"segment_id": "s5", "substantive": true, "summary": "中美差距与模型竞争被解释为资源、成本、时间和用户体验问题。", "evidence_anchors": ["条目26-32"], "output_sections": ["3. 成本效率"], "exclusion_reason": ""},
+    {"segment_id": "s6", "substantive": true, "summary": "拒绝超级 App 和流量收入竞赛，以避免非主线失焦。", "evidence_anchors": ["条目33-36"], "output_sections": ["5. 不做超级 App"], "exclusion_reason": ""},
+    {"segment_id": "s7", "substantive": true, "summary": "团队稳定、自上而下任务与自下而上探索共同构成研究组织。", "evidence_anchors": ["条目37-41"], "output_sections": ["6. 组织即战略"], "exclusion_reason": ""},
+    {"segment_id": "s8", "substantive": true, "summary": "善意与愿景通过做事方式而非口号体现。", "evidence_anchors": ["条目42-45"], "output_sections": ["6. 组织即战略"], "exclusion_reason": ""},
+    {"segment_id": "s9", "substantive": true, "summary": "克制被收束为舍弃局部利益、提高做成 AGI 概率的战略。", "evidence_anchors": ["条目46-52"], "output_sections": ["7. 克制的完整闭环"], "exclusion_reason": ""}
+  ],
+  "chains": [
+    {
+      "chain_id": "mainline-to-learning",
+      "title": "主线聚焦导向持续学习",
+      "claim_type": "synthesis_inference",
+      "segment_ids": ["s1", "s2"],
+      "evidence_anchors": ["条目1-13"],
+      "peel": {
+        "point": "功能与产品应服从可持续提升智能上限的主线。",
+        "evidence": "材料把 Coding Agent、持续学习、AI 自我迭代和具身智能排列为连续阶梯。",
+        "explanation": "一次性上下文无法替代跨任务积累，持续学习才可能形成能力复利。",
+        "link": "这要求工程系统记录结果与纠正，而不只是扩充提示词。"
+      }
+    },
+    {
+      "chain_id": "compute-to-competition",
+      "title": "计算效率决定有限资源下的可达能力",
+      "claim_type": "synthesis_inference",
+      "segment_ids": ["s3", "s5"],
+      "evidence_anchors": ["条目14-17", "条目26-32"],
+      "peel": {
+        "point": "成本首先是能力约束，其次才是定价变量。",
+        "evidence": "材料把低成本与训练更大模型相连，并把模型竞争归纳为成本、时间和用户体验。",
+        "explanation": "单位计算产出越高，同样资源可支持更多实验、更大训练规模和更低服务价格。",
+        "link": "成本评测因此应进入技术 Harness，而不是只进入财务报表。"
+      }
+    },
+    {
+      "chain_id": "open-ecosystem",
+      "title": "开源让利换取生态扩散与组织凝聚",
+      "claim_type": "synthesis_inference",
+      "segment_ids": ["s4", "s9"],
+      "evidence_anchors": ["条目20-25", "条目46-52"],
+      "peel": {
+        "point": "在足够大的市场中，适度让利可能提高长期成功概率。",
+        "evidence": "材料把同等模型开源、合理利润、员工成就感和不与生态为敌放在同一组论证中。",
+        "explanation": "更广泛的采用和更少的正面冲突能够增加反馈、合作与人才凝聚。",
+        "link": "开源是否成立仍取决于持续创新和可回流价值。"
+      }
+    },
+    {
+      "chain_id": "restraint-to-focus",
+      "title": "放弃近端竞争保护长期主线",
+      "claim_type": "synthesis_inference",
+      "segment_ids": ["s6", "s9"],
+      "evidence_anchors": ["条目33-36", "条目46-52"],
+      "peel": {
+        "point": "不争超级 App 和短期流量，是为了避免资源与关系同时失焦。",
+        "evidence": "材料将近端市场比作芝麻，把技术突破视为更大的西瓜。",
+        "explanation": "减少应用层全面竞争可以把人才和算力留给主线，也降低生态防御。",
+        "link": "主线必须用技术进展和用户反馈验证，否则克制会退化为借口。"
+      }
+    },
+    {
+      "chain_id": "organization-to-compounding",
+      "title": "组织稳定保护长期研究复利",
+      "claim_type": "synthesis_inference",
+      "segment_ids": ["s7", "s8"],
+      "evidence_anchors": ["条目37-45"],
+      "peel": {
+        "point": "团队稳定、自治空间和愿景一致性都是研发基础设施。",
+        "evidence": "材料强调不与生态树敌、保留自由研究时间、减少无效加班并以行动体现愿景。",
+        "explanation": "长期研究依赖隐性知识、协作默契和非共识探索，人员与目标频繁切换会打断学习曲线。",
+        "link": "愿景仍需阶段验证和风险治理来防止自我确信。"
+      }
+    }
+  ],
+  "derivations": {
+    "first_principles": [
+      {"text": "目标函数决定资源配置，局部收入最大化不等于终局成功概率最大化。", "evidence_anchors": ["条目1", "条目46-52"]},
+      {"text": "持续学习不同于反复加载上下文，前者要求结果和纠正形成可验证状态更新。", "evidence_anchors": ["条目7-10"]},
+      {"text": "算力稀缺时，单位计算产出决定可达模型规模。", "evidence_anchors": ["条目16", "条目26-32"]},
+      {"text": "组织稳定与生态关系是长期技术生产力的一部分。", "evidence_anchors": ["条目37-45"]}
+    ],
+    "pareto": [
+      {"text": "把主要研发资源放在 Coding Agent 与持续学习。", "evidence_anchors": ["条目5", "条目7-13"]},
+      {"text": "持续降低训练和推理成本。", "evidence_anchors": ["条目14-17", "条目32"]},
+      {"text": "保护核心团队及自由探索空间。", "evidence_anchors": ["条目37-41"]},
+      {"text": "通过开源与合作扩大采用而非全面树敌。", "evidence_anchors": ["条目20-25", "条目38"]}
+    ],
+    "inversion": [
+      {"text": "若主线成为拒绝用户反馈的借口，技术路线会失去现实校准。", "evidence_anchors": ["条目1-6", "条目33-36"]},
+      {"text": "若开源没有持续创新或价值回流，只会留下单向让渡。", "evidence_anchors": ["条目20-25"]},
+      {"text": "若愿景替代里程碑和纠错，组织可能形成不可证伪的自我确信。", "evidence_anchors": ["条目42-45"]},
+      {"text": "若二手语录被当作正式事实，后续决策会建立在错误证据等级上。", "evidence_anchors": ["导语"]}
+    ],
+    "project_implications": [
+      {"text": "Context Loop 应以行动回执、纠正和事实更新衡量学习，而不是以存储上下文数量衡量。", "evidence_anchors": ["条目7-10"], "bridge": "材料区分上下文与持续学习，当前项目可用可追溯反馈闭环实现这一差异。"},
+      {"text": "Harness 应优先建设回放、评测和版本门禁，限制无验证的功能扩张。", "evidence_anchors": ["条目1-6", "条目46-52"], "bridge": "材料的主线与克制机制可映射为工程上的黄金用例和发布门禁。"},
+      {"text": "开源只发布通用协议、合成评测和工具，私有身份与行为上下文留在受控边界。", "evidence_anchors": ["条目20-25"], "bridge": "开源让利需要与隐私和可持续能力边界同时设计。"}
+    ]
+  },
+  "unresolved_terms": [
+    "四小时投资人会议的完整公开录音或正式纪要",
+    "52 条语录各自的原始上下文与逐字准确性",
+    "材料中的融资、组织和商业判断是否得到 DeepSeek 正式确认"
+  ]
+}

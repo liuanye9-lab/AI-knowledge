@@ -71,6 +71,10 @@ node scripts/feishu/bridge.mjs send-card --chat-id oc_xxx --doc-url "飞书文�
 - 各岗位日常提效、数据安全、权限、成本与人工确认
 - 引用：WaytoAGI、Datawhale、Prompting Guide、HF Learn、论文与飞书官网  
 
+## 学习卡片
+
+- [从克制到持续学习：梁文锋相关语录的战略逻辑](docs/knowledge-cards/2026-07-22-deepseek-strategic-restraint.md)：区分二手语录、逻辑推导与项目应用，讨论 AGI 主线、持续学习、成本效率、开源和组织战略。
+
 ## 本地打开
 
 ```bash
